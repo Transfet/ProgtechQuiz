@@ -2,23 +2,22 @@
 
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoggedInController">
-   <children>
-      <JFXButton fx:id="startButton" layoutX="244.0" layoutY="113.0" onAction="#onClickedStartButton" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #236ac5;" text="Start">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="quitButton" layoutX="244.0" layoutY="171.0" onAction="#onClickedQuitButton" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #236ac5;" text="Quit">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
-   </children>
+<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.controller.LoggedInController">
+    <children>
+        <JFXButton fx:id="startButton" layoutX="244.0" layoutY="113.0" onAction="#onClickedStartButton"
+                   prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #236ac5;" text="Start">
+            <font>
+                <Font name="System Bold" size="12.0"/>
+            </font>
+        </JFXButton>
+        <JFXButton fx:id="quitButton" layoutX="244.0" layoutY="171.0" onAction="#onClickedQuitButton" prefHeight="36.0"
+                   prefWidth="113.0" style="-fx-background-color: #236ac5;" text="Quit">
+            <font>
+                <Font name="System Bold" size="12.0"/>
+            </font>
+        </JFXButton>
+    </children>
 </AnchorPane>

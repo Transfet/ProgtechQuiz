@@ -1,20 +1,12 @@
 package application;
 
-import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.io.IOException;
 
 
 /**
@@ -22,7 +14,7 @@ import java.io.IOException;
  */
 
 
-public class Game extends Application{
+public class Game extends Application {
 
     public static Boolean isSplashLoaded = false;
 
@@ -37,15 +29,11 @@ public class Game extends Application{
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         ServiceLocator.setApplicationContext(applicationContext);
 
         launch(args);
-
-
-
-
     }
 
 

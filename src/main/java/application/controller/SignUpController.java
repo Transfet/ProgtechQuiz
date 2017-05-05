@@ -6,13 +6,14 @@ import application.model.player.Player;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.istack.internal.NotNull;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -21,19 +22,21 @@ public class SignUpController {
 
     private static PlayerService playerService;
 
+    private Logger logger = LoggerFactory.getLogger(SignUpController.class);
 
-   public static void init(){
+
+    public static void init() {
         playerService = ServiceLocator.getService(PlayerService.class);
-   }
+    }
 
 
-    public void changeToLogIn(ActionEvent event) throws IOException{
+    private void changeToLogIn(ActionEvent event) throws IOException {
 
         Stage prevStage = (Stage) signUpButton.getScene().getWindow();
 
         Stage stage = new Stage();
         stage.setTitle("Logged In");
-        Pane myPane = null;
+        Pane myPane;
 
         myPane = FXMLLoader.load(getClass().getResource("/views/LogInPage.fxml"));
         Scene scene = new Scene(myPane);
@@ -82,11 +85,16 @@ public class SignUpController {
         passwordField.clear();
         //point.clear();
 
+        logger.info("-----------------------------");
+        logger.info("Added a new User to the DB: ");
+        logger.info(player.toString());
+        logger.info("--");
+
     }
 
     @FXML
-    void onClickedBackButton(ActionEvent event)throws  IOException {
-    changeToLogIn(event);
+    void onClickedBackButton(ActionEvent event) throws IOException {
+        changeToLogIn(event);
 
     }
 

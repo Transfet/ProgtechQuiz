@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LogInController">
-   <children>
-      <Pane layoutX="13.0" layoutY="11.0" prefHeight="376.0" prefWidth="572.0">
-         <children>
-            <JFXTextField fx:id="userNameField" focusColor="#2b4ba8" labelFloat="true" layoutX="163.0" layoutY="29.0" prefHeight="38.0" prefWidth="244.0" promptText="User name" unFocusColor="#612424" />
-            <JFXButton fx:id="signInButton" buttonType="RAISED" layoutX="163.0" layoutY="167.0" onAction="#onClickedSignInButton" prefHeight="38.0" prefWidth="81.0" style="-fx-background-color: #3789a7;" text="Sign in" />
-            <JFXPasswordField fx:id="passwordField" labelFloat="true" layoutX="163.0" layoutY="110.0" prefHeight="38.0" prefWidth="244.0" promptText="Password" />
-            <JFXButton fx:id="signUpButton" buttonType="RAISED" layoutX="326.0" layoutY="167.0" onAction="#onClickedSignUpButton" prefHeight="38.0" prefWidth="81.0" style="-fx-background-color: #3789a7;" text="Sign up" />
-            <JFXButton fx:id="quitButton" buttonType="RAISED" layoutX="245.0" layoutY="230.0" onAction="#onClickedQuitButton" prefHeight="38.0" prefWidth="81.0" style="-fx-background-color: #3789a7;" text="Quit" />
-         </children>
-      </Pane>
-   </children>
+<AnchorPane fx:id="anchorPane" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LogInController">
+    <children>
+        <Pane layoutX="13.0" layoutY="11.0" prefHeight="376.0" prefWidth="572.0">
+            <children>
+                <JFXTextField fx:id="userNameField" focusColor="#2b4ba8" labelFloat="true" layoutX="163.0"
+                              layoutY="29.0" prefHeight="38.0" prefWidth="244.0" promptText="User name"
+                              unFocusColor="#612424"/>
+                <JFXButton fx:id="signInButton" buttonType="RAISED" layoutX="163.0" layoutY="167.0"
+                           onAction="#onClickedSignInButton" prefHeight="38.0" prefWidth="81.0"
+                           style="-fx-background-color: #3789a7;" text="Sign in"/>
+                <JFXPasswordField fx:id="passwordField" labelFloat="true" layoutX="163.0" layoutY="110.0"
+                                  prefHeight="38.0" prefWidth="244.0" promptText="Password"/>
+                <JFXButton fx:id="signUpButton" buttonType="RAISED" layoutX="326.0" layoutY="167.0"
+                           onAction="#onClickedSignUpButton" prefHeight="38.0" prefWidth="81.0"
+                           style="-fx-background-color: #3789a7;" text="Sign up"/>
+                <JFXButton fx:id="quitButton" buttonType="RAISED" layoutX="245.0" layoutY="230.0"
+                           onAction="#onClickedQuitButton" prefHeight="38.0" prefWidth="81.0"
+                           style="-fx-background-color: #3789a7;" text="Quit"/>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

@@ -16,7 +16,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    Question(String question, String answer){
+    Question(String question, String answer) {
 
         this.answer = answer;
         this.question = question;

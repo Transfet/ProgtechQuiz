@@ -10,7 +10,9 @@ import java.util.List;
 public interface QuestionServiceInterface {
 
     void addQuestion(Question question);
+
     void deleteQuestion(Question question);
+
     List<Question> findAllQuestion();
 
 }

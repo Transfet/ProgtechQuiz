@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 
 @Entity
-public class Player implements Serializable{
+public class Player implements Serializable {
 
     private String userName = null;
     private String firstName = null;
@@ -23,7 +23,7 @@ public class Player implements Serializable{
     private Double points = 0.0;
     private Double time = 0.0;
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
@@ -82,8 +82,8 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return Long.toString(id) + " | " + "User name: " + userName + "\n" + "    First name: " + firstName + "\n"+
-                "    Last name: " + lastName + "\n" + "    Password:# " +  password.hashCode() + "\n"
-                + "    Point: " + Double.toString(points) + " \n";
+        return Long.toString(id) + "  " + "{ User name: " + userName + "}" + " {First name: " + firstName + "}" +
+                "{Last name: " + lastName + "}" + "{ Password:# " + password.hashCode() + "}"
+                + "{ Point: " + Double.toString(points) + "}";
     }
 }
