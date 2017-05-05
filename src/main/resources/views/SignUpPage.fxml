@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SignUpController">
+<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SignUpController">
    <children>
       <JFXTextField fx:id="userNameField" labelFloat="true" layoutX="233.0" layoutY="55.0" promptText="User name" />
       <JFXTextField fx:id="firstNameField" labelFloat="true" layoutX="233.0" layoutY="106.0" promptText="First name" />
