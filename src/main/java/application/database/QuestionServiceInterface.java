@@ -15,4 +15,8 @@ public interface QuestionServiceInterface {
 
     List<Question> findAllQuestion();
 
+    Question findAnswerByQuestion(String question);
+
+    Question findById(int ID);
+
 }

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.LoggedInController">
+            fx:controller="application.controller.logincontrollers.LoggedInController">
     <children>
         <JFXButton fx:id="startButton" layoutX="244.0" layoutY="113.0" onAction="#onClickedStartButton"
                    prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #236ac5;" text="Start">

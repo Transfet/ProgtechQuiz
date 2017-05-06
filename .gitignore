@@ -1,4 +1,5 @@
 # User-specific files
+*.idea
 *.classpath
 *.project
 *.settings/

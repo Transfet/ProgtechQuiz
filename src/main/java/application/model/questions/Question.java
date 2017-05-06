@@ -14,15 +14,9 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    Question(String question, String answer) {
-
-        this.answer = answer;
-        this.question = question;
-    }
-
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -34,7 +28,7 @@ public class Question {
         this.question = question;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

@@ -31,4 +31,14 @@ public class QuestionService implements QuestionServiceInterface {
     public void addQuestion(Question question) {
         questionRepository.save(question);
     }
+
+    @Override
+    public Question findAnswerByQuestion(String question) {
+        return questionRepository.findAnswerByQuestion(question);
+    }
+
+    @Override
+    public Question findById(int ID) {
+        return questionRepository.findById(ID);
+    }
 }

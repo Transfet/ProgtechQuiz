@@ -8,5 +8,9 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface QuestionRepository extends JpaRepository<Question, Long> {
+public interface QuestionRepository extends JpaRepository<Question, Integer> {
+
+    Question findAnswerByQuestion(String question);
+    Question findById(int ID);
+
 }

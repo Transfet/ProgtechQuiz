@@ -1,6 +1,9 @@
 package application.model.player;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 
 /**
@@ -10,6 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
-    // List<Player> findAllByUserNameAndPointsOrderByPointsAsc();
+     @Query("select p from Player p order by p.points desc ")
+     List<Player> findAllAndSort();
 
 }

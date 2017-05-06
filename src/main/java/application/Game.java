@@ -21,7 +21,7 @@ public class Game extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/views/LogInPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/loginpages/SignInPage.fxml"));
 
         primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("Quiz Game");

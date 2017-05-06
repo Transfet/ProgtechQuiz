@@ -38,7 +38,7 @@ public class PlayerService implements PlayerServiceInterface {
 
     @Override
     public List<Player> findByMaxPoints() {
-        return null;
-        //return playerRepository.findByPointsOrderByPointsAsc();
+        //return null;
+        return playerRepository.findAllAndSort();
     }
 }

@@ -11,10 +11,10 @@ import java.io.Serializable;
 @Entity
 public class Player implements Serializable {
 
-    private String userName = null;
-    private String firstName = null;
-    private String lastName = null;
-    private String password = null;
+    private String userName;
+    private String firstName;
+    private String lastName;
+    private String password ;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
