@@ -13,9 +13,7 @@
         <Line fx:id="greenLine" endX="400.0" fill="RED" layoutX="150.0" layoutY="332.0" onMouseClicked="#onClickedGreenLine" onMouseExited="#cursorNotOverGreenLine" onMouseMoved="#cursorOverGreenLine" startX="-100.0" stroke="#3fff00" strokeLineCap="ROUND" strokeWidth="10.0">
             <effect>
                 <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
-                    <bumpInput>
-                        <Shadow />
-                    </bumpInput>
+
                 </Lighting>
             </effect></Line>
         <Label fx:id="questionLabel" layoutX="50.0" layoutY="136.0" prefHeight="64.0" prefWidth="503.0" style="-fx-background-color: #786e6e;" text="label" />
