@@ -44,4 +44,9 @@ public class Question {
     public String toString() {
         return "Question: " + question + "\n" + "Answer: " + answer + "\n" + "id: " + Long.toString(id);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

@@ -1,19 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
-<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.controller.gamecontrollers.GamePageSixController">
     <children>
-        <ImageView fitHeight="360.0" fitWidth="640.0" pickOnBounds="true">
+        <Line fx:id="redLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="501.0" onMouseClicked="#onClickedRedLine"
+              onMouseExited="#cursorNotOverRedLine" onMouseMoved="#cursorOverRedLine" startX="-100.0" stroke="RED"
+              strokeLineCap="ROUND" strokeWidth="10.0">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+
+                </Lighting>
+            </effect>
+        </Line>
+        <Label fx:id="greenLabel" alignment="CENTER" layoutX="125.0" layoutY="294.0" prefHeight="46.0" prefWidth="144.0"
+               style="-fx-background-color: #11c678;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="38.79" radius="16.6725" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial" size="18.0"/>
+            </font>
+        </Label>
+        <Line fx:id="greenLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="517.0"
+              onMouseClicked="#onClickedGreenLine" onMouseExited="#cursorNotOverGreenLine"
+              onMouseMoved="#cursorOverGreenLine" startX="-100.0" stroke="#11c678" strokeLineCap="ROUND"
+              strokeWidth="10.0" style="-fx-smooth: #756868;">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </Line>
+        <ImageView fx:id="bombImage" fitHeight="136.0" fitWidth="144.0" layoutX="310.0" layoutY="14.0"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="/pictures/splash.jpg" />
+                <Image url="/pictures/bomb.png"/>
             </image>
         </ImageView>
+        <Line fx:id="purpleLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="536.0"
+              onMouseClicked="#onClickedPurpleLine" onMouseExited="#cursorNotOverPurpleLine"
+              onMouseMoved="#cursorOverPurpleLine" startX="-100.0" stroke="#7900ff" strokeLineCap="ROUND"
+              strokeWidth="10.0" style="-fx-smooth: #756868;">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </Line>
+        <Line fx:id="orangeLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="484.0"
+              onMouseClicked="#onClickedOrangeLine" onMouseExited="#cursorNotOverOrangeLine"
+              onMouseMoved="#cursorOverOrangeLine" startX="-100.0" stroke="#ffbf00" strokeLineCap="ROUND"
+              strokeWidth="10.0">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78"/>
+            </effect>
+        </Line>
+        <Line fx:id="skyBlueLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="555.0"
+              onMouseClicked="#onClickedSkyBlueLine" onMouseExited="#cursorNotOverSkyBlueLine"
+              onMouseMoved="#cursorOverSkyBlueLine" startX="-100.0" stroke="#00f9ff" strokeLineCap="ROUND"
+              strokeWidth="10.0" style="-fx-smooth: #756868;">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </Line>
+        <Line fx:id="pinkLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="574.0"
+              onMouseClicked="#onClickedPinkLine" onMouseExited="#cursorNotOverPinkLine"
+              onMouseMoved="#cursorOverPinkLine" startX="-100.0" stroke="#f83fdd" strokeLineCap="ROUND"
+              strokeWidth="10.0" style="-fx-smooth: #756868;">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </Line>
+        <Label fx:id="purpleLabel" alignment="CENTER" layoutX="309.0" layoutY="294.0" prefHeight="46.0"
+               prefWidth="144.0" style="-fx-background-color: #7900ff;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="34.345" radius="15.561250000000001" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="redLabel" alignment="CENTER" layoutX="491.0" layoutY="294.0" prefHeight="46.0" prefWidth="144.0"
+               style="-fx-background-color: #ff0000;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="34.345" radius="15.561250000000001" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="pinkLabel" alignment="CENTER" layoutX="491.0" layoutY="358.0" prefHeight="46.0" prefWidth="144.0"
+               style="-fx-background-color: #f83fdd;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="34.345" radius="15.561250000000001" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="skyBlueLabel" alignment="CENTER" layoutX="308.0" layoutY="358.0" prefHeight="46.0"
+               prefWidth="144.0" style="-fx-background-color: #00f9ff;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="34.345" radius="15.561250000000001" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="orangeLabel" alignment="CENTER" layoutX="125.0" layoutY="358.0" prefHeight="46.0"
+               prefWidth="144.0" style="-fx-background-color: #ffbf00;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="34.345" radius="15.561250000000001" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="questionLabel" alignment="CENTER" layoutX="125.0" layoutY="163.0" prefHeight="100.0"
+               prefWidth="510.0" style="-fx-background-color: #786e6e;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="34.345" radius="15.561250000000001" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Line fx:id="brownLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="592.0"
+              onMouseClicked="#onClickedBrownLine" onMouseExited="#cursorNotOverBrownLine"
+              onMouseMoved="#cursorOverBrownLine" startX="-100.0" stroke="#c94d00" strokeLineCap="ROUND"
+              strokeWidth="10.0" style="-fx-smooth: #756868;">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </Line>
+        <Label fx:id="brownLabel" alignment="CENTER" layoutX="308.0" layoutY="416.0" prefHeight="46.0" prefWidth="144.0"
+               style="-fx-background-color: #c94d00;" text="Label" textAlignment="CENTER">
+            <effect>
+                <Lighting specularConstant="1.02" specularExponent="19.53" surfaceScale="3.13">
+                    <bumpInput>
+                        <Shadow height="34.345" radius="15.561250000000001" width="29.9"/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+            <font>
+                <Font name="Arial Bold" size="18.0"/>
+            </font>
+        </Label>
     </children>
-    <effect>
-        <DropShadow />
-    </effect>
 </AnchorPane>

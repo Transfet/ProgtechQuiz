@@ -5,35 +5,28 @@ package application.controller.gamecontrollers;
  */
 
 
-import application.Game;
+
 import application.ServiceLocator;
 import application.database.QuestionService;
 import application.model.questions.Question;
-import javafx.animation.FadeTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GamePageTwoController implements Initializable{
+public class GamePageTwoController extends GamePageController implements Initializable {
 
     private boolean isClickedOnGreenLine = false;
     private boolean isClickedOnBlueLine = false;
@@ -47,6 +40,8 @@ public class GamePageTwoController implements Initializable{
 
     private QuestionService questionService;
     private Question firstQuestion;
+
+    private List<Label> labels;
 
     private List<Question> questions;
 
@@ -75,190 +70,132 @@ public class GamePageTwoController implements Initializable{
     private Label greenLabel;
 
     @FXML
-    void onClickedGreenLine(MouseEvent event) throws IOException{
+    void onClickedGreenLine(MouseEvent event) throws IOException {
 
         isClickedOnGreenLine = true;
 
-        if (!greenLabel.getText().equals(firstQuestion.getAnswer())) {
+        if (!greenLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
             greenLine.setStroke(Color.BLACK);
-        }
-        else
-            gameOver();
+        } else
+            gameOver(anchorPane);
 
-        if(checkLastAnswer == 2){
-            changeToNextGamePage(event);
+        if (checkLastAnswer == 2) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
         }
     }
 
     @FXML
-    void onClickedBlueLine(MouseEvent event)throws IOException {
+    void onClickedBlueLine(MouseEvent event) throws IOException {
         isClickedOnBlueLine = true;
 
-        if (!blueLabel.getText().equals(firstQuestion.getAnswer())) {
+        if (!blueLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
             blueLine.setStroke(Color.BLACK);
-        }
-        else
-            gameOver();
+        } else
+            gameOver(anchorPane);
 
-        if(checkLastAnswer == 2){
+        if (checkLastAnswer == 2) {
 
-            changeToNextGamePage(event);
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
 
         }
 
     }
 
     @FXML
-    void onClickedSkyBlueLine(MouseEvent event) throws IOException{
+    void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
         isClickedOnSkyBlueLine = true;
 
-        if (!skyBlueLabel.getText().equals(firstQuestion.getAnswer())) {
+        if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
             skyBlueLine.setStroke(Color.BLACK);
-        }
-        else
-            gameOver();
+        } else
+            gameOver(anchorPane);
 
-        if(checkLastAnswer == 2){
-            changeToNextGamePage(event);
+        if (checkLastAnswer == 2) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
         }
     }
 
 
     @FXML
-    void cursorOverSkyBlueLine(MouseEvent event){
+    void cursorOverSkyBlueLine(MouseEvent event) {
 
-        if(!isClickedOnSkyBlueLine){
+        if (!isClickedOnSkyBlueLine) {
             skyBlueLine.setStroke(Color.GRAY);
         }
 
     }
 
     @FXML
-    void cursorNotOverSkyBlueLine(MouseEvent event){
+    void cursorNotOverSkyBlueLine(MouseEvent event) {
 
-        if(!isClickedOnSkyBlueLine){
+        if (!isClickedOnSkyBlueLine) {
             skyBlueLine.setStroke(Color.valueOf("#11c678"));
         }
 
     }
 
     @FXML
-    void cursorOverBlueLine(MouseEvent event){
+    void cursorOverBlueLine(MouseEvent event) {
 
-        if(!isClickedOnBlueLine){
+        if (!isClickedOnBlueLine) {
             blueLine.setStroke(Color.GRAY);
         }
 
     }
 
     @FXML
-    void cursorNotOverBlueLine(MouseEvent event){
+    void cursorNotOverBlueLine(MouseEvent event) {
 
-        if(!isClickedOnBlueLine){
+        if (!isClickedOnBlueLine) {
             blueLine.setStroke(Color.valueOf("#005eff"));
         }
 
     }
 
     @FXML
-    void cursorOverGreenLine(MouseEvent event){
-        if(!isClickedOnGreenLine) {
+    void cursorOverGreenLine(MouseEvent event) {
+        if (!isClickedOnGreenLine) {
             greenLine.setStroke(Color.GRAY);
         }
     }
 
     @FXML
-    void cursorNotOverGreenLine(MouseEvent event){
-        if(!isClickedOnGreenLine)
+    void cursorNotOverGreenLine(MouseEvent event) {
+        if (!isClickedOnGreenLine)
             greenLine.setStroke(Color.valueOf("#3fff00"));
     }
 
-    private void gameOver(){
-
-        String fromFXML = "/views/GameOverSplash.fxml";
-        String toFXML = "/views/Result.fxml";
-
-        loadSplashScreen(fromFXML,toFXML);
-
-    }
-
-    private void loadSplashScreen(String fromFxml, String toFxml) {
-        try {
-
-            Game.isSplashLoaded = true;
-
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(fromFxml));
-            anchorPane.getChildren().setAll(pane);
-
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), pane);
-            fadeIn.setFromValue(0);
-            fadeIn.setToValue(1);
-            fadeIn.setCycleCount(1);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), pane);
-            fadeOut.setFromValue(1);
-            fadeOut.setToValue(0);
-            fadeOut.setCycleCount(1);
-
-            fadeIn.play();
-
-            fadeIn.setOnFinished((e) -> fadeOut.play());
-
-            fadeOut.setOnFinished((e) -> fadeOutFinished(toFxml));
-
-        } catch (IOException e) {
-            logger.error("Throw by IOException in loadSplash method : ", e);
-        }
-    }
-
-    private void fadeOutFinished(String toFxml){
-        try {
-            AnchorPane parentContent = FXMLLoader.load(getClass().getResource((toFxml)));
-            anchorPane.getChildren().setAll(parentContent);
-
-        } catch (IOException ex) {
-            logger.error("Throw by IOException in fadeOutFinished method: ", ex);
-        }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         questionService = ServiceLocator.getService(QuestionService.class);
 
+        labels = new ArrayList<Label>();
+        labels.add(blueLabel);
+        labels.add(greenLabel);
+        labels.add(skyBlueLabel);
 
-        Double ID = Math.random()*6 + 1;
-        Double badAnswerId = Math.random()*6 +1;
-        Double badAnswer2Id = Math.random()*6+1;
+        List<Integer> randomNumbersForQuestion = randomNumbers((questionService.findAllQuestion().size()), labels.size(), true);
+        List<Integer> randomNumbers = randomNumbers(labels.size(), labels.size(), false);
 
-        while(badAnswerId.equals(badAnswer2Id)) {
-            badAnswer2Id = Math.random() * 6 + 1;
-        }
+        ArrayList<Question> questions = new ArrayList<>();
 
-        System.out.println(badAnswerId.intValue());
+        questions.add(questionService.findById(randomNumbersForQuestion.get(0)));
+        questions.add(questionService.findById(randomNumbersForQuestion.get(1)));
+        questions.add(questionService.findById(randomNumbersForQuestion.get(2)));
 
-        firstQuestion = questionService.findById((ID.intValue()));
-        String badAnswer = questionService.findById(badAnswerId.intValue()).getAnswer();
-        String badAnswer2 = questionService.findById(badAnswer2Id.intValue()).getAnswer();
+        Question question1 = questions.get(0);
 
-
-        questionLabel.setText(firstQuestion.getQuestion());
-
-        blueLabel.setText(firstQuestion.getAnswer());
-        greenLabel.setText(badAnswer);
-        skyBlueLabel.setText(badAnswer2);
-
-    }
-
-    private void changeToNextGamePage(MouseEvent event) throws IOException {
-
-        String fromPage = "/views/NextGamePage.fxml";
-        String toPage = "/views/gamepages/GamePageThree.fxml";
-        loadSplashScreen(fromPage,toPage);
+        questionLabel.setText(question1.getQuestion());
+        blueLabel.setText(questions.get(randomNumbers.get(0)).getAnswer());
+        greenLabel.setText(questions.get(randomNumbers.get(1)).getAnswer());
+        skyBlueLabel.setText(questions.get(randomNumbers.get(2)).getAnswer());
 
     }
+
 }

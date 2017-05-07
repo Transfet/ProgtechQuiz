@@ -3,6 +3,7 @@ package application.controller.logincontrollers;
 import application.Game;
 import application.ServiceLocator;
 import application.database.PlayerService;
+import application.model.player.Player;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -26,7 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignInController implements Initializable {
+public class SignInController extends Controller implements Initializable {
 
     private static PlayerService playerService;
 
@@ -53,14 +54,16 @@ public class SignInController implements Initializable {
     @FXML
     private JFXButton signInButton;
 
+    private static Player signedInPlayer;
+
 
     @FXML
-    void onClickedTestDB(ActionEvent event)throws IOException{
+    void onClickedTestDB(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/TestQuestionDB.fxml"));
         Scene scene = new Scene(root);
 
-        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(scene);
 
         appStage.show();
@@ -68,28 +71,9 @@ public class SignInController implements Initializable {
 
     }
 
-    private void changeToSignUp(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/views/loginpages/SignUpPage.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        appStage.setScene(scene);
-
-        appStage.show();
-
-    }
-
-    private void changeToLoggedIn(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/views/loginpages/LoggedInPage.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        appStage.setScene(scene);
-
-        appStage.show();
-
+    public static Player getSignedInPlayer() {
+        return signedInPlayer;
     }
 
     @Override
@@ -129,7 +113,7 @@ public class SignInController implements Initializable {
         }
     }
 
-    private void fadeOutFinished(){
+    private void fadeOutFinished() {
         try {
             AnchorPane parentContent = FXMLLoader.load(getClass().getResource(("/views/loginpages/SignInPage.fxml")));
             anchorPane.getChildren().setAll(parentContent);
@@ -142,22 +126,26 @@ public class SignInController implements Initializable {
     @FXML
     void onClickedSignInButton(ActionEvent event) throws IOException {
 
-        //for(Player player: playerService.findAllPlayer()){
-        //if(userNameField.getText().equals(player.getUserName()) && passwordField.getText().equals(player.getPassword())){
-        changeToLoggedIn(event);
-        // }
-        //}
+        for (Player player : playerService.findAllPlayer()) {
+            if (userNameField.getText().equals(player.getUserName()) && passwordField.getText().equals(player.getPassword())) {
+                signedInPlayer = player;
+                changeToScreen("/views/loginpages/LoggedInPage.fxml", event);
+            }
+        }
 
     }
 
     @FXML
-    void onClickedSignUpButton(ActionEvent event) throws IOException {
-
-        changeToSignUp(event);
+    void onClickedSignUpButton(ActionEvent event) {
+        try {
+            changeToScreen("/views/loginpages/SignUpPage.fxml", event);
+        } catch (IOException ex) {
+            logger.error("Exception on sign up button :", ex);
+        }
     }
 
     @FXML
-    void onClickedQuitButton(ActionEvent event){
+    void onClickedQuitButton(ActionEvent event) {
 
         Stage stage = (Stage) quitButton.getScene().getWindow();
         stage.close();
@@ -165,7 +153,7 @@ public class SignInController implements Initializable {
     }
 
     @FXML
-    void mouseNotOverSignInButton(MouseEvent event){
+    void mouseNotOverSignInButton(MouseEvent event) {
 
         signInButton.setStyle("-fx-background-color: #007bff");
 
@@ -173,7 +161,7 @@ public class SignInController implements Initializable {
     }
 
     @FXML
-    void mouseOverSignInButton(MouseEvent event){
+    void mouseOverSignInButton(MouseEvent event) {
 
         //signInButton.setStyle("-fx-background-color: rgba(164,174,126,0.87)");
         signInButton.setStyle("-fx-background-color: dimgrey");
@@ -181,22 +169,22 @@ public class SignInController implements Initializable {
     }
 
     @FXML
-    void mouseNotOverSignUpButton(MouseEvent event){
+    void mouseNotOverSignUpButton(MouseEvent event) {
         signUpButton.setStyle("-fx-background-color: #007bff");
     }
 
     @FXML
-    void mouseOverSignUpButton(MouseEvent event){
+    void mouseOverSignUpButton(MouseEvent event) {
         signUpButton.setStyle("-fx-background-color: dimgrey");
     }
 
     @FXML
-    void mouseOverQuitButton(MouseEvent event){
+    void mouseOverQuitButton(MouseEvent event) {
         quitButton.setStyle("-fx-background-color: dimgrey");
     }
 
     @FXML
-    void mouseNotOverQuitButton(MouseEvent event){
+    void mouseNotOverQuitButton(MouseEvent event) {
         quitButton.setStyle("-fx-background-color: #007bff");
     }
 }

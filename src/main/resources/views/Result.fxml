@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="application.controller.ResultController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ResultController">
+    <children>
+        <TableView fx:id="resultTable" layoutX="84.0" layoutY="49.0" prefHeight="307.0" prefWidth="430.0">
+            <columns>
+                <TableColumn fx:id="playerColumn" editable="false" prefWidth="141.0" sortable="false" text="Player"/>
+                <TableColumn fx:id="pointColumn" editable="false" prefWidth="155.0" sortable="false" text="Point"/>
+                <TableColumn fx:id="timeColumn" editable="false" prefWidth="133.0" sortable="false" text="Time"/>
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.model.player.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,11 +18,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
-public class LoggedInController implements Initializable {
+public class LoggedInController extends Controller implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -38,23 +38,13 @@ public class LoggedInController implements Initializable {
     @FXML
     private Label statusLabel;
 
-
-    private void launchGame(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/views/gamepages/GamePageOne.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        appStage.setScene(scene);
-
-        appStage.show();
-    }
+    private static Player signedInPlayer;
 
 
     @FXML
     void onClickedStartButton(ActionEvent event) throws IOException {
 
-        launchGame(event);
+        changeToScreen("/views/gamepages/GamePageOne.fxml", event);
 
     }
 
@@ -69,6 +59,10 @@ public class LoggedInController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        signedInPlayer = SignInController.getSignedInPlayer();
+
+        System.out.println(signedInPlayer);
 
 
     }

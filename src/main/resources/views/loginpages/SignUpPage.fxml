@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.logincontrollers.SignUpController">
+<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.logincontrollers.SignUpController">
     <children>
-        <JFXTextField fx:id="userNameField" labelFloat="true" layoutX="233.0" layoutY="55.0" promptText="User name"/>
-        <JFXTextField fx:id="firstNameField" labelFloat="true" layoutX="233.0" layoutY="106.0" promptText="First name"/>
-        <JFXTextField fx:id="lastNameField" labelFloat="true" layoutX="233.0" layoutY="158.0" promptText="Last name"/>
-        <JFXPasswordField fx:id="passwordField" labelFloat="true" layoutX="233.0" layoutY="215.0"
-                          promptText="Password"/>
-        <JFXButton fx:id="signUpButton" layoutX="233.0" layoutY="284.0" onAction="#onClickedSignUpButton"
-                   style="-fx-background-color: #1c7ee7;" text="Sign up">
+        <JFXTextField fx:id="userNameField" labelFloat="true" layoutX="233.0" layoutY="55.0" promptText="User name" />
+        <JFXTextField fx:id="firstNameField" labelFloat="true" layoutX="233.0" layoutY="106.0" promptText="First name" />
+        <JFXTextField fx:id="lastNameField" labelFloat="true" layoutX="233.0" layoutY="158.0" promptText="Last name" />
+        <JFXPasswordField fx:id="passwordField" labelFloat="true" layoutX="233.0" layoutY="215.0" promptText="Password" />
+        <JFXButton fx:id="signUpButton" layoutX="233.0" layoutY="284.0" onAction="#onClickedSignUpButton" style="-fx-background-color: #1c7ee7;" text="Sign up">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
         </JFXButton>
-        <JFXButton fx:id="backButton" layoutX="309.0" layoutY="284.0" onAction="#onClickedBackButton" prefHeight="25.0"
-                   prefWidth="59.0" style="-fx-background-color: #1c7ee7;" text="Back">
+        <JFXButton fx:id="backButton" layoutX="309.0" layoutY="284.0" onAction="#onClickedBackButton" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #1c7ee7;" text="Back">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
         </JFXButton>
     </children>

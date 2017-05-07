@@ -23,6 +23,16 @@ public class Player implements Serializable {
     private Double points = 0.0;
     private Double time = 0.0;
 
+    public Player(){
+
+    }
+
+    public Player(String userName, Double point, Double time){
+        this.userName = userName;
+        this.points = point;
+        this.time = time;
+    }
+
     public Long getId() {
         return id;
     }
@@ -55,7 +65,7 @@ public class Player implements Serializable {
         this.userName = userName;
     }
 
-    public double getPoints() {
+    public Double getPoints() {
         return points;
     }
 
@@ -63,11 +73,11 @@ public class Player implements Serializable {
         return time;
     }
 
-    public void setPoints(double points) {
+    public void setPoints(Double points) {
         this.points = points;
     }
 
-    public void setTime(double time) {
+    public void setTime(Double time) {
         this.time = time;
     }
 

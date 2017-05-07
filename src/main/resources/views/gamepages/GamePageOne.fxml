@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageOneController">
-   <children>
-      <Line fx:id="redLine" endX="400.0" fill="RED" layoutX="228.0" layoutY="488.0" onMouseClicked="#onClickedRedLine" onMouseExited="#cursorNotOverRedLine" onMouseMoved="#cursorOverRedLine" startX="-100.0" stroke="RED" strokeLineCap="ROUND" strokeWidth="10.0">
-         <effect>
-            <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-            </Lighting>
-         </effect></Line>
-      <Label fx:id="questionLabel" layoutX="127.0" layoutY="213.0" prefHeight="87.0" prefWidth="503.0" style="-fx-background-color: #786e6e;" text="label" />
-      <Label fx:id="redLabel" layoutX="123.0" layoutY="354.0" prefHeight="32.0" prefWidth="112.0" style="-fx-background-color: #ff0000;" text="Label" />
-      <Label fx:id="blueLabel" layoutX="521.0" layoutY="354.0" prefHeight="32.0" prefWidth="112.0" style="-fx-background-color: #0000ff;" text="Label" />
-      <Line fx:id="blueLine" endX="400.0" fill="RED" layoutX="228.0" layoutY="533.0" onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine" onMouseMoved="#cursorOverBlueLine" startX="-100.0" stroke="BLUE" strokeLineCap="ROUND" strokeWidth="10.0" style="-fx-smooth: #756868;">
-         <effect>
-            <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-            </Lighting>
-         </effect>
-      </Line>
-      <ImageView fx:id="bombImage" fitHeight="179.0" fitWidth="173.0" layoutX="317.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-       <image>
-           <Image url="/pictures/bomb.png" />
-       </image>
-      </ImageView>
-   </children>
+
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.controller.gamecontrollers.GamePageOneController">
+    <children>
+        <Line fx:id="redLine" endX="400.0" fill="RED" layoutX="228.0" layoutY="488.0" onMouseClicked="#onClickedRedLine"
+              onMouseExited="#cursorNotOverRedLine" onMouseMoved="#cursorOverRedLine" startX="-100.0" stroke="RED"
+              strokeLineCap="ROUND" strokeWidth="10.0">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </Line>
+        <Label fx:id="questionLabel" layoutX="127.0" layoutY="213.0" prefHeight="87.0" prefWidth="503.0"
+               style="-fx-background-color: #786e6e;" text="label"/>
+        <Label fx:id="redLabel" layoutX="123.0" layoutY="354.0" prefHeight="32.0" prefWidth="112.0"
+               style="-fx-background-color: #ff0000;" text="Label"/>
+        <Label fx:id="blueLabel" layoutX="521.0" layoutY="354.0" prefHeight="32.0" prefWidth="112.0"
+               style="-fx-background-color: #0000ff;" text="Label"/>
+        <Line fx:id="blueLine" endX="400.0" fill="RED" layoutX="228.0" layoutY="533.0"
+              onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine"
+              onMouseMoved="#cursorOverBlueLine" startX="-100.0" stroke="BLUE" strokeLineCap="ROUND" strokeWidth="10.0"
+              style="-fx-smooth: #756868;">
+            <effect>
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
+                          surfaceScale="2.78">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </Line>
+        <ImageView fx:id="bombImage" fitHeight="179.0" fitWidth="173.0" layoutX="317.0" layoutY="14.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/pictures/bomb.png"/>
+            </image>
+        </ImageView>
+    </children>
 </AnchorPane>

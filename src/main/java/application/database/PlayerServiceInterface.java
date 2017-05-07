@@ -37,4 +37,6 @@ public interface PlayerServiceInterface {
      */
     List<Player> findByMaxPoints();
 
+    void updatePlayerPoint(String player, Double point);
+
 }

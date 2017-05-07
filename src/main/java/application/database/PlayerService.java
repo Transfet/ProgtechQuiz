@@ -41,4 +41,10 @@ public class PlayerService implements PlayerServiceInterface {
         //return null;
         return playerRepository.findAllAndSort();
     }
+
+
+    @Override
+    public void updatePlayerPoint(String player, Double point) {
+        playerRepository.updatePlayerPoint(player, point);
+    }
 }

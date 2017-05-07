@@ -13,15 +13,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignUpController implements Initializable{
+public class SignUpController extends Controller implements Initializable {
 
 
     private PlayerService playerService;
@@ -54,44 +56,53 @@ public class SignUpController implements Initializable{
 
     }
 
-    private void changeToLogIn(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/views/loginpages/SignInPage.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        appStage.setScene(scene);
-
-        appStage.show();
-
-    }
-
     @FXML
     void onClickedSignUpButton(ActionEvent event) {
 
-        Player player = new Player();
-        player.setFirstName(firstNameField.getText());
-        player.setLastName(lastNameField.getText());
-        player.setUserName(userNameField.getText());
-        player.setPassword(passwordField.getText());
+        addPlayer();
+        clearFields();
+    }
 
-        playerService.addPlayer(player);
+    @FXML
+    void onClickedBackButton(ActionEvent event) {
+        try {
+            changeToScreen("/views/loginpages/SignInPage.fxml", event);
+        } catch (IOException ex) {
+            logger.error("Error on back button: ", ex);
+        }
+    }
+
+
+    private void clearFields() {
 
         userNameField.clear();
         firstNameField.clear();
         lastNameField.clear();
         passwordField.clear();
 
+    }
+
+
+    private void addPlayer() {
+
+        Player player = new Player();
+
+
+        player.setUserName(userNameField.getText());
+        player.setFirstName(firstNameField.getText());
+        player.setLastName(lastNameField.getText());
+        player.setPassword(passwordField.getText());
+
+        try {
+            playerService.addPlayer(player);
+        } catch (Exception e) {
+            logger.error("Just an Exception: ", e);
+        }
+
         logger.info("-----------------------------");
         logger.info("Added a new User to the DB: ");
         logger.info(player.toString());
         logger.info("--");
-
-    }
-
-    @FXML
-    void onClickedBackButton(ActionEvent event) throws IOException {
-        changeToLogIn(event);
 
     }
 
