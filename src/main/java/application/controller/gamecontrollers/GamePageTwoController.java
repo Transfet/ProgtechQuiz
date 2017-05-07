@@ -33,10 +33,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GamePageOneController implements Initializable{
+public class GamePageTwoController implements Initializable{
 
+    private boolean isClickedOnGreenLine = false;
     private boolean isClickedOnBlueLine = false;
-    private boolean isClickedOnRedLine = false;
+    private boolean isClickedOnSkyBlueLine = false;
     private int checkLastAnswer = 0;
 
     private Logger logger = LoggerFactory.getLogger(GamePageOneController.class);
@@ -53,7 +54,10 @@ public class GamePageOneController implements Initializable{
     private AnchorPane anchorPane;
 
     @FXML
-    private Line redLine;
+    private Line skyBlueLine;
+
+    @FXML
+    private Line greenLine;
 
     @FXML
     private Line blueLine;
@@ -62,45 +66,83 @@ public class GamePageOneController implements Initializable{
     private Label questionLabel;
 
     @FXML
-    private Label redLabel;
+    private Label skyBlueLabel;
 
     @FXML
     private Label blueLabel;
 
     @FXML
-    void onClickedRedLine(MouseEvent event) throws IOException{
+    private Label greenLabel;
 
-        isClickedOnRedLine = true;
+    @FXML
+    void onClickedGreenLine(MouseEvent event) throws IOException{
 
-            if (!redLabel.getText().equals(firstQuestion.getAnswer())) {
-                checkLastAnswer++;
-                redLine.setStroke(Color.BLACK);
-            }
-            else
-                gameOver();
+        isClickedOnGreenLine = true;
 
-            if(checkLastAnswer == 1){
-                changeToNextGamePage(event);
-            }
+        if (!greenLabel.getText().equals(firstQuestion.getAnswer())) {
+            checkLastAnswer++;
+            greenLine.setStroke(Color.BLACK);
+        }
+        else
+            gameOver();
+
+        if(checkLastAnswer == 2){
+            changeToNextGamePage(event);
+        }
     }
 
     @FXML
     void onClickedBlueLine(MouseEvent event)throws IOException {
         isClickedOnBlueLine = true;
 
-            if (!blueLabel.getText().equals(firstQuestion.getAnswer())) {
-                checkLastAnswer++;
-                blueLine.setStroke(Color.BLACK);
-            }
-            else
-                gameOver();
+        if (!blueLabel.getText().equals(firstQuestion.getAnswer())) {
+            checkLastAnswer++;
+            blueLine.setStroke(Color.BLACK);
+        }
+        else
+            gameOver();
 
-            if(checkLastAnswer == 1){
+        if(checkLastAnswer == 2){
 
-                changeToNextGamePage(event);
+            changeToNextGamePage(event);
 
-            }
+        }
 
+    }
+
+    @FXML
+    void onClickedSkyBlueLine(MouseEvent event) throws IOException{
+
+        isClickedOnSkyBlueLine = true;
+
+        if (!skyBlueLabel.getText().equals(firstQuestion.getAnswer())) {
+            checkLastAnswer++;
+            skyBlueLine.setStroke(Color.BLACK);
+        }
+        else
+            gameOver();
+
+        if(checkLastAnswer == 2){
+            changeToNextGamePage(event);
+        }
+    }
+
+
+    @FXML
+    void cursorOverSkyBlueLine(MouseEvent event){
+
+        if(!isClickedOnSkyBlueLine){
+            skyBlueLine.setStroke(Color.GRAY);
+        }
+
+    }
+
+    @FXML
+    void cursorNotOverSkyBlueLine(MouseEvent event){
+
+        if(!isClickedOnSkyBlueLine){
+            skyBlueLine.setStroke(Color.valueOf("#11c678"));
+        }
 
     }
 
@@ -117,28 +159,28 @@ public class GamePageOneController implements Initializable{
     void cursorNotOverBlueLine(MouseEvent event){
 
         if(!isClickedOnBlueLine){
-            blueLine.setStroke(Color.BLUE);
+            blueLine.setStroke(Color.valueOf("#005eff"));
         }
 
     }
 
     @FXML
-    void cursorOverRedLine(MouseEvent event){
-        if(!isClickedOnRedLine) {
-            redLine.setStroke(Color.GRAY);
+    void cursorOverGreenLine(MouseEvent event){
+        if(!isClickedOnGreenLine) {
+            greenLine.setStroke(Color.GRAY);
         }
     }
 
     @FXML
-    void cursorNotOverRedLine(MouseEvent event){
-        if(!isClickedOnRedLine)
-          redLine.setStroke(Color.RED);
+    void cursorNotOverGreenLine(MouseEvent event){
+        if(!isClickedOnGreenLine)
+            greenLine.setStroke(Color.valueOf("#3fff00"));
     }
 
     private void gameOver(){
 
         String fromFXML = "/views/GameOverSplash.fxml";
-                String toFXML = "/views/Result.fxml";
+        String toFXML = "/views/Result.fxml";
 
         loadSplashScreen(fromFXML,toFXML);
 
@@ -146,6 +188,7 @@ public class GamePageOneController implements Initializable{
 
     private void loadSplashScreen(String fromFxml, String toFxml) {
         try {
+
             Game.isSplashLoaded = true;
 
             AnchorPane pane = FXMLLoader.load(getClass().getResource(fromFxml));
@@ -188,29 +231,33 @@ public class GamePageOneController implements Initializable{
         questionService = ServiceLocator.getService(QuestionService.class);
 
 
-        Double ID = Math.random()*2 + 1;
-        Double badAnswerId = Math.random()*2 +1 ;
+        Double ID = Math.random()*6 + 1;
+        Double badAnswerId = Math.random()*6 +1;
+        Double badAnswer2Id = Math.random()*6+1;
 
-        while(ID.equals(badAnswerId)){
-            badAnswerId = Math.random()*2+1;
+        while(badAnswerId.equals(badAnswer2Id)) {
+            badAnswer2Id = Math.random() * 6 + 1;
         }
 
-        System.out.println(ID);
         System.out.println(badAnswerId.intValue());
 
         firstQuestion = questionService.findById((ID.intValue()));
         String badAnswer = questionService.findById(badAnswerId.intValue()).getAnswer();
+        String badAnswer2 = questionService.findById(badAnswer2Id.intValue()).getAnswer();
 
 
-       questionLabel.setText(firstQuestion.getQuestion());blueLabel.setText(firstQuestion.getAnswer());
-       redLabel.setText(badAnswer);
+        questionLabel.setText(firstQuestion.getQuestion());
+
+        blueLabel.setText(firstQuestion.getAnswer());
+        greenLabel.setText(badAnswer);
+        skyBlueLabel.setText(badAnswer2);
 
     }
 
-       private void changeToNextGamePage(MouseEvent event) throws IOException {
+    private void changeToNextGamePage(MouseEvent event) throws IOException {
 
         String fromPage = "/views/NextGamePage.fxml";
-        String toPage = "/views/gamepages/GamePageTwo.fxml";
+        String toPage = "/views/gamepages/GamePageThree.fxml";
         loadSplashScreen(fromPage,toPage);
 
     }
