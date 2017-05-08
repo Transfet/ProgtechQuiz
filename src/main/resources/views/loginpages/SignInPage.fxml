@@ -1,86 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.logincontrollers.SignInController">
+<AnchorPane fx:id="anchorPane" maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.logincontrollers.SignInController">
     <children>
-        <JFXTextField fx:id="userNameField" focusColor="#1040d0" labelFloat="true" layoutX="205.0" layoutY="89.0"
-                      prefHeight="36.0" prefWidth="195.0" promptText="User name" unFocusColor="#073ac9">
-            <effect>
-                <Lighting diffuseConstant="0.98" specularConstant="0.0" specularExponent="14.42" surfaceScale="2.9">
-                    <bumpInput>
-                        <Shadow height="44.72" radius="22.6025" width="47.69"/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+        <JFXTextField fx:id="userNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="203.0" layoutY="51.0" prefHeight="36.0" prefWidth="195.0" promptText="User name" stylesheets="@../../css/textfield.css" unFocusColor="#374140">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="Times New Roman" size="12.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
         </JFXTextField>
-        <JFXButton fx:id="signInButton" layoutX="205.0" layoutY="239.0" onAction="#onClickedSignInButton"
-                   onMouseExited="#mouseNotOverSignInButton" onMouseMoved="#mouseOverSignInButton" prefHeight="25.0"
-                   prefWidth="67.0" style="-fx-background-color: #007bff;" text="Sign in">
-            <effect>
-                <Lighting>
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
-        </JFXButton>
-        <JFXButton fx:id="signUpButton" layoutX="334.0" layoutY="239.0" onAction="#onClickedSignUpButton"
-                   onMouseExited="#mouseNotOverSignUpButton" onMouseMoved="#mouseOverSignUpButton" prefHeight="25.0"
-                   prefWidth="67.0" style="-fx-background-color: #007bff;" text="Sign up">
-            <effect>
-                <Lighting>
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
-        </JFXButton>
-        <JFXButton fx:id="quitButton" layoutX="267.0" layoutY="307.0" onAction="#onClickedQuitButton"
-                   onMouseExited="#mouseNotOverQuitButton" onMouseMoved="#mouseOverQuitButton" prefHeight="25.0"
-                   prefWidth="67.0" style="-fx-background-color: #007bff;" text="Quit">
-            <effect>
-                <Lighting>
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
-        </JFXButton>
-        <JFXPasswordField fx:id="passwordField" labelFloat="true" layoutX="205.0" layoutY="164.0" prefHeight="36.0"
-                          prefWidth="195.0" promptText="Password">
-            <effect>
-                <Lighting>
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+        <JFXPasswordField fx:id="passwordField" alignment="BOTTOM_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="203.0" layoutY="120.0" prefHeight="36.0" prefWidth="195.0" promptText="Password" stylesheets="/css/textfield.css" unFocusColor="#374140">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
         </JFXPasswordField>
-        <JFXButton fx:id="TestDB" layoutX="67.0" layoutY="113.0" onAction="#onClickedTestDB" text="TestDB"/>
+        <JFXButton fx:id="signInButton" defaultButton="true" layoutX="255.0" layoutY="200.0" onAction="#onClickedSignInButton" onMouseExited="#mouseNotOverSignInButton" onMouseMoved="#mouseOverSignInButton" prefHeight="22.0" prefWidth="91.0" style="-fx-background-color: #E74C3C;" text="Sign in" textFill="#210000">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </JFXButton>
+        <JFXButton fx:id="signUpButton" layoutX="255.0" layoutY="263.0" onAction="#onClickedSignUpButton" onMouseExited="#mouseNotOverSignUpButton" onMouseMoved="#mouseOverSignUpButton" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #E74C3C;" text="Sign up" textFill="#210000">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow height="8.9" radius="1.725" spread="0.06" width="0.0" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </JFXButton>
+        <JFXButton fx:id="quitButton" layoutX="255.0" layoutY="330.0" onAction="#onClickedQuitButton" onMouseExited="#mouseNotOverQuitButton" onMouseMoved="#mouseOverQuitButton" prefHeight="14.0" prefWidth="91.0" style="-fx-background-color: #E74C3C;" text="Quit" textFill="#210000">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </JFXButton>
     </children>
 </AnchorPane>

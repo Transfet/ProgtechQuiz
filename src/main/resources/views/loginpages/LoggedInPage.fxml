@@ -1,23 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.logincontrollers.LoggedInController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.logincontrollers.LoggedInController">
     <children>
-        <JFXButton fx:id="startButton" layoutX="244.0" layoutY="113.0" onAction="#onClickedStartButton"
-                   prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #236ac5;" text="Start">
+        <JFXButton fx:id="startButton" layoutX="253.0" layoutY="105.0" onAction="#onClickedStartButton" onMouseExited="#mouseNotOverStartButton" onMouseMoved="#mouseOverStartButton" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: #E74C3C;" text="Start">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font size="18.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </JFXButton>
-        <JFXButton fx:id="quitButton" layoutX="244.0" layoutY="171.0" onAction="#onClickedQuitButton" prefHeight="36.0"
-                   prefWidth="113.0" style="-fx-background-color: #236ac5;" text="Quit">
+      <JFXButton fx:id="tableButton" layoutX="253.0" layoutY="170.0" onAction="#onClickedTableButton" onMouseExited="#mouseNotOverTableButton" onMouseMoved="#mouseOverTableButton" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: #E74C3C;" text="Table">
+          <font>
+              <Font size="18.0" />
+          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="signOutButton" layoutX="253.0" layoutY="235.0" onAction="#onClickedSignOutButton" onMouseExited="#mouseNotOverSignOutButton" onMouseMoved="#mouseOverSignOutButton" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: #E74C3C;" text="Sign out">
+          <font>
+              <Font size="18.0" />
+          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+        <JFXButton fx:id="quitButton" layoutX="253.0" layoutY="300.0" onAction="#onClickedQuitButton" onMouseExited="#mouseNotOverQuitButton" onMouseMoved="#mouseOverQuitButton" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: #E74C3C;" text="Quit">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font size="18.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </JFXButton>
+      <Label fx:id="signedInLabel" layoutX="14.0" layoutY="14.0" prefHeight="19.0" prefWidth="146.0" text="Label" textFill="#e74c3c">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Label>
     </children>
 </AnchorPane>

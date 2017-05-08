@@ -114,7 +114,7 @@ public class GamePageSixController extends GamePageController implements Initial
         if (checkLastAnswer == 6) {
             changeToNextGamePage(anchorPane, "/views/Result.fxml");
         }
-    }
+    }// narancs , zöld lila
 
     @FXML
     void onClickedBrownLine(MouseEvent event) throws IOException {
@@ -285,7 +285,7 @@ public class GamePageSixController extends GamePageController implements Initial
     void cursorNotOverOrangeLine(MouseEvent event) {
 
         if (!isClickedOnOrangeLine) {
-            orangeLine.setStroke(Color.valueOf("#11c678"));
+            orangeLine.setStroke(Color.valueOf("#ffbf00"));
         }
 
     }
@@ -303,7 +303,7 @@ public class GamePageSixController extends GamePageController implements Initial
     void cursorNotOverPurpleLine(MouseEvent event) {
 
         if (!isClickedPurpleLine) {
-            purpleLine.setStroke(Color.valueOf("#005eff"));
+            purpleLine.setStroke(Color.valueOf("#7900ff"));
         }
 
     }
@@ -318,7 +318,7 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void cursorNotOverGreenLine(MouseEvent event) {
         if (!isClickedOnGreenLine)
-            greenLine.setStroke(Color.valueOf("#3fff00"));
+            greenLine.setStroke(Color.valueOf("#00ff48"));
     }
 
     @FXML
@@ -378,7 +378,7 @@ public class GamePageSixController extends GamePageController implements Initial
         pinkLabel.setText(questions.get(randomNumbers.get(5)).getAnswer());
         brownLabel.setText(questions.get(randomNumbers.get(6)).getAnswer());
 
-        countDown(anchorPane,timeLabel);
+        countDown(anchorPane, timeLabel);
     }
 
 }

@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.io.IOException;
@@ -27,10 +29,11 @@ public class GamePageController {
     private double point = 0.0;
     private double weight = 0.0;
     private double time = 0.0;
-    private final int STARTTIME = 10;
+    private final int STARTTIME = 60;
     private int timeSecond;
-    private boolean changeScreen = false;
     private Timeline timeline;
+
+    Logger logger = LoggerFactory.getLogger(GamePageController.class);
 
     private Player signedInPlayer = SignInController.getSignedInPlayer();
     private PlayerService playerService = ServiceLocator.getService(PlayerService.class);
@@ -75,12 +78,12 @@ public class GamePageController {
 
             this.anchorPane = anchorPane;
 
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), pane);
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(3), pane);
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
             fadeIn.setCycleCount(1);
 
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), pane);
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), pane);
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
             fadeOut.setCycleCount(1);
@@ -108,7 +111,7 @@ public class GamePageController {
 
     public void changeToNextGamePage(AnchorPane anchorPane, String to) throws IOException {
 
-        changeScreen = true;
+        timeline.stop();
         weight = timeSecond;
         time = signedInPlayer.getTime();
         time += timeSecond;
@@ -116,7 +119,7 @@ public class GamePageController {
 
         signedInPlayer.setTime(time);
         point = signedInPlayer.getPoints();
-        point += 30.0*time;
+        point += 20.0*time;
         signedInPlayer.setPoints(point);
 
         playerService.updatePlayerPointAndTime(signedInPlayer.getUserName(), signedInPlayer.getPoints(), signedInPlayer.getTime());
@@ -124,9 +127,12 @@ public class GamePageController {
         String fromPage = "/views/NextGamePage.fxml";
         loadSplashScreen(anchorPane, fromPage, to);
 
+
     }
 
     public void gameOver(AnchorPane anchorPane) {
+
+        timeline.stop();
 
         System.out.println(signedInPlayer);
         String fromFXML = "/views/GameOverSplash.fxml";
@@ -157,17 +163,12 @@ public class GamePageController {
 
         label.setText(Integer.toString(timeSecond));
 
-        System.out.println(timeSecond);
+        logger.info(Double.toString(timeSecond));
 
         if(timeSecond <= 0){
             timeline.stop();
             gameOver(anchorPane);
         }
-
-        if(changeScreen){
-            timeline.stop();
-        }
-
     }
 
 }

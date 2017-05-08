@@ -180,7 +180,7 @@ public class GamePageFourController extends GamePageController implements Initia
     void cursorNotOverSkyBlueLine(MouseEvent event) {
 
         if (!isClickedSkyBlueLine) {
-            skyBlueLine.setStroke(Color.valueOf("#11c678"));
+            skyBlueLine.setStroke(Color.valueOf("#00f9ff"));
         }
 
     }
@@ -199,7 +199,7 @@ public class GamePageFourController extends GamePageController implements Initia
     void cursorNotOverOrangeLine(MouseEvent event) {
 
         if (!isClickedOnOrangeLine) {
-            orangeLine.setStroke(Color.valueOf("#11c678"));
+            orangeLine.setStroke(Color.valueOf("#ffbf00"));
         }
 
     }
@@ -217,7 +217,7 @@ public class GamePageFourController extends GamePageController implements Initia
     void cursorNotOverPurpleLine(MouseEvent event) {
 
         if (!isClickedPurpleLine) {
-            purpleLine.setStroke(Color.valueOf("#005eff"));
+            purpleLine.setStroke(Color.valueOf("#7900ff"));
         }
 
     }
@@ -232,7 +232,7 @@ public class GamePageFourController extends GamePageController implements Initia
     @FXML
     void cursorNotOverGreenLine(MouseEvent event) {
         if (!isClickedOnGreenLine)
-            greenLine.setStroke(Color.valueOf("#3fff00"));
+            greenLine.setStroke(Color.valueOf("#11c678"));
     }
 
     @FXML

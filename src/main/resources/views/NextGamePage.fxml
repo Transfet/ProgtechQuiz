@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.NextGamePageController">
+<AnchorPane prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.NextGamePageController">
     <children>
-        <Label layoutX="82.0" layoutY="113.0" prefHeight="174.0" prefWidth="437.0" text="Next question">
+        <Label alignment="CENTER" layoutX="95.0" layoutY="194.0" prefHeight="233.0" prefWidth="570.0" text="Next question" textFill="#15ff00">
             <font>
-                <Font size="64.0"/>
+                <Font name="Arial Bold" size="79.0" />
             </font>
+         <effect>
+            <DropShadow color="#059000" height="65.48" radius="30.7575" width="59.55">
+               <input>
+                  <Lighting diffuseConstant="0.91" specularConstant="1.11" specularExponent="25.12" surfaceScale="6.27">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </DropShadow>
+         </effect>
         </Label>
     </children>
+   <effect>
+      <DropShadow color="#00ff6a" height="77.34" radius="38.17" width="77.34">
+         <input>
+            <Lighting diffuseConstant="1.77" specularConstant="0.83" specularExponent="22.33">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </input>
+      </DropShadow>
+   </effect>
 </AnchorPane>

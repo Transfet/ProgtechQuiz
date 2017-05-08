@@ -7,6 +7,7 @@ import application.model.player.Player;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,11 +34,12 @@ public class SignInController extends Controller implements Initializable {
 
     Logger logger = LoggerFactory.getLogger(SignInController.class);
 
-    @FXML
-    private AnchorPane anchorPane;
+    private Stage stage;
+    private Scene scene;
+    private Parent parent;
 
     @FXML
-    private JFXButton TestDB;
+    private AnchorPane anchorPane;
 
     @FXML
     private JFXTextField userNameField;
@@ -57,21 +59,6 @@ public class SignInController extends Controller implements Initializable {
     private static Player signedInPlayer;
 
 
-    @FXML
-    void onClickedTestDB(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/views/TestQuestionDB.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        appStage.setScene(scene);
-
-        appStage.show();
-
-
-    }
-
-
     public static Player getSignedInPlayer() {
         return signedInPlayer;
     }
@@ -81,8 +68,22 @@ public class SignInController extends Controller implements Initializable {
 
         playerService = ServiceLocator.getService(PlayerService.class);
 
-        if (!Game.isSplashLoaded)
-            loadSplashScreen();
+        Player admin = new Player();
+        admin.setUserName("adm");
+        admin.setFirstName("Alex");
+        admin.setLastName("Gyulai");
+        admin.setPassword("adm");
+
+        playerService.addPlayer(admin);
+
+        logger.info("admin: ",admin);
+
+
+        if (!Game.isSplashLoaded) {
+            loadSplashScreen();//1,43 0,98 26,98 2,78
+
+
+        }
     }
 
     private void loadSplashScreen() {
@@ -155,36 +156,34 @@ public class SignInController extends Controller implements Initializable {
     @FXML
     void mouseNotOverSignInButton(MouseEvent event) {
 
-        signInButton.setStyle("-fx-background-color: #007bff");
-
+        signInButton.setStyle("-fx-background-color: #E74C3C");
 
     }
 
     @FXML
     void mouseOverSignInButton(MouseEvent event) {
 
-        //signInButton.setStyle("-fx-background-color: rgba(164,174,126,0.87)");
-        signInButton.setStyle("-fx-background-color: dimgrey");
+        signInButton.setStyle("-fx-background-color: #ECF0F1");
 
     }
 
     @FXML
     void mouseNotOverSignUpButton(MouseEvent event) {
-        signUpButton.setStyle("-fx-background-color: #007bff");
+        signUpButton.setStyle("-fx-background-color: #E74C3C");
     }
 
     @FXML
     void mouseOverSignUpButton(MouseEvent event) {
-        signUpButton.setStyle("-fx-background-color: dimgrey");
+        signUpButton.setStyle("-fx-background-color: #ECF0F1");
     }
 
     @FXML
     void mouseOverQuitButton(MouseEvent event) {
-        quitButton.setStyle("-fx-background-color: dimgrey");
+        quitButton.setStyle("-fx-background-color: #ECF0F1");
     }
 
     @FXML
     void mouseNotOverQuitButton(MouseEvent event) {
-        quitButton.setStyle("-fx-background-color: #007bff");
+        quitButton.setStyle("-fx-background-color: #E74C3C");
     }
 }

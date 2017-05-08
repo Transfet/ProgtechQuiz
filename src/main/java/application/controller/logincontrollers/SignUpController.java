@@ -8,17 +8,12 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
+
+import javafx.scene.input.MouseEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,10 +52,11 @@ public class SignUpController extends Controller implements Initializable {
     }
 
     @FXML
-    void onClickedSignUpButton(ActionEvent event) {
+    void onClickedSignUpButton(ActionEvent event)throws IOException {
 
         addPlayer();
         clearFields();
+        changeToScreen("/views/loginpages/SignInPage.fxml",event);
     }
 
     @FXML
@@ -105,5 +101,34 @@ public class SignUpController extends Controller implements Initializable {
         logger.info("--");
 
     }
+
+    @FXML
+    void mouseNotOverSignUpButton(MouseEvent event) {
+
+        signUpButton.setStyle("-fx-background-color: #E74C3C");
+
+    }
+
+    @FXML
+    void mouseOverSignUpButton(MouseEvent event) {
+
+        signUpButton.setStyle("-fx-background-color: #ECF0F1");
+
+    }
+
+    @FXML
+    void mouseNotOverBackButton(MouseEvent event) {
+
+        backButton.setStyle("-fx-background-color: #E74C3C");
+
+    }
+
+    @FXML
+    void mouseOverBackButton(MouseEvent event) {
+
+        backButton.setStyle("-fx-background-color: #ECF0F1");
+
+    }
+
 
 }

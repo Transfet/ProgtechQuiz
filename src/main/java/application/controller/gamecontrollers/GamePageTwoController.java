@@ -136,7 +136,7 @@ public class GamePageTwoController extends GamePageController implements Initial
     void cursorNotOverSkyBlueLine(MouseEvent event) {
 
         if (!isClickedOnSkyBlueLine) {
-            skyBlueLine.setStroke(Color.valueOf("#11c678"));
+            skyBlueLine.setStroke(Color.valueOf("#00ebff"));
         }
 
     }

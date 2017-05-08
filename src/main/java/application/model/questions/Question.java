@@ -16,6 +16,15 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    public Question(){
+
+    }
+
+    public Question(String question, String answer){
+        this.question = question;
+        this.answer = answer;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

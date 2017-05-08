@@ -1,24 +1,31 @@
 package application.controller;
 
 import application.ServiceLocator;
+import application.controller.logincontrollers.Controller;
+import application.controller.logincontrollers.LoggedInController;
 import application.database.PlayerService;
 import application.model.player.Player;
 import application.model.player.PlayerResult;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
  * Created by Transfet on 2017. 05. 06..
  */
-public class ResultController implements Initializable {
+public class ResultController extends Controller implements Initializable {
 
     private PlayerService playerService;
 
@@ -32,13 +39,83 @@ public class ResultController implements Initializable {
     private TableColumn timeColumn;
 
     @FXML
+    private Button quitButton;
+
+    @FXML
+    private Button restartButton;
+
+    @FXML
+    private Button backButton;
+
+    @FXML
     private TableView<PlayerResult> resultTable;
 
     private ObservableList<PlayerResult> data;
 
+    @FXML
+    void mouseOverQuitButton(MouseEvent event) {
+        quitButton.setStyle("-fx-background-color: #ECF0F1");
+    }
+
+    @FXML
+    void mouseNotOverQuitButton(MouseEvent event) {
+        quitButton.setStyle("-fx-background-color: #E74C3C");
+    }
+
+    @FXML
+    void mouseOverBackButton(MouseEvent event) {
+        backButton.setStyle("-fx-background-color: #ECF0F1");
+    }
+
+    @FXML
+    void mouseNotOverBackButton(MouseEvent event) {
+        backButton.setStyle("-fx-background-color: #E74C3C");
+    }
+
+    @FXML
+    void mouseOverRestartButton(MouseEvent event) {
+        restartButton.setStyle("-fx-background-color: #ECF0F1");
+    }
+
+    @FXML
+    void mouseNotOverRestartButton(MouseEvent event) {
+        restartButton.setStyle("-fx-background-color: #E74C3C");
+    }
+
+    @FXML
+    void onClickedRestartButton(ActionEvent event) throws IOException{
+
+        changeToScreen("/views/gamepages/GamePageOne.fxml",event);
+
+    }
+
+    @FXML
+    void onClickedBackButton(ActionEvent event) throws IOException{
+
+        changeToScreen("/views/loginpages/LoggedInPage.fxml",event);
+
+    }
+
+    @FXML
+    void onClickedQuitButton(ActionEvent event) throws IOException{
+
+        Stage stage = (Stage) quitButton.getScene().getWindow();
+         stage.close();
+
+    }
+
+
     @Override
     @SuppressWarnings("unchecked")
     public void initialize(URL location, ResourceBundle resources) {
+
+        if(LoggedInController.fromLoggedIn){
+            restartButton.setVisible(false);
+        }
+        else
+        {
+            restartButton.setVisible(true);
+        }
 
         playerService = ServiceLocator.getService(PlayerService.class);
 

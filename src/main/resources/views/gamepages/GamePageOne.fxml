@@ -1,73 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
 <?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageOneController">
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageOneController">
     <children>
-        <Line fx:id="redLine" endX="400.0" fill="RED" layoutX="228.0" layoutY="488.0" onMouseClicked="#onClickedRedLine" onMouseExited="#cursorNotOverRedLine" onMouseMoved="#cursorOverRedLine" startX="-100.0" stroke="RED" strokeLineCap="ROUND" strokeWidth="10.0">
-            <effect>
-                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
-                    <bumpInput>
-                        <Shadow />
-                    </bumpInput>
-                </Lighting>
-            </effect>
-        </Line>
-        <Label fx:id="questionLabel" layoutX="127.0" layoutY="260.0" prefHeight="87.0" prefWidth="503.0" style="-fx-background-color: #786e6e;" text="label" />
-        <Label fx:id="redLabel" layoutX="123.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0" style="-fx-background-color: #ff0000;" text="Label" />
-        <Label fx:id="blueLabel" layoutX="521.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0" style="-fx-background-color: #0000ff;" text="Label" />
-        <Line fx:id="blueLine" endX="400.0" fill="RED" layoutX="228.0" layoutY="533.0" onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine" onMouseMoved="#cursorOverBlueLine" startX="-100.0" stroke="BLUE" strokeLineCap="ROUND" strokeWidth="10.0" style="-fx-smooth: #756868;">
-            <effect>
-                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
-                    <bumpInput>
-                        <Shadow />
-                    </bumpInput>
-                </Lighting>
-            </effect>
-        </Line>
+        <Line fx:id="redLine" endX="500.0" fill="RED" layoutX="228.0" layoutY="510.0" onMouseClicked="#onClickedRedLine" onMouseExited="#cursorNotOverRedLine" onMouseMoved="#cursorOverRedLine" startX="-200.0" stroke="RED" strokeWidth="8.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Line>
+        <Label fx:id="questionLabel" alignment="TOP_LEFT" layoutX="129.0" layoutY="215.0" prefHeight="87.0" prefWidth="503.0" style="-fx-background-color: #2A2C2B;" text="label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="redLabel" alignment="TOP_LEFT" layoutX="123.0" layoutY="392.0" prefHeight="47.0" prefWidth="146.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Label fx:id="blueLabel" alignment="TOP_LEFT" layoutX="502.0" layoutY="392.0" prefHeight="47.0" prefWidth="146.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Line fx:id="blueLine" endX="500.0" fill="RED" layoutX="228.0" layoutY="530.0" onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine" onMouseMoved="#cursorOverBlueLine" startX="-200.0" stroke="BLUE" strokeWidth="8.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Line>
         <ImageView fx:id="bombImage" fitHeight="179.0" fitWidth="173.0" layoutX="317.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="/pictures/bomb.png" />
             </image>
         </ImageView>
-      <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #786e6e;">
-         <children>
-            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" text="60" textFill="#ff2929">
-               <font>
-                  <Font name="Sitka Small Bold" size="57.0" />
-               </font>
-               <effect>
-                  <Lighting diffuseConstant="1.23" specularConstant="0.67" specularExponent="26.98" surfaceScale="3.71">
-                     <bumpInput>
-                        <Shadow height="53.62" radius="18.8975" width="23.97" />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
-            </Label>
-         </children>
-         <effect>
-            <DropShadow height="53.62" radius="27.792499999999997" width="59.55">
-               <input>
-                  <Lighting diffuseConstant="1.42" specularConstant="0.9" specularExponent="22.33" surfaceScale="3.59">
-                     <bumpInput>
-                        <Shadow height="65.48" radius="31.497500000000002" width="62.51" />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </input>
-            </DropShadow>
-         </effect>
-      </HBox>
+        <HBox layoutX="14.0" layoutY="14.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #2A2C2B;">
+            <children>
+                <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" text="60" textFill="#ff2929">
+                    <font>
+                        <Font size="50.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="47.0" layoutX="105.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="47.0" layoutX="488.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
     </children>
 </AnchorPane>
