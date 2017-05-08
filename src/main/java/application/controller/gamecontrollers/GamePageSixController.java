@@ -20,6 +20,7 @@ import javafx.scene.shape.Line;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.bind.annotation.XmlAnyAttribute;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -95,6 +96,9 @@ public class GamePageSixController extends GamePageController implements Initial
 
     @FXML
     private Label pinkLabel;
+
+    @FXML
+    private Label timeLabel;
 
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
@@ -373,6 +377,8 @@ public class GamePageSixController extends GamePageController implements Initial
         skyBlueLabel.setText(questions.get(randomNumbers.get(4)).getAnswer());
         pinkLabel.setText(questions.get(randomNumbers.get(5)).getAnswer());
         brownLabel.setText(questions.get(randomNumbers.get(6)).getAnswer());
+
+        countDown(anchorPane,timeLabel);
     }
 
 }

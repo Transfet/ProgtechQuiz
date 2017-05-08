@@ -46,6 +46,9 @@ public class GamePageThreeController extends GamePageController implements Initi
     private AnchorPane anchorPane;
 
     @FXML
+    private Label timeLabel;
+
+    @FXML
     private Line orangeLine;
 
     @FXML
@@ -242,7 +245,7 @@ public class GamePageThreeController extends GamePageController implements Initi
         orangeLabel.setText(questions.get(randomNumbers.get(2)).getAnswer());
         redLabel.setText(questions.get(randomNumbers.get(3)).getAnswer());
 
-
+        countDown(anchorPane,timeLabel);
     }
 
 }

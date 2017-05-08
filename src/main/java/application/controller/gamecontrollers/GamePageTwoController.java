@@ -70,6 +70,9 @@ public class GamePageTwoController extends GamePageController implements Initial
     private Label greenLabel;
 
     @FXML
+    private Label timeLabel;
+
+    @FXML
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
         isClickedOnGreenLine = true;
@@ -195,6 +198,8 @@ public class GamePageTwoController extends GamePageController implements Initial
         blueLabel.setText(questions.get(randomNumbers.get(0)).getAnswer());
         greenLabel.setText(questions.get(randomNumbers.get(1)).getAnswer());
         skyBlueLabel.setText(questions.get(randomNumbers.get(2)).getAnswer());
+
+        countDown(anchorPane,timeLabel);
 
     }
 

@@ -82,6 +82,9 @@ public class GamePageFourController extends GamePageController implements Initia
     private Label skyBlueLabel;
 
     @FXML
+    private Label timeLabel;
+
+    @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
         isClickedSkyBlueLine = true;
@@ -281,6 +284,9 @@ public class GamePageFourController extends GamePageController implements Initia
         orangeLabel.setText(questions.get(randomNumbers.get(2)).getAnswer());
         redLabel.setText(questions.get(randomNumbers.get(3)).getAnswer());
         skyBlueLabel.setText(questions.get(randomNumbers.get(4)).getAnswer());
+
+        countDown(anchorPane,timeLabel);
+
     }
 
 }

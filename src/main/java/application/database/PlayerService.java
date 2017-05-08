@@ -44,7 +44,7 @@ public class PlayerService implements PlayerServiceInterface {
 
 
     @Override
-    public void updatePlayerPoint(String player, Double point) {
-        playerRepository.updatePlayerPoint(player, point);
+    public void updatePlayerPointAndTime(String player, Double point, Double time) {
+        playerRepository.updatePlayerPointAndTime(player, point, time);
     }
 }

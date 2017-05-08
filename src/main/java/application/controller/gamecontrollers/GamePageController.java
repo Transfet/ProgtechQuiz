@@ -6,7 +6,10 @@ import application.controller.logincontrollers.SignInController;
 import application.database.PlayerService;
 import application.model.player.Player;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -21,8 +24,13 @@ import java.util.List;
 public class GamePageController {
 
     private AnchorPane anchorPane;
-    private Double point = 0.0;
-    private Double time = 0.0;
+    private double point = 0.0;
+    private double weight = 0.0;
+    private double time = 0.0;
+    private final int STARTTIME = 10;
+    private int timeSecond;
+    private boolean changeScreen = false;
+    private Timeline timeline;
 
     private Player signedInPlayer = SignInController.getSignedInPlayer();
     private PlayerService playerService = ServiceLocator.getService(PlayerService.class);
@@ -100,15 +108,21 @@ public class GamePageController {
 
     public void changeToNextGamePage(AnchorPane anchorPane, String to) throws IOException {
 
+        changeScreen = true;
+        weight = timeSecond;
+        time = signedInPlayer.getTime();
+        time += timeSecond;
+        signedInPlayer.setTime(time);
+
+        signedInPlayer.setTime(time);
         point = signedInPlayer.getPoints();
-        point += 30.0;
+        point += 30.0*time;
         signedInPlayer.setPoints(point);
 
-        playerService.updatePlayerPoint(signedInPlayer.getUserName(), signedInPlayer.getPoints());
+        playerService.updatePlayerPointAndTime(signedInPlayer.getUserName(), signedInPlayer.getPoints(), signedInPlayer.getTime());
         System.out.println(signedInPlayer);
         String fromPage = "/views/NextGamePage.fxml";
-        String toPage = to;
-        loadSplashScreen(anchorPane, fromPage, toPage);
+        loadSplashScreen(anchorPane, fromPage, to);
 
     }
 
@@ -118,6 +132,41 @@ public class GamePageController {
         String fromFXML = "/views/GameOverSplash.fxml";
         String toFXML = "/views/Result.fxml";
         loadSplashScreen(anchorPane, fromFXML, toFXML);
+
+    }
+
+    public void countDown(AnchorPane anchorPane,Label timeLabel){
+
+        if(timeline != null){
+            timeline.stop();
+        }
+        timeSecond = STARTTIME;
+
+        timeLabel.setText(Integer.toString(timeSecond));
+        timeline = new Timeline();
+
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),event -> addFrame(anchorPane,timeLabel)));
+
+        timeline.playFromStart();
+
+    }
+
+    private void addFrame(AnchorPane anchorPane,Label label){
+        timeSecond--;
+
+        label.setText(Integer.toString(timeSecond));
+
+        System.out.println(timeSecond);
+
+        if(timeSecond <= 0){
+            timeline.stop();
+            gameOver(anchorPane);
+        }
+
+        if(changeScreen){
+            timeline.stop();
+        }
 
     }
 

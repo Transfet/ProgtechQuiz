@@ -21,7 +21,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
      @Transactional
      @Modifying(clearAutomatically = true)
-     @Query("update Player p set p.points = :point where p.userName = :user")
-     void updatePlayerPoint(@Param("user") String username, @Param("point") Double point);
+     @Query("update Player p set p.points = :point,p.time = :time where p.userName = :user")
+     void updatePlayerPointAndTime(@Param("user") String username, @Param("point") Double point, @Param("time") Double time);
 
 }

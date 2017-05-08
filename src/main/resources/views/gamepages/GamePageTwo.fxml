@@ -1,67 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.gamecontrollers.GamePageTwoController">
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageTwoController">
     <children>
-        <Line fx:id="greenLine" endX="400.0" fill="RED" layoutX="206.0" layoutY="483.0"
-              onMouseClicked="#onClickedGreenLine" onMouseExited="#cursorNotOverGreenLine"
-              onMouseMoved="#cursorOverGreenLine" startX="-100.0" stroke="#3fff00" strokeLineCap="ROUND"
-              strokeWidth="10.0">
+        <Line fx:id="greenLine" endX="400.0" fill="RED" layoutX="206.0" layoutY="483.0" onMouseClicked="#onClickedGreenLine" onMouseExited="#cursorNotOverGreenLine" onMouseMoved="#cursorOverGreenLine" startX="-100.0" stroke="#3fff00" strokeLineCap="ROUND" strokeWidth="10.0">
             <effect>
-                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
-                          surfaceScale="2.78">
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
                     <bumpInput>
-                        <Shadow/>
+                        <Shadow />
                     </bumpInput>
                 </Lighting>
             </effect>
         </Line>
-        <Label fx:id="questionLabel" layoutX="105.0" layoutY="255.0" prefHeight="64.0" prefWidth="503.0"
-               style="-fx-background-color: #786e6e;" text="label"/>
-        <Label fx:id="skyBlueLabel" layoutX="101.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0"
-               style="-fx-background-color: #11c678;" text="Label"/>
-        <Label fx:id="blueLabel" layoutX="496.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0"
-               style="-fx-background-color: #005eff;" text="Label"/>
-        <Line fx:id="skyBlueLine" endX="400.0" fill="RED" layoutX="206.0" layoutY="521.0"
-              onMouseClicked="#onClickedSkyBlueLine" onMouseExited="#cursorNotOverSkyBlueLine"
-              onMouseMoved="#cursorOverSkyBlueLine" startX="-100.0" stroke="#11c678" strokeLineCap="ROUND"
-              strokeWidth="10.0" style="-fx-smooth: #756868;">
+        <Label fx:id="questionLabel" layoutX="105.0" layoutY="255.0" prefHeight="64.0" prefWidth="503.0" style="-fx-background-color: #786e6e;" text="label" />
+        <Label fx:id="skyBlueLabel" layoutX="101.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0" style="-fx-background-color: #11c678;" text="Label" />
+        <Label fx:id="blueLabel" layoutX="496.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0" style="-fx-background-color: #005eff;" text="Label" />
+        <Line fx:id="skyBlueLine" endX="400.0" fill="RED" layoutX="206.0" layoutY="521.0" onMouseClicked="#onClickedSkyBlueLine" onMouseExited="#cursorNotOverSkyBlueLine" onMouseMoved="#cursorOverSkyBlueLine" startX="-100.0" stroke="#11c678" strokeLineCap="ROUND" strokeWidth="10.0" style="-fx-smooth: #756868;">
             <effect>
-                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
-                          surfaceScale="2.78">
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
                     <bumpInput>
-                        <Shadow/>
+                        <Shadow />
                     </bumpInput>
                 </Lighting>
             </effect>
         </Line>
-        <ImageView fx:id="bombImage" fitHeight="178.0" fitWidth="145.0" layoutX="284.0" layoutY="24.0"
-                   pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="bombImage" fitHeight="178.0" fitWidth="145.0" layoutX="284.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="/pictures/bomb.png"/>
+                <Image url="/pictures/bomb.png" />
             </image>
         </ImageView>
-        <Line fx:id="blueLine" endX="400.0" fill="RED" layoutX="206.0" layoutY="560.0"
-              onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine"
-              onMouseMoved="#cursorOverBlueLine" startX="-100.0" stroke="#005eff" strokeLineCap="ROUND"
-              strokeWidth="10.0" style="-fx-smooth: #756868;">
+        <Line fx:id="blueLine" endX="400.0" fill="RED" layoutX="206.0" layoutY="560.0" onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine" onMouseMoved="#cursorOverBlueLine" startX="-100.0" stroke="#005eff" strokeLineCap="ROUND" strokeWidth="10.0" style="-fx-smooth: #756868;">
             <effect>
-                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98"
-                          surfaceScale="2.78">
+                <Lighting diffuseConstant="1.43" light="$null" specularConstant="0.98" specularExponent="26.98" surfaceScale="2.78">
                     <bumpInput>
-                        <Shadow/>
+                        <Shadow />
                     </bumpInput>
                 </Lighting>
             </effect>
         </Line>
-        <Label fx:id="greenLabel" layoutX="300.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0"
-               style="-fx-background-color: #3fff00;" text="Label"/>
+        <Label fx:id="greenLabel" layoutX="300.0" layoutY="392.0" prefHeight="32.0" prefWidth="112.0" style="-fx-background-color: #3fff00;" text="Label" />
+        <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #786e6e;">
+            <children>
+                <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" text="60" textFill="#ff2929">
+                    <effect>
+                        <Lighting diffuseConstant="1.23" specularConstant="0.67" specularExponent="26.98" surfaceScale="3.71">
+                            <bumpInput>
+                                <Shadow height="53.62" radius="18.8975" width="23.97" />
+                            </bumpInput>
+                            <light>
+                                <Light.Distant />
+                            </light>
+                        </Lighting>
+                    </effect>
+               <font>
+                  <Font size="66.0" />
+               </font>
+                </Label>
+            </children>
+            <effect>
+                <DropShadow height="53.62" radius="27.792499999999997" width="59.55">
+                    <input>
+                        <Lighting diffuseConstant="1.42" specularConstant="0.9" specularExponent="22.33" surfaceScale="3.59">
+                            <bumpInput>
+                                <Shadow height="65.48" radius="31.497500000000002" width="62.51" />
+                            </bumpInput>
+                            <light>
+                                <Light.Distant />
+                            </light>
+                        </Lighting>
+                    </input>
+                </DropShadow>
+            </effect>
+        </HBox>
     </children>
 </AnchorPane>

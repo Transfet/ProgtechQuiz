@@ -58,6 +58,9 @@ public class GamePageOneController extends GamePageController implements Initial
     private Label blueLabel;
 
     @FXML
+    private Label timeLabel;
+
+    @FXML
     void onClickedRedLine(MouseEvent event) throws IOException {
 
         isClickedOnRedLine = true;
@@ -150,6 +153,8 @@ public class GamePageOneController extends GamePageController implements Initial
         questionLabel.setText(question1.getQuestion());
         blueLabel.setText(questions.get(randomNumbers.get(0)).getAnswer());
         redLabel.setText(questions.get(randomNumbers.get(1)).getAnswer());
+
+        countDown(anchorPane,timeLabel);
 
     }
 
