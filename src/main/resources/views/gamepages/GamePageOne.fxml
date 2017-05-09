@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageOneController">
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;" stylesheets="/css/gamePageStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageOneController">
     <children>
-        <Line fx:id="redLine" endX="500.0" fill="RED" layoutX="228.0" layoutY="510.0" onMouseClicked="#onClickedRedLine" onMouseExited="#cursorNotOverRedLine" onMouseMoved="#cursorOverRedLine" startX="-200.0" stroke="RED" strokeWidth="8.0">
+        <Line fx:id="redLine" endX="500.0" fill="RED" layoutX="228.0" layoutY="510.0" onMouseClicked="#onClickedRedLine" startX="-200.0" stroke="RED" strokeWidth="8.0" styleClass="customLine">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Line>
-        <Label fx:id="questionLabel" alignment="TOP_LEFT" layoutX="129.0" layoutY="215.0" prefHeight="87.0" prefWidth="503.0" style="-fx-background-color: #2A2C2B;" text="label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+        <Label id="question" fx:id="questionLabel" alignment="TOP_LEFT" layoutX="129.0" layoutY="215.0" prefHeight="87.0" prefWidth="503.0" style="-fx-background-color: #2A2C2B;" styleClass="question" text="label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
             <font>
                 <Font size="20.0" />
             </font>
@@ -30,10 +30,11 @@
                 <Font size="16.0" />
             </font>
         </Label>
-        <Line fx:id="blueLine" endX="500.0" fill="RED" layoutX="228.0" layoutY="530.0" onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine" onMouseMoved="#cursorOverBlueLine" startX="-200.0" stroke="BLUE" strokeWidth="8.0">
+        <Line fx:id="blueLine" endX="500.0" fill="RED" layoutX="228.0" layoutY="530.0" onMouseClicked="#onClickedBlueLine" startX="-200.0" stroke="BLUE" strokeWidth="8.0" styleClass="customLine">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Line>
+         </cursor>
+        </Line>
         <ImageView fx:id="bombImage" fitHeight="179.0" fitWidth="173.0" layoutX="317.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="/pictures/bomb.png" />
@@ -41,7 +42,7 @@
         </ImageView>
         <HBox layoutX="14.0" layoutY="14.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #2A2C2B;">
             <children>
-                <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" text="60" textFill="#ff2929">
+                <Label id="timer" fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" styleClass="timer" text="60" textFill="#ff2929">
                     <font>
                         <Font size="50.0" />
                     </font>

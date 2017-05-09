@@ -5,12 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
     <description></description>
 
+    <licenses>
+        <license>
+            <name></name>
+        </license>
+    </licenses>
+
+
+    <scm>
+        <url>https://github.com/Transfet/ProgtechQuiz</url>
+        <connection>scm:git:git://github.com/Transfet/ProgtechQuiz.git</connection>
+        <developerConnection>scm:git:git@github.com:Transfet/ProgtechQuiz.git</developerConnection>
+    </scm>
+
     <developers>
         <developer>
             <name>Gyulai Alex</name>
             <email>alexgyulai60@gmail.com</email>
         </developer>
     </developers>
+
 
     <groupId>hu.transfet.unideb</groupId>
     <artifactId>ProgtechQuiz</artifactId>
@@ -109,6 +123,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
+                    <encoding>US-ASCII</encoding>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                 </configuration>

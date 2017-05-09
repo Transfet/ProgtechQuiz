@@ -40,7 +40,7 @@ public class GamePageThreeController extends GamePageController implements Initi
     private ImageView bombImage;
 
     private QuestionService questionService;
-    private Question firstQuestion;
+    private Question question;
 
     @FXML
     private AnchorPane anchorPane;
@@ -147,103 +147,49 @@ public class GamePageThreeController extends GamePageController implements Initi
         }
     }
 
-
-    @FXML
-    void cursorOverOrangeLine(MouseEvent event){
-
-        if(!isClickedOnOrangeLine){
-            orangeLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverOrangeLine(MouseEvent event){
-
-        if(!isClickedOnOrangeLine){
-            orangeLine.setStroke(Color.valueOf("#ffbf00"));
-        }
-
-    }
-
-    @FXML
-    void cursorOverPurpleLine(MouseEvent event){
-
-        if(!isClickedPurpleLine){
-            purpleLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverPurpleLine(MouseEvent event){
-
-        if(!isClickedPurpleLine){
-            purpleLine.setStroke(Color.valueOf("#7900ff"));
-        }
-
-    }
-
-    @FXML
-    void cursorOverGreenLine(MouseEvent event){
-        if(!isClickedOnGreenLine) {
-            greenLine.setStroke(Color.GRAY);
-        }
-    }
-
-    @FXML
-    void cursorNotOverGreenLine(MouseEvent event){
-        if(!isClickedOnGreenLine)
-            greenLine.setStroke(Color.valueOf("#11c678"));
-    }
-
-    @FXML
-    void cursorOverRedLine(MouseEvent event){
-
-        if(!isClickedOnRedLine) {
-            redLine.setStroke(Color.GRAY);
-        }
-    }
-
-    @FXML
-    void cursorNotOverRedLine(MouseEvent event){
-        if(!isClickedOnRedLine)
-            redLine.setStroke(Color.RED);
-    }
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         questionService = ServiceLocator.getService(QuestionService.class);
 
         ArrayList<Label> labels = new ArrayList<Label>();
+        ArrayList<String> answers = new ArrayList<>();
+
         labels.add(purpleLabel);
         labels.add(greenLabel);
         labels.add(orangeLabel);
         labels.add(redLabel);
 
 
-        List<Integer> randomNumbersForQuestion = randomNumbers((questionService.findAllQuestion().size()), labels.size(),true);
-        List<Integer> randomNumbers = randomNumbers(labels.size(), labels.size(),false);
+        List<Integer> randomNumbers = randomNumbers(labels.size(), labels.size(), false);
+        List<Question> questions = questionService.findAllQuestion();
 
-        ArrayList<Question> questions = new ArrayList<>();
 
-        questions.add(questionService.findById(randomNumbersForQuestion.get(0)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(1)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(2)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(3)));
+        question = questionService.findById(randomNumberForQuestion.get(2));
 
-        logger.info(questions.get(0).toString());
-        logger.info(questions.get(1).toString());
+        logger.info(Integer.toString(labels.size()));
+        logger.info(Integer.toString(questions.size()));
+        logger.info(Integer.toString(randomNumberForQuestion.get(2)));
 
-        Question question1 = questions.get(0);
+        for(Integer i: randomNumberForQuestion){
+            logger.info(Integer.toString(i));
+        }
 
-        questionLabel.setText(question1.getQuestion());
-        purpleLabel.setText(questions.get(randomNumbers.get(0)).getAnswer());
-        greenLabel.setText(questions.get(randomNumbers.get(1)).getAnswer());
-        orangeLabel.setText(questions.get(randomNumbers.get(2)).getAnswer());
-        redLabel.setText(questions.get(randomNumbers.get(3)).getAnswer());
+        answers.add(question.getCorrectAnswer());
+        answers.add(question.getInCorrectAnswer1());
+        answers.add(question.getInCorrectAnswer3());
+        answers.add(question.getInCorrectAnswer4());
+
+        for(String s: answers){
+            logger.info("asnw:" + s);
+        }
+        questionLabel.setText(question.getQuestion());
+
+        questionLabel.setText(question.getQuestion());
+        purpleLabel.setText(answers.get(randomNumbers.get(0)));
+        greenLabel.setText(answers.get(randomNumbers.get(1)));
+        orangeLabel.setText(answers.get(randomNumbers.get(2)));
+        redLabel.setText(answers.get(randomNumbers.get(3)));
 
         countDown(anchorPane,timeLabel);
     }

@@ -14,7 +14,5 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
     Question findAnswerByQuestion(String question);
     Question findById(int ID);
 
-    @Query("select q from Question q ")
-    Question findQuestionByrandom();
 
 }

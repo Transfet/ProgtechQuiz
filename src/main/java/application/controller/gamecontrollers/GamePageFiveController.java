@@ -51,7 +51,7 @@ public class GamePageFiveController extends GamePageController implements Initia
     private ImageView bombImage;
 
     private QuestionService questionService;
-    private Question firstQuestion;
+    private Question question;
 
     private List<Question> questions;
 
@@ -199,112 +199,13 @@ public class GamePageFiveController extends GamePageController implements Initia
         }
     }
 
-    @FXML
-    void cursorOverSkyBlueLine(MouseEvent event) {
-
-        if (!isClickedSkyBlueLine) {
-            skyBlueLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverSkyBlueLine(MouseEvent event) {
-
-        if (!isClickedSkyBlueLine) {
-            skyBlueLine.setStroke(Color.valueOf("#00f9ff"));
-        }
-
-    }
-
-    @FXML
-    void cursorOverPinkLine(MouseEvent event) {
-
-        if (!isClickedPinkLine) {
-            pinkLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverPinkLine(MouseEvent event) {
-
-        if (!isClickedPinkLine) {
-            pinkLine.setStroke(Color.valueOf("#f83fdd"));
-        }
-
-    }
-
-
-    @FXML
-    void cursorOverOrangeLine(MouseEvent event) {
-
-        if (!isClickedOnOrangeLine) {
-            orangeLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverOrangeLine(MouseEvent event) {
-
-        if (!isClickedOnOrangeLine) {
-            orangeLine.setStroke(Color.valueOf("#ffbf00"));
-        }
-
-    }
-
-    @FXML
-    void cursorOverPurpleLine(MouseEvent event) {
-
-        if (!isClickedPurpleLine) {
-            purpleLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverPurpleLine(MouseEvent event) {
-
-        if (!isClickedPurpleLine) {
-            purpleLine.setStroke(Color.valueOf("#7900ff"));
-        }
-
-    }
-
-    @FXML
-    void cursorOverGreenLine(MouseEvent event) {
-        if (!isClickedOnGreenLine) {
-            greenLine.setStroke(Color.GRAY);
-        }
-    }
-
-    @FXML
-    void cursorNotOverGreenLine(MouseEvent event) {
-        if (!isClickedOnGreenLine)
-            greenLine.setStroke(Color.valueOf("#11c678"));
-    }
-
-    @FXML
-    void cursorOverRedLine(MouseEvent event) {
-
-        if (!isClickedOnRedLine) {
-            redLine.setStroke(Color.GRAY);
-        }
-    }
-
-    @FXML
-    void cursorNotOverRedLine(MouseEvent event) {
-        if (!isClickedOnRedLine)
-            redLine.setStroke(Color.valueOf("#ff0000"));
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         questionService = ServiceLocator.getService(QuestionService.class);
 
+        ArrayList<String>answers = new ArrayList<>();
         ArrayList<Label> labels = new ArrayList<Label>();
         labels.add(purpleLabel);
         labels.add(greenLabel);
@@ -314,30 +215,37 @@ public class GamePageFiveController extends GamePageController implements Initia
         labels.add(pinkLabel);
 
 
-        List<Integer> randomNumbersForQuestion = randomNumbers((questionService.findAllQuestion().size()), labels.size(), true);
         List<Integer> randomNumbers = randomNumbers(labels.size(), labels.size(), false);
+        List<Question> questions = questionService.findAllQuestion();
 
-        ArrayList<Question> questions = new ArrayList<>();
+        question = questionService.findById(randomNumberForQuestion.get(4));
 
-        questions.add(questionService.findById(randomNumbersForQuestion.get(0)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(1)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(2)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(3)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(4)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(5)));
+        logger.info(Integer.toString(labels.size()));
+        logger.info(Integer.toString(questions.size()));
+        logger.info(Integer.toString(randomNumberForQuestion.get(4)));
 
-        logger.info(questions.get(0).toString());
-        logger.info(questions.get(1).toString());
+        for(Integer i: randomNumberForQuestion){
+            logger.info(Integer.toString(i));
+        }
 
-        Question question1 = questions.get(0);
+        answers.add(question.getCorrectAnswer());
+        answers.add(question.getInCorrectAnswer1());
+        answers.add(question.getInCorrectAnswer3());
+        answers.add(question.getInCorrectAnswer4());
+        answers.add(question.getInCorrectAnswer5());
+        answers.add(question.getInCorrectAnswer6());
 
-        questionLabel.setText(question1.getQuestion());
-        purpleLabel.setText(questions.get(randomNumbers.get(0)).getAnswer());
-        greenLabel.setText(questions.get(randomNumbers.get(1)).getAnswer());
-        orangeLabel.setText(questions.get(randomNumbers.get(2)).getAnswer());
-        redLabel.setText(questions.get(randomNumbers.get(3)).getAnswer());
-        skyBlueLabel.setText(questions.get(randomNumbers.get(4)).getAnswer());
-        pinkLabel.setText(questions.get(randomNumbers.get(5)).getAnswer());
+        for(String s: answers){
+            logger.info("asnw:" + s);
+        }
+
+        questionLabel.setText(question.getQuestion());
+        purpleLabel.setText(answers.get(randomNumbers.get(0)));
+        greenLabel.setText(answers.get(randomNumbers.get(1)));
+        orangeLabel.setText(answers.get(randomNumbers.get(2)));
+        redLabel.setText(answers.get(randomNumbers.get(3)));
+        skyBlueLabel.setText(answers.get(randomNumbers.get(4)));
+        pinkLabel.setText(answers.get(randomNumbers.get(5)));
 
         countDown(anchorPane,timeLabel);
     }

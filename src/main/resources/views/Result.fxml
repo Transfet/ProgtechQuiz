@@ -7,41 +7,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ResultController">
+<AnchorPane stylesheets="/css/loginStyle.css" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ResultController">
     <children>
         <TableView fx:id="resultTable" layoutX="80.0" layoutY="22.0" opacity="0.96" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D9CB9E;">
             <columns>
-                <TableColumn fx:id="playerColumn" editable="false" prefWidth="200.0" sortable="false" text="Player" />
-                <TableColumn fx:id="pointColumn" editable="false" prefWidth="213.0" sortable="false" text="Point" />
-                <TableColumn fx:id="timeColumn" editable="false" prefWidth="186.0" sortable="false" text="Time" />
+                <TableColumn fx:id="playerColumn" editable="false" prefWidth="200.0" sortType="DESCENDING" sortable="false" text="Player" />
+                <TableColumn fx:id="pointColumn" editable="false" prefWidth="213.0" sortType="DESCENDING" sortable="false" text="Point" />
+                <TableColumn fx:id="timeColumn" editable="false" prefWidth="186.0" sortType="DESCENDING" sortable="false" text="Time" />
             </columns>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
         </TableView>
-      <JFXButton fx:id="restartButton" layoutX="80.0" layoutY="492.0" onAction="#onClickedRestartButton" onMouseExited="#mouseNotOverRestartButton" onMouseMoved="#mouseOverRestartButton" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #E74C3C;" text="Restart">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="backButton" layoutX="330.0" layoutY="492.0" onAction="#onClickedBackButton" onMouseExited="#mouseNotOverBackButton" onMouseMoved="#mouseOverBackButton" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #E74C3C;" text="Back">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="quitButton" layoutX="579.0" layoutY="492.0" onAction="#onClickedQuitButton" onMouseExited="#mouseNotOverQuitButton" onMouseMoved="#mouseOverQuitButton" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #E74C3C;" text="Quit">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
+      <JFXButton fx:id="restartButton" layoutX="80.0" layoutY="492.0" onAction="#onClickedRestartButton"  prefHeight="40.0" prefWidth="101.0" />
+      <JFXButton fx:id="backButton" layoutX="330.0" layoutY="492.0" onAction="#onClickedBackButton" prefHeight="40.0" prefWidth="101.0" text="Back"/>
+      <JFXButton fx:id="quitButton" layoutX="579.0" layoutY="492.0" onAction="#onClickedQuitButton"  prefHeight="40.0" prefWidth="101.0"  text="Quit"/>
     </children>
 </AnchorPane>

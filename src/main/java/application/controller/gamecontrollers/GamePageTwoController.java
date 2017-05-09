@@ -5,7 +5,6 @@ package application.controller.gamecontrollers;
  */
 
 
-
 import application.ServiceLocator;
 import application.database.QuestionService;
 import application.model.questions.Question;
@@ -39,11 +38,11 @@ public class GamePageTwoController extends GamePageController implements Initial
     private ImageView bombImage;
 
     private QuestionService questionService;
-    private Question firstQuestion;
+    private Question question;
 
     private List<Label> labels;
+    private List<String> answers;
 
-    private List<Question> questions;
 
     @FXML
     private AnchorPane anchorPane;
@@ -79,7 +78,7 @@ public class GamePageTwoController extends GamePageController implements Initial
 
         if (!greenLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            greenLine.setStroke(Color.BLACK);
+            //greenLine.setStroke(Color.BLACK);
         } else
             gameOver(anchorPane);
 
@@ -94,7 +93,7 @@ public class GamePageTwoController extends GamePageController implements Initial
 
         if (!blueLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            blueLine.setStroke(Color.BLACK);
+           // blueLine.setStroke(Color.BLACK);
         } else
             gameOver(anchorPane);
 
@@ -113,7 +112,7 @@ public class GamePageTwoController extends GamePageController implements Initial
 
         if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            skyBlueLine.setStroke(Color.BLACK);
+       //     skyBlueLine.setStroke(Color.BLACK);
         } else
             gameOver(anchorPane);
 
@@ -122,84 +121,46 @@ public class GamePageTwoController extends GamePageController implements Initial
         }
     }
 
-
-    @FXML
-    void cursorOverSkyBlueLine(MouseEvent event) {
-
-        if (!isClickedOnSkyBlueLine) {
-            skyBlueLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverSkyBlueLine(MouseEvent event) {
-
-        if (!isClickedOnSkyBlueLine) {
-            skyBlueLine.setStroke(Color.valueOf("#00ebff"));
-        }
-
-    }
-
-    @FXML
-    void cursorOverBlueLine(MouseEvent event) {
-
-        if (!isClickedOnBlueLine) {
-            blueLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverBlueLine(MouseEvent event) {
-
-        if (!isClickedOnBlueLine) {
-            blueLine.setStroke(Color.valueOf("#005eff"));
-        }
-
-    }
-
-    @FXML
-    void cursorOverGreenLine(MouseEvent event) {
-        if (!isClickedOnGreenLine) {
-            greenLine.setStroke(Color.GRAY);
-        }
-    }
-
-    @FXML
-    void cursorNotOverGreenLine(MouseEvent event) {
-        if (!isClickedOnGreenLine)
-            greenLine.setStroke(Color.valueOf("#3fff00"));
-    }
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         questionService = ServiceLocator.getService(QuestionService.class);
 
-        labels = new ArrayList<Label>();
+        answers = new ArrayList<>();
+        labels = new ArrayList<>();
+
         labels.add(blueLabel);
         labels.add(greenLabel);
         labels.add(skyBlueLabel);
 
-        List<Integer> randomNumbersForQuestion = randomNumbers((questionService.findAllQuestion().size()), labels.size(), true);
+
         List<Integer> randomNumbers = randomNumbers(labels.size(), labels.size(), false);
+        List<Question> questions = questionService.findAllQuestion();
 
-        ArrayList<Question> questions = new ArrayList<>();
+        logger.info(Integer.toString(labels.size()));
+        logger.info(Integer.toString(questions.size()));
+        logger.info(Integer.toString(randomNumberForQuestion.get(1)));
 
-        questions.add(questionService.findById(randomNumbersForQuestion.get(0)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(1)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(2)));
+        for (Integer i : randomNumberForQuestion) {
+            logger.info(Integer.toString(i));
+        }
 
-        Question question1 = questions.get(0);
+        question = questionService.findById(randomNumberForQuestion.get(1));
 
-        questionLabel.setText(question1.getQuestion());
-        blueLabel.setText(questions.get(randomNumbers.get(0)).getAnswer());
-        greenLabel.setText(questions.get(randomNumbers.get(1)).getAnswer());
-        skyBlueLabel.setText(questions.get(randomNumbers.get(2)).getAnswer());
+        answers.add(question.getCorrectAnswer());
+        answers.add(question.getInCorrectAnswer1());
+        answers.add(question.getInCorrectAnswer3());
 
-        countDown(anchorPane,timeLabel);
+        for (String s : answers) {
+            logger.info("asnw:" + s);
+        }
+
+        questionLabel.setText(question.getQuestion());
+        blueLabel.setText(answers.get(randomNumbers.get(0)));
+        greenLabel.setText(answers.get(randomNumbers.get(1)));
+        skyBlueLabel.setText(answers.get(randomNumbers.get(2)));
+
+        countDown(anchorPane, timeLabel);
 
     }
 

@@ -2,102 +2,31 @@
 
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<?import javafx.scene.text.Font?>
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
+
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" stylesheets="/css/gamePageStyle.css"
             fx:controller="application.controller.gamecontrollers.GamePageFourController">
     <children>
-        <Line fx:id="redLine" endX="400.0" fill="RED" layoutX="230.0" layoutY="497.0" onMouseClicked="#onClickedRedLine"
-              onMouseExited="#cursorNotOverRedLine" onMouseMoved="#cursorOverRedLine" startX="-100.0" stroke="RED"
-              strokeLineCap="ROUND" strokeWidth="10.0">
-            <effect>
-                <DropShadow color="RED" height="58.0" radius="26.5" spread="0.1" width="50.0">
-                    <input>
-                        <Lighting diffuseConstant="1.43" specularConstant="0.98" specularExponent="26.98"
-                                  surfaceScale="2.78">
-                            <bumpInput>
-                                <Shadow/>
-                            </bumpInput>
-                            <light>
-                                <Light.Distant/>
-                            </light>
-                        </Lighting>
-                    </input>
-                </DropShadow>
-            </effect>
+        <Line fx:id="redLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="490.0" onMouseClicked="#onClickedRedLine" startX="-200.0" stroke="RED" styleClass="customLine">
         </Line>
         <Label fx:id="questionLabel" layoutX="129.0" layoutY="170.0" prefHeight="95.0" prefWidth="503.0"
-               style="-fx-background-color: #786e6e;" text="label">
-            <font>
-                <Font name="Comic Sans MS Bold Italic" size="18.0"/>
-            </font>
-            <effect>
-                <Lighting specularExponent="28.0" surfaceScale="1.96">
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+               style="-fx-background-color: #2A2C2B;" text="label" textAlignment="CENTER" textFill="#e74c3c"
+               wrapText="true" styleClass="question">
         </Label>
-        <Label fx:id="greenLabel" layoutX="125.0" layoutY="294.0" prefHeight="46.0" prefWidth="144.0"
-               style="-fx-background-color: #11c678;" text="Label">
-            <font>
-                <Font name="Times New Roman Bold" size="13.0"/>
-            </font>
-            <effect>
-                <Lighting specularExponent="28.0" surfaceScale="0.8">
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+        <Label fx:id="greenLabel" layoutX="36.0" layoutY="274.0" prefHeight="72.0" prefWidth="187.0"
+               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+               wrapText="true">
         </Label>
-        <Label fx:id="redLabel" layoutX="491.0" layoutY="294.0" prefHeight="46.0" prefWidth="144.0"
-               style="-fx-background-color: #ff0000;" text="Label">
-            <font>
-                <Font name="Times New Roman Bold" size="13.0"/>
-            </font>
-            <effect>
-                <Lighting specularExponent="28.0" surfaceScale="0.8">
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+        <Label fx:id="redLabel" layoutX="484.0" layoutY="271.0" prefHeight="72.0" prefWidth="187.0"
+               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+               wrapText="true">
         </Label>
-        <Line fx:id="greenLine" endX="400.0" fill="RED" layoutX="230.0" layoutY="527.0"
-              onMouseClicked="#onClickedGreenLine" onMouseExited="#cursorNotOverGreenLine"
-              onMouseMoved="#cursorOverGreenLine" startX="-100.0" stroke="#11c678" strokeLineCap="ROUND"
-              strokeWidth="10.0" style="-fx-smooth: #756868;">
-            <effect>
-                <DropShadow color="#11c678" height="58.0" radius="26.5" spread="0.1" width="50.0">
-                    <input>
-                        <Lighting diffuseConstant="1.43" specularConstant="0.98" specularExponent="26.98"
-                                  surfaceScale="2.78">
-                            <bumpInput>
-                                <Shadow/>
-                            </bumpInput>
-                            <light>
-                                <Light.Distant/>
-                            </light>
-                        </Lighting>
-                    </input>
-                </DropShadow>
-            </effect>
+        <Line fx:id="greenLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="510.0"
+              onMouseClicked="#onClickedGreenLine" styleClass="customLine" startX="-200.0" stroke="GREEN">
         </Line>
         <ImageView fx:id="bombImage" fitHeight="136.0" fitWidth="144.0" layoutX="310.0" layoutY="14.0"
                    pickOnBounds="true" preserveRatio="true">
@@ -105,155 +34,48 @@
                 <Image url="/pictures/bomb.png"/>
             </image>
         </ImageView>
-        <Line fx:id="purpleLine" endX="400.0" fill="RED" layoutX="230.0" layoutY="557.0"
-              onMouseClicked="#onClickedPurpleLine" onMouseExited="#cursorNotOverPurpleLine"
-              onMouseMoved="#cursorOverPurpleLine" startX="-100.0" stroke="#7900ff" strokeLineCap="ROUND"
-              strokeWidth="10.0" style="-fx-smooth: #756868;">
-            <effect>
-                <DropShadow color="#7900ff" height="58.0" radius="26.5" spread="0.1" width="50.0">
-                    <input>
-                        <Lighting diffuseConstant="1.43" specularConstant="0.98" specularExponent="26.98"
-                                  surfaceScale="2.78">
-                            <bumpInput>
-                                <Shadow/>
-                            </bumpInput>
-                            <light>
-                                <Light.Distant/>
-                            </light>
-                        </Lighting>
-                    </input>
-                </DropShadow>
-            </effect>
+        <Line fx:id="purpleLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="530.0"
+              onMouseClicked="#onClickedPurpleLine" styleClass="customLine" startX="-200.0" stroke="PURPLE" >
+
         </Line>
-        <Label fx:id="purpleLabel" layoutX="300.0" layoutY="294.0" prefHeight="46.0" prefWidth="130.0"
-               style="-fx-background-color: #7900ff;" text="Label">
-            <font>
-                <Font name="Times New Roman Bold" size="13.0"/>
-            </font>
-            <effect>
-                <Lighting specularExponent="28.0" surfaceScale="0.8">
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+        <Label fx:id="purpleLabel" layoutX="269.0" layoutY="271.0" prefHeight="72.0" prefWidth="187.0"
+               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+               wrapText="true">
         </Label>
-        <Label fx:id="orangeLabel" layoutX="204.0" layoutY="381.0" prefHeight="46.0" prefWidth="130.0"
-               style="-fx-background-color: #ffbf00;" text="Label">
-            <font>
-                <Font name="Times New Roman Bold" size="13.0"/>
-            </font>
-            <effect>
-                <Lighting specularExponent="28.0" surfaceScale="0.8">
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+        <Label fx:id="orangeLabel" layoutX="130.0" layoutY="381.0" prefHeight="72.0" prefWidth="187.0"
+               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+               wrapText="true">
         </Label>
-        <Line fx:id="orangeLine" endX="400.0" fill="RED" layoutX="230.0" layoutY="469.0"
-              onMouseClicked="#onClickedOrangeLine" onMouseExited="#cursorNotOverOrangeLine"
-              onMouseMoved="#cursorOverOrangeLine" startX="-100.0" stroke="#ffbf00" strokeLineCap="ROUND"
-              strokeWidth="10.0">
-            <effect>
-                <DropShadow color="#ffbf00" height="58.0" radius="26.5" spread="0.1" width="50.0">
-                    <input>
-                        <Lighting diffuseConstant="1.43" specularConstant="0.98" specularExponent="26.98"
-                                  surfaceScale="2.78">
-                            <bumpInput>
-                                <Shadow/>
-                            </bumpInput>
-                            <light>
-                                <Light.Distant/>
-                            </light>
-                        </Lighting>
-                    </input>
-                </DropShadow>
-            </effect>
+        <Line fx:id="orangeLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="470.0"
+              onMouseClicked="#onClickedOrangeLine" styleClass="customLine" startX="-200.0" stroke="ORANGE" >
+
         </Line>
-        <Line fx:id="skyBlueLine" endX="400.0" fill="RED" layoutX="231.0" layoutY="582.0"
-              onMouseClicked="#onClickedSkyBlueLine" onMouseExited="#cursorNotOverSkyBlueLine"
-              onMouseMoved="#cursorOverSkyBlueLine" startX="-100.0" stroke="#00f9ff" strokeLineCap="ROUND"
-              strokeWidth="10.0" style="-fx-smooth: #756868;">
-            <effect>
-                <DropShadow color="#00f9ff" height="58.0" radius="26.5" spread="0.1" width="50.0">
-                    <input>
-                        <Lighting diffuseConstant="1.43" specularConstant="0.98" specularExponent="26.98"
-                                  surfaceScale="2.78">
-                            <bumpInput>
-                                <Shadow/>
-                            </bumpInput>
-                            <light>
-                                <Light.Distant/>
-                            </light>
-                        </Lighting>
-                    </input>
-                </DropShadow>
-            </effect>
+        <Line fx:id="skyBlueLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="550.0"
+              onMouseClicked="#onClickedSkyBlueLine" styleClass="customLine" startX="-200.0" stroke="#00f9ff" >
+
         </Line>
-        <Label fx:id="skyBlueLabel" layoutX="426.0" layoutY="381.0" prefHeight="46.0" prefWidth="130.0"
-               style="-fx-background-color: #00f9ff;" text="Label">
-            <font>
-                <Font name="Times New Roman Bold" size="13.0"/>
-            </font>
-            <effect>
-                <Lighting specularExponent="28.0" surfaceScale="0.8">
-                    <bumpInput>
-                        <Shadow/>
-                    </bumpInput>
-                    <light>
-                        <Light.Distant/>
-                    </light>
-                </Lighting>
-            </effect>
+        <Label fx:id="skyBlueLabel" layoutX="374.0" layoutY="381.0" prefHeight="72.0" prefWidth="187.0"
+               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+               wrapText="true">
         </Label>
 
-        <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #786e6e;">
+        <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #2A2C2B;">
             <children>
                 <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" text="60"
-                       textFill="#ff2929">
-                    <font>
-                        <Font name="Sitka Small Bold" size="57.0"/>
-                    </font>
-                    <effect>
-                        <DropShadow blurType="GAUSSIAN" color="#ff2020" height="23.97" radius="12.225" spread="0.34"
-                                    width="26.93">
-                            <input>
-                                <Lighting diffuseConstant="0.93" specularConstant="0.79" specularExponent="30.24"
-                                          surfaceScale="5.57">
-                                    <bumpInput>
-                                        <Shadow/>
-                                    </bumpInput>
-                                    <light>
-                                        <Light.Distant/>
-                                    </light>
-                                </Lighting>
-                            </input>
-                        </DropShadow>
-                    </effect>
+                       textFill="#e74c3c" styleClass="timer">
+
                 </Label>
             </children>
-            <effect>
-                <DropShadow height="56.58" radius="28.5325" width="59.55">
-                    <input>
-                        <Lighting diffuseConstant="1.42" specularConstant="0.88" specularExponent="33.49"
-                                  surfaceScale="2.54">
-                            <bumpInput>
-                                <Shadow height="22.49" radius="11.855" width="26.93"/>
-                            </bumpInput>
-                            <light>
-                                <Light.Distant/>
-                            </light>
-                        </Lighting>
-                    </input>
-                </DropShadow>
-            </effect>
         </HBox>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="72.0" layoutX="15.0" layoutY="274.0"
+                   stroke="BLACK" strokeType="INSIDE" width="22.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="72.0" layoutX="247.0" layoutY="271.0"
+                   stroke="BLACK" strokeType="INSIDE" width="22.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="72.0" layoutX="457.0" layoutY="271.0"
+                   stroke="BLACK" strokeType="INSIDE" width="22.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="72.0" layoutX="106.0" layoutY="381.0"
+                   stroke="BLACK" strokeType="INSIDE" width="22.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00f9ff" height="72.0" layoutX="352.0" layoutY="381.0"
+                   stroke="BLACK" strokeType="INSIDE" width="22.0"/>
     </children>
 </AnchorPane>

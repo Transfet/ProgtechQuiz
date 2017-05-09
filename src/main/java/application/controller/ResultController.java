@@ -52,35 +52,6 @@ public class ResultController extends Controller implements Initializable {
 
     private ObservableList<PlayerResult> data;
 
-    @FXML
-    void mouseOverQuitButton(MouseEvent event) {
-        quitButton.setStyle("-fx-background-color: #ECF0F1");
-    }
-
-    @FXML
-    void mouseNotOverQuitButton(MouseEvent event) {
-        quitButton.setStyle("-fx-background-color: #E74C3C");
-    }
-
-    @FXML
-    void mouseOverBackButton(MouseEvent event) {
-        backButton.setStyle("-fx-background-color: #ECF0F1");
-    }
-
-    @FXML
-    void mouseNotOverBackButton(MouseEvent event) {
-        backButton.setStyle("-fx-background-color: #E74C3C");
-    }
-
-    @FXML
-    void mouseOverRestartButton(MouseEvent event) {
-        restartButton.setStyle("-fx-background-color: #ECF0F1");
-    }
-
-    @FXML
-    void mouseNotOverRestartButton(MouseEvent event) {
-        restartButton.setStyle("-fx-background-color: #E74C3C");
-    }
 
     @FXML
     void onClickedRestartButton(ActionEvent event) throws IOException{
@@ -109,6 +80,8 @@ public class ResultController extends Controller implements Initializable {
     @SuppressWarnings("unchecked")
     public void initialize(URL location, ResourceBundle resources) {
 
+        boolean checkValid = false;
+
         if(LoggedInController.fromLoggedIn){
             restartButton.setVisible(false);
         }
@@ -133,11 +106,11 @@ public class ResultController extends Controller implements Initializable {
             PlayerResult res = new PlayerResult(p.getUserName(), p.getPoints(), p.getTime());
 
             data.add(res);
-        }
+
+                }
 
         resultTable.setItems(null);
         resultTable.setItems(data);
-
 
     }
 }

@@ -9,28 +9,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageTwoController">
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" stylesheets="/css/gamePageStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.gamecontrollers.GamePageTwoController">
     <children>
-        <Line fx:id="greenLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="480.0" onMouseClicked="#onClickedGreenLine" onMouseExited="#cursorNotOverGreenLine" onMouseMoved="#cursorOverGreenLine" startX="-200.0" stroke="#3fff00" strokeWidth="8.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Line>
-
-        <Label fx:id="questionLabel" alignment="TOP_LEFT" layoutX="107.0" layoutY="202.0" prefHeight="99.0" prefWidth="498.0" style="-fx-background-color: #2A2C2B;" text="label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+        <Line fx:id="greenLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="480.0" onMouseClicked="#onClickedGreenLine" startX="-200.0" stroke="GREEN" styleClass="customLine">
+        </Line>
+        <Label fx:id="questionLabel" alignment="TOP_LEFT" layoutX="107.0" layoutY="202.0" prefHeight="99.0" prefWidth="498.0" style="-fx-background-color: #2A2C2B;" styleClass="question" text="label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
          <font>
             <Font size="20.0" />
-         </font></Label>
+         </font>
+        </Label>
 
-        <Label fx:id="skyBlueLabel" layoutX="105.0" layoutY="322.0" prefHeight="61.0" prefWidth="145.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+        <Label fx:id="skyBlueLabel" layoutX="86.0" layoutY="322.0" prefHeight="81.0" prefWidth="174.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CENTER_ELLIPSIS" wrapText="true">
          <font>
             <Font size="16.0" />
-         </font></Label>
+         </font>
+        </Label>
 
-        <Label fx:id="blueLabel" layoutX="578.0" layoutY="322.0" prefHeight="61.0" prefWidth="145.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+        <Label fx:id="blueLabel" layoutX="558.0" layoutY="322.0" prefHeight="81.0" prefWidth="174.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
          <font>
             <Font size="16.0" />
-         </font></Label>
-        <Line fx:id="skyBlueLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="500.0" onMouseClicked="#onClickedSkyBlueLine" onMouseExited="#cursorNotOverSkyBlueLine" onMouseMoved="#cursorOverSkyBlueLine" startX="-200.0" stroke="#00ebff" strokeWidth="8.0">
+         </font>
+        </Label>
+        <Line fx:id="skyBlueLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="500.0" onMouseClicked="#onClickedSkyBlueLine" startX="-200.0" stroke="#00ebff" styleClass="customLine">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Line>
@@ -39,25 +39,22 @@
                 <Image url="/pictures/bomb.png" />
             </image>
         </ImageView>
-        <Line fx:id="blueLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="520.0" onMouseClicked="#onClickedBlueLine" onMouseExited="#cursorNotOverBlueLine" onMouseMoved="#cursorOverBlueLine" startX="-200.0" stroke="BLUE" strokeWidth="8.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Line>
-        <Label fx:id="greenLabel" layoutX="317.0" layoutY="322.0" prefHeight="61.0" prefWidth="145.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
+        <Line fx:id="blueLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="520.0" onMouseClicked="#onClickedBlueLine" startX="-200.0" stroke="BLUE" styleClass="customLine">
+
+        </Line>
+        <Label fx:id="greenLabel" layoutX="317.0" layoutY="322.0" prefHeight="81.0" prefWidth="174.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true">
          <font>
             <Font size="16.0" />
-         </font></Label>
+         </font>
+        </Label>
         <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #2A2C2B;">
             <children>
-                <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" text="60" textFill="#ff2929">
-                    <font>
-                        <Font name="Sitka Small Bold" size="57.0" />
-                    </font>
+                <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" styleClass="timer" text="60" textFill="#ff2929">
                 </Label>
             </children>
         </HBox>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00ebff" height="61.0" layoutX="84.0" layoutY="319.0" stroke="BLACK" strokeType="INSIDE" width="21.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3fff00" height="61.0" layoutX="296.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" width="21.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="61.0" layoutX="557.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" width="21.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00ebff" height="81.0" layoutX="65.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" width="21.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="81.0" layoutX="296.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" width="21.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="81.0" layoutX="537.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" width="21.0" />
     </children>
 </AnchorPane>

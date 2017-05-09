@@ -35,9 +35,10 @@ public class GamePageOneController extends GamePageController implements Initial
     private ImageView bombImage;
 
     private QuestionService questionService;
-    private Question firstQuestion;
+    private Question question;
 
     private List<Label> labels;
+    private List<String> answers;
 
     @FXML
     private AnchorPane anchorPane;
@@ -86,7 +87,6 @@ public class GamePageOneController extends GamePageController implements Initial
         } else
             gameOver(anchorPane);
 
-
         if (checkLastAnswer == 1) {
 
             changeToNextGamePage(anchorPane, "/views/gamepages/GamePageTwo.fxml");
@@ -95,64 +95,29 @@ public class GamePageOneController extends GamePageController implements Initial
 
     }
 
-    @FXML
-    void cursorOverBlueLine(MouseEvent event) {
-
-        if (!isClickedOnBlueLine) {
-            blueLine.setStroke(Color.GRAY);
-        }
-
-    }
-
-    @FXML
-    void cursorNotOverBlueLine(MouseEvent event) {
-
-        if (!isClickedOnBlueLine) {
-            blueLine.setStroke(Color.BLUE);
-        }
-
-    }
-
-    @FXML
-    void cursorOverRedLine(MouseEvent event) {
-        if (!isClickedOnRedLine) {
-            redLine.setStroke(Color.GRAY);
-        }
-    }
-
-    @FXML
-    void cursorNotOverRedLine(MouseEvent event) {
-        if (!isClickedOnRedLine)
-            redLine.setStroke(Color.RED);
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         questionService = ServiceLocator.getService(QuestionService.class);
-        labels = new ArrayList<Label>();
+
+        randomNumberForQuestion = randomNumbers((questionService.findAllQuestion().size()), 6, true);
+
+        labels = new ArrayList<>();
+        answers = new ArrayList<>();
         labels.add(blueLabel);
         labels.add(redLabel);
 
-        //  ArrayList<Question> questions = randomQuestions(questionService,2);
-
-        List<Integer> randomNumbersForQuestion = randomNumbers((questionService.findAllQuestion().size()), 2, true);
         List<Integer> randomNumbers = randomNumbers(labels.size(), 2, false);
 
-        ArrayList<Question> questions = new ArrayList<>();
+        question = questionService.findById(randomNumberForQuestion.get(0));
 
-        questions.add(questionService.findById(randomNumbersForQuestion.get(0)));
-        questions.add(questionService.findById(randomNumbersForQuestion.get(1)));
+        answers.add(question.getCorrectAnswer());
+        answers.add(question.getInCorrectAnswer1());
 
-        logger.info(questions.get(0).toString());
-        logger.info(questions.get(1).toString());
-
-        Question question1 = questions.get(0);
-
-        questionLabel.setText(question1.getQuestion());
-        blueLabel.setText(questions.get(randomNumbers.get(0)).getAnswer());
-        redLabel.setText(questions.get(randomNumbers.get(1)).getAnswer());
+        questionLabel.setText(question.getQuestion());
+        blueLabel.setText(answers.get(randomNumbers.get(0)));
+        redLabel.setText(answers.get(randomNumbers.get(1)));
 
         countDown(anchorPane,timeLabel);
 

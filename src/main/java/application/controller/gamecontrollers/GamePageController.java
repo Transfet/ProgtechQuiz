@@ -4,6 +4,7 @@ import application.Game;
 import application.ServiceLocator;
 import application.controller.logincontrollers.SignInController;
 import application.database.PlayerService;
+import application.database.QuestionService;
 import application.model.player.Player;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
@@ -25,6 +26,7 @@ import java.util.List;
  */
 public class GamePageController {
 
+
     private AnchorPane anchorPane;
     private double point = 0.0;
     private double weight = 0.0;
@@ -37,6 +39,10 @@ public class GamePageController {
 
     private Player signedInPlayer = SignInController.getSignedInPlayer();
     private PlayerService playerService = ServiceLocator.getService(PlayerService.class);
+
+    public static List<Integer> randomNumberForQuestion;
+
+
 
     public List<Integer> randomNumbers(int size, int neededNumbers, boolean fromOne) {
 
@@ -64,7 +70,9 @@ public class GamePageController {
 
 
         for (Integer intig : randomNumbers)
-            System.out.println(intig.toString());
+            logger.info("numbers: " + Integer.toString(intig));
+
+        logger.info("size: " + Integer.toString(randomNumbers.size()));
 
         return randomNumbers;
     }
@@ -111,7 +119,11 @@ public class GamePageController {
 
     public void changeToNextGamePage(AnchorPane anchorPane, String to) throws IOException {
 
+        String fromPage;
+        String toPage = to;
+
         timeline.stop();
+
         weight = timeSecond;
         time = signedInPlayer.getTime();
         time += timeSecond;
@@ -123,11 +135,18 @@ public class GamePageController {
         signedInPlayer.setPoints(point);
 
         playerService.updatePlayerPointAndTime(signedInPlayer.getUserName(), signedInPlayer.getPoints(), signedInPlayer.getTime());
-        System.out.println(signedInPlayer);
-        String fromPage = "/views/NextGamePage.fxml";
-        loadSplashScreen(anchorPane, fromPage, to);
 
+       if(to.equals("/views/FinishSplash.fxml")){
 
+            fromPage = "/views/FinishSplash.fxml";
+            toPage = "/views/Result.fxml";
+
+        }else {
+           fromPage = "/views/NextGamePage.fxml";
+        }
+
+        loadSplashScreen(anchorPane, fromPage, toPage);
+//4  6
     }
 
     public void gameOver(AnchorPane anchorPane) {

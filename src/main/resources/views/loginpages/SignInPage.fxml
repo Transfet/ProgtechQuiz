@@ -6,9 +6,9 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.logincontrollers.SignInController">
+<AnchorPane fx:id="anchorPane" maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/loginStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.logincontrollers.SignInController">
     <children>
-        <JFXTextField fx:id="userNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="203.0" layoutY="51.0" prefHeight="36.0" prefWidth="195.0" promptText="User name" stylesheets="@../../css/textfield.css" unFocusColor="#374140">
+        <JFXTextField fx:id="userNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="203.0" layoutY="51.0" prefHeight="36.0" prefWidth="195.0" promptText="User name"  unFocusColor="#374140">
             <font>
                 <Font name="Times New Roman" size="12.0" />
             </font>
@@ -16,7 +16,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
         </JFXTextField>
-        <JFXPasswordField fx:id="passwordField" alignment="BOTTOM_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="203.0" layoutY="120.0" prefHeight="36.0" prefWidth="195.0" promptText="Password" stylesheets="/css/textfield.css" unFocusColor="#374140">
+        <JFXPasswordField fx:id="passwordField" alignment="BOTTOM_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="203.0" layoutY="120.0" prefHeight="36.0" prefWidth="195.0" promptText="Password" unFocusColor="#374140">
          <font>
             <Font name="Times New Roman" size="12.0" />
          </font>
@@ -24,7 +24,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
         </JFXPasswordField>
-        <JFXButton fx:id="signInButton" defaultButton="true" layoutX="255.0" layoutY="200.0" onAction="#onClickedSignInButton" onMouseExited="#mouseNotOverSignInButton" onMouseMoved="#mouseOverSignInButton" prefHeight="22.0" prefWidth="91.0" style="-fx-background-color: #E74C3C;" text="Sign in" textFill="#210000">
+        <JFXButton fx:id="signInButton" defaultButton="true" layoutX="255.0" layoutY="181.0" onAction="#onClickedSignInButton" prefHeight="39.0" prefWidth="91.0" text="Sign in" textFill="#210000">
          <font>
             <Font size="18.0" />
          </font>
@@ -32,7 +32,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </JFXButton>
-        <JFXButton fx:id="signUpButton" layoutX="255.0" layoutY="263.0" onAction="#onClickedSignUpButton" onMouseExited="#mouseNotOverSignUpButton" onMouseMoved="#mouseOverSignUpButton" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #E74C3C;" text="Sign up" textFill="#210000">
+        <JFXButton fx:id="signUpButton" layoutX="255.0" layoutY="242.0" onAction="#onClickedSignUpButton" prefHeight="32.0" prefWidth="91.0" text="Sign up" textFill="#210000">
          <font>
             <Font size="18.0" />
          </font>
@@ -43,7 +43,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </JFXButton>
-        <JFXButton fx:id="quitButton" layoutX="255.0" layoutY="330.0" onAction="#onClickedQuitButton" onMouseExited="#mouseNotOverQuitButton" onMouseMoved="#mouseOverQuitButton" prefHeight="14.0" prefWidth="91.0" style="-fx-background-color: #E74C3C;" text="Quit" textFill="#210000">
+        <JFXButton id="button" fx:id="quitButton" layoutX="255.0" layoutY="307.0" onAction="#onClickedQuitButton" prefHeight="14.0" prefWidth="91.0" text="Quit" textFill="#210000">
          <font>
             <Font size="18.0" />
          </font>

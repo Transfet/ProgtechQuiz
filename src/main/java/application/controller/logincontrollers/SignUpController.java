@@ -25,7 +25,6 @@ public class SignUpController extends Controller implements Initializable {
 
     private Logger logger = LoggerFactory.getLogger(SignUpController.class);
 
-
     @FXML
     private JFXTextField userNameField;
 
@@ -99,34 +98,6 @@ public class SignUpController extends Controller implements Initializable {
         logger.info("Added a new User to the DB: ");
         logger.info(player.toString());
         logger.info("--");
-
-    }
-
-    @FXML
-    void mouseNotOverSignUpButton(MouseEvent event) {
-
-        signUpButton.setStyle("-fx-background-color: #E74C3C");
-
-    }
-
-    @FXML
-    void mouseOverSignUpButton(MouseEvent event) {
-
-        signUpButton.setStyle("-fx-background-color: #ECF0F1");
-
-    }
-
-    @FXML
-    void mouseNotOverBackButton(MouseEvent event) {
-
-        backButton.setStyle("-fx-background-color: #E74C3C");
-
-    }
-
-    @FXML
-    void mouseOverBackButton(MouseEvent event) {
-
-        backButton.setStyle("-fx-background-color: #ECF0F1");
 
     }
 

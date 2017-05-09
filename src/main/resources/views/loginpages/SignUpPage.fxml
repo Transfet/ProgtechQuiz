@@ -1,59 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="414.0" prefWidth="641.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.logincontrollers.SignUpController">
+<AnchorPane prefHeight="414.0" prefWidth="641.0" stylesheets="/css/loginStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.logincontrollers.SignUpController">
     <children>
-        <JFXTextField fx:id="userNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="70.0" prefHeight="35.0" prefWidth="180.0" promptText="User name" stylesheets="/css/textfield.css" unFocusColor="#374140">
-            <font>
-                <Font name="Times New Roman" size="12.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="TEXT" />
-            </cursor>
+        <JFXTextField fx:id="userNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="70.0" prefHeight="35.0" prefWidth="180.0" promptText="User name" unFocusColor="#374140">
          </JFXTextField>
-        <JFXTextField fx:id="firstNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="120.0" prefHeight="35.0" prefWidth="180.0" promptText="First name" stylesheets="/css/textfield.css" unFocusColor="#374140">
-            <font>
-                <Font name="Times New Roman" size="12.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="TEXT" />
-            </cursor>
+        <JFXTextField fx:id="firstNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="120.0" prefHeight="35.0" prefWidth="180.0" promptText="First name" unFocusColor="#374140">
         </JFXTextField>
-        <JFXTextField fx:id="lastNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="170.0" prefHeight="35.0" prefWidth="180.0" promptText="Last name" stylesheets="/css/textfield.css" unFocusColor="#374140">
-            <font>
-                <Font name="Times New Roman" size="12.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="TEXT" />
-            </cursor>
+        <JFXTextField fx:id="lastNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="170.0" prefHeight="35.0" prefWidth="180.0" promptText="Last name" unFocusColor="#374140">
         </JFXTextField>
-        <JFXPasswordField fx:id="passwordField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="220.0" prefHeight="35.0" prefWidth="180.0" promptText="Password" stylesheets="/css/textfield.css" unFocusColor="#374140">
-            <font>
-                <Font name="Times New Roman" size="12.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="TEXT" />
-            </cursor>
+        <JFXPasswordField fx:id="passwordField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true" layoutX="231.0" layoutY="220.0" prefHeight="35.0" prefWidth="180.0" promptText="Password" unFocusColor="#374140">
         </JFXPasswordField>
-        <JFXButton fx:id="signUpButton" layoutX="189.0" layoutY="290.0" onAction="#onClickedSignUpButton" onMouseExited="#mouseNotOverSignUpButton" onMouseMoved="#mouseOverSignUpButton" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #E74C3C;" text="Sign up">
-            <font>
-                <Font size="18.0" />
-            </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+        <JFXButton fx:id="signUpButton" layoutX="189.0" layoutY="290.0" onAction="#onClickedSignUpButton" text="Sign up">
         </JFXButton>
-        <JFXButton fx:id="backButton" layoutX="369.0" layoutY="290.0" onAction="#onClickedBackButton" onMouseExited="#mouseNotOverBackButton" onMouseMoved="#mouseOverBackButton" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #E74C3C;" text="Back">
-            <font>
-                <Font size="18.0" />
-            </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+        <JFXButton fx:id="backButton" layoutX="369.0" layoutY="290.0" onAction="#onClickedBackButton" text="Back">
         </JFXButton>
     </children>
 </AnchorPane>

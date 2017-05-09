@@ -5,6 +5,7 @@ import application.ServiceLocator;
 import application.database.PlayerService;
 import application.model.player.Player;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -33,10 +35,6 @@ public class SignInController extends Controller implements Initializable {
     private static PlayerService playerService;
 
     Logger logger = LoggerFactory.getLogger(SignInController.class);
-
-    private Stage stage;
-    private Scene scene;
-    private Parent parent;
 
     @FXML
     private AnchorPane anchorPane;
@@ -56,73 +54,21 @@ public class SignInController extends Controller implements Initializable {
     @FXML
     private JFXButton signInButton;
 
+
     private static Player signedInPlayer;
 
-
-    public static Player getSignedInPlayer() {
-        return signedInPlayer;
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         playerService = ServiceLocator.getService(PlayerService.class);
 
-        Player admin = new Player();
-        admin.setUserName("adm");
-        admin.setFirstName("Alex");
-        admin.setLastName("Gyulai");
-        admin.setPassword("adm");
-
-        playerService.addPlayer(admin);
-
-        logger.info("admin: ",admin);
-
-
         if (!Game.isSplashLoaded) {
-            loadSplashScreen();//1,43 0,98 26,98 2,78
-
+            loadSplashScreen(anchorPane);//1,43 0,98 26,98 2,78
 
         }
     }
 
-    private void loadSplashScreen() {
-        try {
-            Game.isSplashLoaded = true;
-
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("/views/Splash.fxml"));
-            anchorPane.getChildren().setAll(pane);
-
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(3), pane);
-            fadeIn.setFromValue(0);
-            fadeIn.setToValue(1);
-            fadeIn.setCycleCount(1);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), pane);
-            fadeOut.setFromValue(1);
-            fadeOut.setToValue(0);
-            fadeOut.setCycleCount(1);
-
-            fadeIn.play();
-
-            fadeIn.setOnFinished((e) -> fadeOut.play());
-
-            fadeOut.setOnFinished((e) -> fadeOutFinished());
-
-        } catch (IOException e) {
-            logger.error("Throw by IOException in loadSplash method : ", e);
-        }
-    }
-
-    private void fadeOutFinished() {
-        try {
-            AnchorPane parentContent = FXMLLoader.load(getClass().getResource(("/views/loginpages/SignInPage.fxml")));
-            anchorPane.getChildren().setAll(parentContent);
-
-        } catch (IOException ex) {
-            logger.error("Throw by IOException in fadeOutFinished method: ", ex);
-        }
-    }
 
     @FXML
     void onClickedSignInButton(ActionEvent event) throws IOException {
@@ -153,37 +99,7 @@ public class SignInController extends Controller implements Initializable {
 
     }
 
-    @FXML
-    void mouseNotOverSignInButton(MouseEvent event) {
-
-        signInButton.setStyle("-fx-background-color: #E74C3C");
-
-    }
-
-    @FXML
-    void mouseOverSignInButton(MouseEvent event) {
-
-        signInButton.setStyle("-fx-background-color: #ECF0F1");
-
-    }
-
-    @FXML
-    void mouseNotOverSignUpButton(MouseEvent event) {
-        signUpButton.setStyle("-fx-background-color: #E74C3C");
-    }
-
-    @FXML
-    void mouseOverSignUpButton(MouseEvent event) {
-        signUpButton.setStyle("-fx-background-color: #ECF0F1");
-    }
-
-    @FXML
-    void mouseOverQuitButton(MouseEvent event) {
-        quitButton.setStyle("-fx-background-color: #ECF0F1");
-    }
-
-    @FXML
-    void mouseNotOverQuitButton(MouseEvent event) {
-        quitButton.setStyle("-fx-background-color: #E74C3C");
+    public static Player getSignedInPlayer() {
+        return signedInPlayer;
     }
 }
