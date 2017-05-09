@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +26,7 @@ import java.util.ResourceBundle;
 
 public class GamePageTwoController extends GamePageController implements Initializable {
 
-    private boolean isClickedOnGreenLine = false;
-    private boolean isClickedOnBlueLine = false;
-    private boolean isClickedOnSkyBlueLine = false;
+
     private int checkLastAnswer = 0;
 
     private Logger logger = LoggerFactory.getLogger(GamePageOneController.class);
@@ -74,51 +71,54 @@ public class GamePageTwoController extends GamePageController implements Initial
     @FXML
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
-        isClickedOnGreenLine = true;
+            if (!greenLabel.getText().equals(questionLabel.getText())) {
+                checkLastAnswer++;
 
-        if (!greenLabel.getText().equals(questionLabel.getText())) {
-            checkLastAnswer++;
-            //greenLine.setStroke(Color.BLACK);
-        } else
-            gameOver(anchorPane);
+                greenLine.setVisible(false);
+                greenLabel.setVisible(false);
+            } else
+                gameOver(anchorPane);
 
-        if (checkLastAnswer == 2) {
-            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
-        }
+            if (checkLastAnswer == 2) {
+                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
+            }
+
     }
 
     @FXML
     void onClickedBlueLine(MouseEvent event) throws IOException {
-        isClickedOnBlueLine = true;
 
-        if (!blueLabel.getText().equals(questionLabel.getText())) {
-            checkLastAnswer++;
-           // blueLine.setStroke(Color.BLACK);
-        } else
-            gameOver(anchorPane);
 
-        if (checkLastAnswer == 2) {
+            if (!blueLabel.getText().equals(questionLabel.getText())) {
+                checkLastAnswer++;
+                blueLine.setVisible(false);
+                blueLabel.setVisible(false);
+            } else
+                gameOver(anchorPane);
 
-            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
+            if (checkLastAnswer == 2) {
 
-        }
+                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
+
+            }
 
     }
 
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
-        isClickedOnSkyBlueLine = true;
 
-        if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
-            checkLastAnswer++;
-       //     skyBlueLine.setStroke(Color.BLACK);
-        } else
-            gameOver(anchorPane);
+            if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
+                checkLastAnswer++;
+                skyBlueLine.setVisible(false);
+                skyBlueLabel.setVisible(false);
+            } else
+                gameOver(anchorPane);
 
-        if (checkLastAnswer == 2) {
-            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
-        }
+            if (checkLastAnswer == 2) {
+                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
+            }
+
     }
 
     @Override

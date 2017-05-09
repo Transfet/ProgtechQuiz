@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -11,83 +8,86 @@
 <AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;"
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="application.controller.gamecontrollers.GamePageFiveController">
-    <children>
-        <Line fx:id="redLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="490.0" onMouseClicked="#onClickedRedLine"
-              styleClass="customLine" startX="-200.0" stroke="RED">
-        </Line>
-        <Label fx:id="greenLabel" alignment="CENTER" layoutX="50.0" layoutY="274.0" prefHeight="73.0" prefWidth="183.0"
-               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
-               wrapText="true">
-        </Label>
-        <Line fx:id="greenLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="510.0"
-              onMouseClicked="#onClickedGreenLine" styleClass="customLine" startX="-200.0" stroke="GREEN" >
-        </Line>
-        <ImageView fx:id="bombImage" fitHeight="136.0" fitWidth="144.0" layoutX="310.0" layoutY="14.0"
-                   pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="/pictures/bomb.png"/>
-            </image>
-        </ImageView>
-        <Line fx:id="purpleLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="530.0"
-              onMouseClicked="#onClickedPurpleLine" styleClass="customLine" startX="-200.0" stroke="PURPLE" >
-        </Line>
-        <Line fx:id="orangeLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="470.0"
-              onMouseClicked="#onClickedOrangeLine" styleClass="customLine" startX="-200.0" stroke="ORANGE" >
-        </Line>
-        <Line fx:id="skyBlueLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="550.0"
-              onMouseClicked="#onClickedSkyBlueLine" styleClass="customLine" startX="-200.0" stroke="#00f9ff" >
-        </Line>
-        <Line fx:id="pinkLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="570.0"
-              onMouseClicked="#onClickedPinkLine" styleClass="customLine" startX="-200.0" stroke="PINK" >
-        </Line>
-        <Label fx:id="purpleLabel" alignment="CENTER" layoutX="274.0" layoutY="281.0" prefHeight="73.0"
-               prefWidth="183.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER"
-               textFill="#e74c3c" wrapText="true">
+    <ImageView fx:id="bombImage" fitHeight="136.0" fitWidth="144.0" layoutX="310.0" layoutY="14.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="/pictures/bomb.png"/>
+    </ImageView>
+    <Label fx:id="questionLabel" alignment="CENTER" layoutX="125.0" layoutY="163.0" prefHeight="100.0" prefWidth="510.0"
+           style="-fx-background-color: #2A2C2B;" styleClass="question" text="Label" textAlignment="CENTER"
+           textFill="#e74c3c" wrapText="true">
 
-        </Label>
-        <Label fx:id="redLabel" alignment="CENTER" layoutX="528.0" layoutY="281.0" prefHeight="73.0" prefWidth="183.0"
-               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
-               wrapText="true">
-
-        </Label>
-        <Label fx:id="pinkLabel" alignment="CENTER" layoutX="528.0" layoutY="368.0" prefHeight="73.0" prefWidth="183.0"
-               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
-               wrapText="true">
-
-        </Label>
-        <Label fx:id="skyBlueLabel" alignment="CENTER" layoutX="274.0" layoutY="368.0" prefHeight="73.0"
-               prefWidth="183.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER"
-               textFill="#e74c3c" wrapText="true">
-
-        </Label>
-        <Label fx:id="orangeLabel" alignment="CENTER" layoutX="50.0" layoutY="368.0" prefHeight="73.0" prefWidth="183.0"
-               style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
-               wrapText="true">
-
-        </Label>
-        <Label fx:id="questionLabel" alignment="CENTER" layoutX="125.0" layoutY="163.0" prefHeight="100.0"
-               prefWidth="510.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER"
-               textFill="#e74c3c" wrapText="true" styleClass="question">
-
-        </Label>
-        <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #2A2C2B;">
-            <children>
-                <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" text="60"
-                       textFill="#ff2929" styleClass="question">
-                </Label>
-            </children>
-        </HBox>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00f9ff" height="73.0" layoutX="251.0" layoutY="368.0"
-                   stroke="BLACK" strokeType="INSIDE" width="23.0"/>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="73.0" layoutX="27.0" layoutY="368.0"
-                   stroke="BLACK" strokeType="INSIDE" width="23.0"/>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PINK" height="73.0" layoutX="505.0" layoutY="368.0"
-                   stroke="BLACK" strokeType="INSIDE" width="23.0"/>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="73.0" layoutX="505.0" layoutY="281.0"
-                   stroke="BLACK" strokeType="INSIDE" width="23.0"/>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="73.0" layoutX="251.0" layoutY="281.0"
-                   stroke="BLACK" strokeType="INSIDE" width="23.0"/>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="73.0" layoutX="27.0" layoutY="281.0"
-                   stroke="BLACK" strokeType="INSIDE" width="23.0"/>
-    </children>
+    </Label>
+    <Label fx:id="greenLabel" alignment="BOTTOM_LEFT" layoutX="50.0" layoutY="274.0" prefHeight="73.0" prefWidth="183.0"
+           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+           wrapText="true">
+        <graphic>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="73.0" stroke="BLACK" strokeType="INSIDE"
+                       width="23.0"/>
+        </graphic>
+    </Label>
+    <Label fx:id="purpleLabel" alignment="BOTTOM_LEFT" layoutX="274.0" layoutY="281.0" prefHeight="73.0"
+           prefWidth="183.0" style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER"
+           textFill="#e74c3c" wrapText="true">
+        <graphic>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="73.0" stroke="BLACK" strokeType="INSIDE"
+                       width="23.0"/>
+        </graphic>
+    </Label>
+    <Label fx:id="redLabel" alignment="BOTTOM_LEFT" layoutX="528.0" layoutY="281.0" prefHeight="73.0" prefWidth="183.0"
+           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+           wrapText="true">
+        <graphic>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="73.0" stroke="BLACK" strokeType="INSIDE"
+                       width="23.0"/>
+        </graphic>
+    </Label>
+    <Label fx:id="pinkLabel" alignment="CENTER" layoutX="528.0" layoutY="368.0" prefHeight="73.0" prefWidth="183.0"
+           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+           wrapText="true">
+        <graphic>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PINK" height="73.0" stroke="BLACK" strokeType="INSIDE"
+                       width="23.0"/>
+        </graphic>
+    </Label>
+    <Label fx:id="skyBlueLabel" alignment="CENTER" layoutX="274.0" layoutY="368.0" prefHeight="73.0" prefWidth="183.0"
+            text="Label" textAlignment="CENTER" textFill="#e74c3c"
+           wrapText="true">
+        <graphic>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00f9ff" height="73.0" stroke="BLACK" strokeType="INSIDE"
+                       width="23.0"/>
+        </graphic>
+    </Label>
+    <Label fx:id="orangeLabel" alignment="CENTER" layoutX="50.0" layoutY="368.0" prefHeight="73.0" prefWidth="183.0"
+           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+           wrapText="true">
+        <graphic>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="73.0" stroke="BLACK" strokeType="INSIDE"
+                       width="23.0"/>
+        </graphic>
+    </Label>
+    <Line fx:id="redLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="490.0" onMouseClicked="#onClickedRedLine"
+          startX="-200.0" stroke="RED" styleClass="customLine">
+    </Line>
+    <Line fx:id="greenLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="510.0" onMouseClicked="#onClickedGreenLine"
+          startX="-200.0" stroke="GREEN" styleClass="customLine">
+    </Line>
+    <Line fx:id="purpleLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="530.0"
+          onMouseClicked="#onClickedPurpleLine" startX="-200.0" stroke="PURPLE" styleClass="customLine">
+    </Line>
+    <Line fx:id="orangeLine" endX="500.0" fill="RED" layoutX="230.0" layoutY="470.0"
+          onMouseClicked="#onClickedOrangeLine" startX="-200.0" stroke="ORANGE" styleClass="customLine">
+    </Line>
+    <Line fx:id="skyBlueLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="550.0"
+          onMouseClicked="#onClickedSkyBlueLine" startX="-200.0" stroke="#00f9ff" styleClass="customLine">
+    </Line>
+    <Line fx:id="pinkLine" endX="500.0" fill="RED" layoutX="231.0" layoutY="570.0" onMouseClicked="#onClickedPinkLine"
+          startX="-200.0" stroke="PINK" styleClass="customLine">
+    </Line>
+    <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #2A2C2B;">
+        <children>
+            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" styleClass="question"
+                   text="60" textFill="#ff2929">
+            </Label>
+        </children>
+    </HBox>
 </AnchorPane>

@@ -4,13 +4,13 @@ import application.Game;
 import application.ServiceLocator;
 import application.controller.logincontrollers.SignInController;
 import application.database.PlayerService;
-import application.database.QuestionService;
 import application.model.player.Player;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.slf4j.Logger;
@@ -18,8 +18,9 @@ import org.slf4j.LoggerFactory;
 
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Transfet on 2017. 05. 07..
@@ -43,13 +44,12 @@ public class GamePageController {
     public static List<Integer> randomNumberForQuestion;
 
 
-
     public List<Integer> randomNumbers(int size, int neededNumbers, boolean fromOne) {
 
         Random random = new Random();
         int count = 0;
         int num;
-        List<Integer> randomNumbers = new ArrayList<Integer>();
+        List<Integer> randomNumbers = new ArrayList<>();
         if (fromOne) {
             while (count < neededNumbers) {
                 num = random.nextInt(size) + 1;

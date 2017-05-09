@@ -5,26 +5,17 @@ package application.controller.gamecontrollers;
  */
 
 
-import application.Game;
+
 import application.ServiceLocator;
 import application.database.QuestionService;
 import application.model.questions.Question;
-import javafx.animation.FadeTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,12 +27,6 @@ import java.util.ResourceBundle;
 
 public class GamePageFiveController extends GamePageController implements Initializable {
 
-    private boolean isClickedOnGreenLine = false;
-    private boolean isClickedOnRedLine = false;
-    private boolean isClickedOnOrangeLine = false;
-    private boolean isClickedPurpleLine = false;
-    private boolean isClickedSkyBlueLine = false;
-    private boolean isClickedPinkLine = false;
 
     private int checkLastAnswer = 0;
 
@@ -103,11 +88,11 @@ public class GamePageFiveController extends GamePageController implements Initia
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
-        isClickedSkyBlueLine = true;
 
         if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            skyBlueLine.setStroke(Color.BLACK);
+            skyBlueLine.setVisible(false);
+            skyBlueLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -119,11 +104,11 @@ public class GamePageFiveController extends GamePageController implements Initia
     @FXML
     void onClickedPinkLine(MouseEvent event) throws IOException {
 
-        isClickedPinkLine = true;
 
         if (!pinkLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            pinkLine.setStroke(Color.BLACK);
+            pinkLine.setVisible(false);
+            pinkLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -135,11 +120,10 @@ public class GamePageFiveController extends GamePageController implements Initia
     @FXML
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
-        isClickedOnGreenLine = true;
-
         if (!greenLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            greenLine.setStroke(Color.BLACK);
+            greenLine.setVisible(false);
+            greenLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -150,11 +134,11 @@ public class GamePageFiveController extends GamePageController implements Initia
 
     @FXML
     void onClickedPurpleLine(MouseEvent event) throws IOException {
-        isClickedPurpleLine = true;
 
         if (!purpleLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            purpleLine.setStroke(Color.BLACK);
+            purpleLine.setVisible(false);
+            purpleLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -169,11 +153,11 @@ public class GamePageFiveController extends GamePageController implements Initia
     @FXML
     void onClickedOrangeLine(MouseEvent event) throws IOException {
 
-        isClickedOnOrangeLine = true;
 
         if (!orangeLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            orangeLine.setStroke(Color.BLACK);
+            orangeLine.setVisible(false);
+            orangeLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -186,11 +170,12 @@ public class GamePageFiveController extends GamePageController implements Initia
     @FXML
     void onClickedRedLine(MouseEvent event) throws IOException {
 
-        isClickedOnRedLine = true;
+
 
         if (!redLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            redLine.setStroke(Color.BLACK);
+            redLine.setVisible(false);
+            redLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -206,7 +191,7 @@ public class GamePageFiveController extends GamePageController implements Initia
         questionService = ServiceLocator.getService(QuestionService.class);
 
         ArrayList<String>answers = new ArrayList<>();
-        ArrayList<Label> labels = new ArrayList<Label>();
+        ArrayList<Label> labels = new ArrayList<>();
         labels.add(purpleLabel);
         labels.add(greenLabel);
         labels.add(orangeLabel);

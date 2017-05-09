@@ -15,28 +15,17 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.bind.annotation.XmlAnyAttribute;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class GamePageSixController extends GamePageController implements Initializable {
-
-    private boolean isClickedOnGreenLine = false;
-    private boolean isClickedOnRedLine = false;
-    private boolean isClickedOnOrangeLine = false;
-    private boolean isClickedPurpleLine = false;
-    private boolean isClickedSkyBlueLine = false;
-    private boolean isClickedPinkLine = false;
-    private boolean isClickedOnBrownLine = false;
 
     private int checkLastAnswer = 0;
 
@@ -103,11 +92,11 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
-        isClickedSkyBlueLine = true;
 
         if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            skyBlueLine.setStroke(Color.BLACK);
+            skyBlueLine.setVisible(false);
+            skyBlueLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -119,11 +108,11 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedBrownLine(MouseEvent event) throws IOException {
 
-        isClickedOnBrownLine = true;
 
         if (!brownLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            brownLine.setStroke(Color.BLACK);
+            brownLine.setVisible(false);
+            brownLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -136,11 +125,10 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedPinkLine(MouseEvent event) throws IOException {
 
-        isClickedPinkLine = true;
-
         if (!pinkLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            pinkLine.setStroke(Color.BLACK);
+            pinkLine.setVisible(false);
+            pinkLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -152,11 +140,11 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
-        isClickedOnGreenLine = true;
 
         if (!greenLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            greenLine.setStroke(Color.BLACK);
+            greenLine.setVisible(false);
+            greenLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -167,11 +155,12 @@ public class GamePageSixController extends GamePageController implements Initial
 
     @FXML
     void onClickedPurpleLine(MouseEvent event) throws IOException {
-        isClickedPurpleLine = true;
+
 
         if (!purpleLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            purpleLine.setStroke(Color.BLACK);
+            purpleLine.setVisible(false);
+            purpleLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -186,11 +175,11 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedOrangeLine(MouseEvent event) throws IOException {
 
-        isClickedOnOrangeLine = true;
 
         if (!orangeLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            orangeLine.setStroke(Color.BLACK);
+            orangeLine.setVisible(false);
+            orangeLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -203,11 +192,11 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedRedLine(MouseEvent event) throws IOException {
 
-        isClickedOnRedLine = true;
 
         if (!redLabel.getText().equals(questionLabel.getText())) {
             checkLastAnswer++;
-            redLine.setStroke(Color.BLACK);
+            redLine.setVisible(false);
+            redLabel.setVisible(false);
         } else
             gameOver(anchorPane);
 
@@ -221,8 +210,8 @@ public class GamePageSixController extends GamePageController implements Initial
 
         questionService = ServiceLocator.getService(QuestionService.class);
 
-        ArrayList<String>answers = new ArrayList<>();
-        ArrayList<Label> labels = new ArrayList<Label>();
+        ArrayList<String> answers = new ArrayList<>();
+        ArrayList<Label> labels = new ArrayList<>();
         labels.add(purpleLabel);
         labels.add(greenLabel);
         labels.add(orangeLabel);
@@ -241,7 +230,7 @@ public class GamePageSixController extends GamePageController implements Initial
         logger.info(Integer.toString(questions.size()));
         logger.info(Integer.toString(randomNumberForQuestion.get(5)));
 
-        for(Integer i: randomNumberForQuestion){
+        for (Integer i : randomNumberForQuestion) {
             logger.info(Integer.toString(i));
         }
 
@@ -253,7 +242,7 @@ public class GamePageSixController extends GamePageController implements Initial
         answers.add(question.getInCorrectAnswer6());
         answers.add(question.getInCorrectAnswer2());
 
-        for(String s: answers){
+        for (String s : answers) {
             logger.info("asnw:" + s);
         }
 

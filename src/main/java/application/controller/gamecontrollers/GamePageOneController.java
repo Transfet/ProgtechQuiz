@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +24,6 @@ import java.util.*;
 
 public class GamePageOneController extends GamePageController implements Initializable {
 
-    private boolean isClickedOnBlueLine = false;
-    private boolean isClickedOnRedLine = false;
     private int checkLastAnswer = 0;
 
     private Logger logger = LoggerFactory.getLogger(GamePageOneController.class);
@@ -64,34 +61,38 @@ public class GamePageOneController extends GamePageController implements Initial
     @FXML
     void onClickedRedLine(MouseEvent event) throws IOException {
 
-        isClickedOnRedLine = true;
 
-        if (!redLabel.getText().equals(questionLabel.getText())) {
-            checkLastAnswer++;
-            redLine.setStroke(Color.BLACK);
-        } else
-            gameOver(anchorPane);
 
-        if (checkLastAnswer == 1) {
-            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageTwo.fxml");
-        }
+            if (!redLabel.getText().equals(questionLabel.getText())) {
+                checkLastAnswer++;
+                redLine.setVisible(false);
+                redLabel.setVisible(false);
+            } else
+                gameOver(anchorPane);
+
+            if (checkLastAnswer == 1) {
+                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageTwo.fxml");
+
+            }
+
     }
 
     @FXML
     void onClickedBlueLine(MouseEvent event) throws IOException {
-        isClickedOnBlueLine = true;
 
-        if (!blueLabel.getText().equals(questionLabel.getText())) {
-            checkLastAnswer++;
-            blueLine.setStroke(Color.BLACK);
-        } else
-            gameOver(anchorPane);
 
-        if (checkLastAnswer == 1) {
+            if (!blueLabel.getText().equals(questionLabel.getText())) {
+                checkLastAnswer++;
+                blueLine.setVisible(false);
+                blueLabel.setVisible(false);
+            } else
+                gameOver(anchorPane);
 
-            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageTwo.fxml");
+            if (checkLastAnswer == 1) {
 
-        }
+                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageTwo.fxml");
+
+            }
 
     }
 
@@ -119,7 +120,7 @@ public class GamePageOneController extends GamePageController implements Initial
         blueLabel.setText(answers.get(randomNumbers.get(0)));
         redLabel.setText(answers.get(randomNumbers.get(1)));
 
-        countDown(anchorPane,timeLabel);
+        countDown(anchorPane, timeLabel);
 
     }
 

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
+
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.GameOverSplashController">
-    <children>
-        <Label alignment="CENTER" layoutX="10.0" layoutY="142.0" prefHeight="336.0" prefWidth="741.0" text="Game Over" textFill="#e74c3c">
-            <font>
-                <Font size="93.0" />
-            </font>
-        </Label>
-    </children>
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.controller.GameOverSplashController">
+    <Label alignment="CENTER" layoutX="10.0" layoutY="142.0" prefHeight="336.0" prefWidth="741.0" text="Game Over"
+           textFill="#e74c3c">
+        <font>
+            <Font size="93.0"/>
+        </font>
+    </Label>
 </AnchorPane>

@@ -7,7 +7,9 @@ import java.io.Serializable;
  * Created by Transfet on 2017. 04. 29..
  */
 
-
+/**
+ * This class provides ...
+ */
 @Entity
 public class Player implements Serializable {
 
@@ -20,22 +22,57 @@ public class Player implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double points = 0.0;
-    private Double time = 0.0;
+    private Double points;
+    private Double time ;
 
+    /**
+     * Create a Player.
+     */
     public Player(){
 
     }
 
+    /**
+     *Create a Player with specified parameteres
+     * @param userName the name of the player
+     * @param firstName the player's first name
+     * @param lastName the player's last name
+     * @param password the player's password
+     * @throws IllegalArgumentException if one of parameteres is empty
+     */
+    public Player(String userName, String firstName, String lastName, String password){
+        if((userName.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || password.isEmpty()))
+            throw new IllegalArgumentException();
+
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+
+        points = 0.0;
+        time = 0.0;
+    }
+
+    /**
+     * Create a Player with specified paramteres.
+     * @param userName the name of the player
+     * @param point the player's point
+     * @param time timme
+     */
     public Player(String userName, Double point, Double time){
         this.userName = userName;
         this.points = point;
         this.time = time;
     }
 
+    /**
+     * Gets the player's id.
+     * @return return the player's id
+     */
     public Long getId() {
         return id;
     }
+
 
     public String getFirstName() {
         return firstName;

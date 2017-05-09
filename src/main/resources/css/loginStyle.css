@@ -17,6 +17,7 @@
 }
 
 .jfx-textfield{
+    -fx-font-size: 12px;
     -fx-cursor: text;
     -fx-pref-width: 195px;
     -fx-pref-height: 36px;
@@ -24,10 +25,13 @@
 
 
 .jfx-password-field{
+
+    -fx-font-size: 12px;
+    -fx-cursor: text;
     -fx-text-fill: #E74C3C;
 }
 
 .text-input{
-    -fx-text-fill: #E74C3C;
+
 }
 
