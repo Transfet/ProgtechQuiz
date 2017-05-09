@@ -25,13 +25,11 @@
 
 
 .jfx-password-field{
-
     -fx-font-size: 12px;
     -fx-cursor: text;
     -fx-text-fill: #E74C3C;
 }
 
 .text-input{
-
+    -fx-text-fill: #E74C3C;
 }
-

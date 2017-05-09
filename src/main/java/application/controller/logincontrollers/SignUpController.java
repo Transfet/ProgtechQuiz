@@ -80,13 +80,13 @@ public class SignUpController extends Controller implements Initializable {
 
     private void addPlayer() {
 
-        Player player = new Player();
+        String username = userNameField.getText();
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+        String password = passwordField.getText();
 
+        Player player = new Player(username,firstName,lastName,password);
 
-        player.setUserName(userNameField.getText());
-        player.setFirstName(firstNameField.getText());
-        player.setLastName(lastNameField.getText());
-        player.setPassword(passwordField.getText());
 
         try {
             playerService.addPlayer(player);

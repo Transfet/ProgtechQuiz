@@ -22,8 +22,8 @@ public class Player implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double points;
-    private Double time ;
+    private Double points = 0.0;
+    private Double time = 0.0 ;
 
     /**
      * Create a Player.
@@ -49,8 +49,7 @@ public class Player implements Serializable {
         this.lastName = lastName;
         this.password = password;
 
-        points = 0.0;
-        time = 0.0;
+
     }
 
     /**
