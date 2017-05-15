@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.GameOverSplashController">
-    <Label alignment="CENTER" layoutX="10.0" layoutY="142.0" prefHeight="336.0" prefWidth="741.0" text="Game Over"
-           textFill="#e74c3c">
-        <font>
-            <Font size="93.0"/>
-        </font>
-    </Label>
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.GameOverSplashController">
+   <children>
+      <ImageView fitHeight="760.0" fitWidth="620.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" >
+         <Image url="/pictures/explosion.gif"/>
+      </ImageView>
+   </children>
 </AnchorPane>

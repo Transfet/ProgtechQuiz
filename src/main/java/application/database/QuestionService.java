@@ -33,11 +33,6 @@ public class QuestionService implements QuestionServiceInterface {
     }
 
     @Override
-    public Question findAnswerByQuestion(String question) {
-        return questionRepository.findAnswerByQuestion(question);
-    }
-
-    @Override
     public Question findById(int ID) {
         return questionRepository.findById(ID);
     }
