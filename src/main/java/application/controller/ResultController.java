@@ -80,8 +80,6 @@ public class ResultController extends Controller implements Initializable {
     @SuppressWarnings("unchecked")
     public void initialize(URL location, ResourceBundle resources) {
 
-        boolean checkValid = false;
-
         if(LoggedInController.fromLoggedIn){
             restartButton.setVisible(false);
         }
@@ -95,9 +93,7 @@ public class ResultController extends Controller implements Initializable {
         data = FXCollections.observableArrayList();
 
         playerColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, String>("username"));
-
         pointColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, Double>("point"));
-
         timeColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, Double>("time"));
 
         for (Player p : playerService.findAllPlayer()) {

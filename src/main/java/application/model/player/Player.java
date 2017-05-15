@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 
 /**
- * This class provides ...
+ * Reprezentál egy játékost.
  */
 @Entity
 public class Player implements Serializable {
