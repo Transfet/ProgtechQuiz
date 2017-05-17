@@ -99,10 +99,9 @@ public class LoggedInController extends Controller implements Initializable {
         questionService.addQuestion(new Question("555", "555", "222", "333", "444", "111", "666", "777"));
         questionService.addQuestion(new Question("666", "666", "222", "333", "444", "555", "111", "777"));
 
-
-        logger.info(Integer.toString(questionService.findAllQuestion().size()));
-
         signedInPlayer = SignInController.getSignedInPlayer();
+        logger.info("Signed as: " + signedInPlayer.toString());
+
 
         signedInLabel.setText("Welcome: " + signedInPlayer.getUserName());
     }

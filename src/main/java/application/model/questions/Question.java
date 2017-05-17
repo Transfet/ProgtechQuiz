@@ -1,8 +1,6 @@
 package application.model.questions;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Question {
@@ -32,7 +30,7 @@ public class Question {
         this.correctAnswer = correctAnswer;
         this.inCorrectAnswer1 = inCorrectAnswer1;
         this.inCorrectAnswer2 = inCorrectAnswer2;
-        this.inCorrectAnswer3 =  inCorrectAnswer3;
+        this.inCorrectAnswer3 = inCorrectAnswer3;
         this.inCorrectAnswer4 = inCorrectAnswer4;
         this.inCorrectAnswer5 = inCorrectAnswer5;
         this.inCorrectAnswer6 = inCorrectAnswer6;

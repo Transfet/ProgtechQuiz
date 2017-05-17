@@ -4,7 +4,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * A class that represent a player.
+ * Created by Transfet on 2017. 04. 29..
+ */
+
+/**
+ * Reprezentál egy játékost.
  */
 @Entity
 public class Player implements Serializable {
@@ -45,13 +49,14 @@ public class Player implements Serializable {
         this.lastName = lastName;
         this.password = password;
 
+
     }
 
     /**
-     * Create a Player with specified parameteres.
+     * Create a Player with specified paramteres.
      * @param userName the name of the player
      * @param point the player's point
-     * @param time
+     * @param time timme
      */
     public Player(String userName, Double point, Double time){
         this.userName = userName;
@@ -61,113 +66,61 @@ public class Player implements Serializable {
 
     /**
      * Gets the player's id.
-     * @return the player's id
+     * @return return the player's id
      */
     public Long getId() {
         return id;
     }
 
-    /**
-     * Gets the player's first name.
-     * @return
-     */
+
     public String getFirstName() {
         return firstName;
     }
 
-
-    /**
-     * Gets the player's last name.
-     * @return
-     */
     public String getLastName() {
         return lastName;
     }
 
-    /**
-     * Gets the player's user name.
-     * @return
-     */
     public String getUserName() {
         return userName;
     }
 
-    /**
-     * set the player's first name.
-     * @param firstName the player's first name
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * set the player's  ID.
-     * @param id the player's id in the database
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     * set the player's last name.
-     * @param lastName the player's last name
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     * set the player's user name.
-     * @param userName the player's last name
-     */
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    /**
-     * set the player's last name.
-     * @return
-     */
     public Double getPoints() {
         return points;
     }
 
-    /**
-     * set the player's last name.
-     * @return
-     */
     public Double getTime() {
         return time;
     }
 
-    /**
-     * set the player's last name.
-     * @param points the player's last name
-     */
     public void setPoints(Double points) {
         this.points = points;
     }
 
-    /**
-     * set the player's last name.
-     * @param time the player's last name
-     */
     public void setTime(Double time) {
         this.time = time;
     }
 
-    /**
-     * set the player's last name.
-     * @param password the player's last name
-     */
     public void setPassword(String password) {
         this.password = password;
     }
 
-    /**
-     * set the player's last name.
-     * @return
-     */
     public String getPassword() {
         return password;
     }

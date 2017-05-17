@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0" style="-fx-background-color: #2A2C2B;"
+<AnchorPane fx:id="anchorPane" prefHeight="620.0" prefWidth="760.0"
             stylesheets="/css/gamePageStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="application.controller.gamecontrollers.GamePageThreeController">
     <ImageView fx:id="bombImage" fitHeight="136.0" fitWidth="144.0" layoutX="310.0" layoutY="14.0" pickOnBounds="true"
@@ -27,12 +26,12 @@
           onMouseClicked="#onClickedPurpleLine" startX="-200.0" stroke="PURPLE" styleClass="customLine">
     </Line>
     <Label fx:id="questionLabel" layoutX="129.0" layoutY="170.0" prefHeight="95.0" prefWidth="503.0"
-           style="-fx-background-color: #2A2C2B;" styleClass="question" text="label" textAlignment="CENTER"
+           styleClass="question" text="label" textAlignment="CENTER"
            textFill="#e74c3c" wrapText="true">
     </Label>
 
     <Label fx:id="greenLabel" layoutX="77.0" layoutY="294.0" prefHeight="64.0" prefWidth="161.0"
-           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+            text="Label" textAlignment="CENTER" textFill="#e74c3c"
            wrapText="true">
         <graphic>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="64.0" stroke="BLACK" strokeType="INSIDE"
@@ -40,7 +39,7 @@
         </graphic>
     </Label>
     <Label fx:id="purpleLabel" layoutX="300.0" layoutY="294.0" prefHeight="64.0" prefWidth="161.0"
-           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+            text="Label" textAlignment="CENTER" textFill="#e74c3c"
            wrapText="true">
         <graphic>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="64.0" stroke="BLACK" strokeType="INSIDE"
@@ -48,7 +47,7 @@
         </graphic>
     </Label>
     <Label fx:id="redLabel" layoutX="552.0" layoutY="294.0" prefHeight="64.0" prefWidth="161.0"
-           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+            text="Label" textAlignment="CENTER" textFill="#e74c3c"
            wrapText="true">
         <graphic>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="64.0" stroke="BLACK" strokeType="INSIDE"
@@ -56,14 +55,14 @@
         </graphic>
     </Label>
     <Label fx:id="orangeLabel" layoutX="300.0" layoutY="382.0" prefHeight="64.0" prefWidth="161.0"
-           style="-fx-background-color: #2A2C2B;" text="Label" textAlignment="CENTER" textFill="#e74c3c"
+            text="Label" textAlignment="CENTER" textFill="#e74c3c"
            wrapText="true">
         <graphic>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="64.0" stroke="BLACK" strokeType="INSIDE"
                        width="19.0"/>
         </graphic>
     </Label>
-    <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0" style="-fx-background-color: #2A2C2B;">
+    <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0">
         <children>
             <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" styleClass="timer"
                    text="60" textFill="#ff2929">

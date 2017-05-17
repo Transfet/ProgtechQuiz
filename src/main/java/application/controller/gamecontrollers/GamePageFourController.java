@@ -82,13 +82,8 @@ public class GamePageFourController extends GamePageController implements Initia
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
 
-        if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, skyBlueLabel, questionLabel, skyBlueLine))
             checkLastAnswer++;
-            skyBlueLine.setVisible(false);
-            skyBlueLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
-
         if (checkLastAnswer == 4) {
             changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFive.fxml");
         }
@@ -98,13 +93,8 @@ public class GamePageFourController extends GamePageController implements Initia
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
 
-
-        if (!greenLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, greenLabel, questionLabel, greenLine))
             checkLastAnswer++;
-            greenLine.setVisible(false);
-            greenLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 4) {
             changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFive.fxml");
@@ -115,12 +105,8 @@ public class GamePageFourController extends GamePageController implements Initia
     void onClickedPurpleLine(MouseEvent event) throws IOException {
 
 
-        if (!purpleLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, purpleLabel, questionLabel, purpleLine))
             checkLastAnswer++;
-            purpleLine.setVisible(false);
-            purpleLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 4) {
 
@@ -134,13 +120,8 @@ public class GamePageFourController extends GamePageController implements Initia
     void onClickedOrangeLine(MouseEvent event) throws IOException {
 
 
-
-        if (!orangeLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, orangeLabel, questionLabel, orangeLine))
             checkLastAnswer++;
-            orangeLine.setVisible(false);
-            orangeLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 4) {
             changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFive.fxml");
@@ -152,13 +133,8 @@ public class GamePageFourController extends GamePageController implements Initia
     void onClickedRedLine(MouseEvent event) throws IOException {
 
 
-
-        if (!redLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, redLabel, questionLabel, redLine))
             checkLastAnswer++;
-            redLine.setVisible(false);
-            redLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 4) {
             changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFive.fxml");
@@ -188,7 +164,7 @@ public class GamePageFourController extends GamePageController implements Initia
         logger.info(Integer.toString(questions.size()));
         logger.info(Integer.toString(randomNumberForQuestion.get(3)));
 
-        for(Integer i: randomNumberForQuestion){
+        for (Integer i : randomNumberForQuestion) {
             logger.info(Integer.toString(i));
         }
 
@@ -201,7 +177,7 @@ public class GamePageFourController extends GamePageController implements Initia
         answers.add(question.getInCorrectAnswer4());
         answers.add(question.getInCorrectAnswer5());
 
-        for(String s: answers){
+        for (String s : answers) {
             logger.info("asnw:" + s);
         }
 
@@ -212,7 +188,7 @@ public class GamePageFourController extends GamePageController implements Initia
         redLabel.setText(answers.get(randomNumbers.get(3)));
         skyBlueLabel.setText(answers.get(randomNumbers.get(4)));
 
-        countDown(anchorPane,timeLabel);
+        countDown(anchorPane, timeLabel);
 
     }
 

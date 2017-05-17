@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -131,18 +132,18 @@ public class GamePageController {
 
         signedInPlayer.setTime(time);
         point = signedInPlayer.getPoints();
-        point += 20.0*time;
+        point += 20.0 * time;
         signedInPlayer.setPoints(point);
 
         playerService.updatePlayerPointAndTime(signedInPlayer.getUserName(), signedInPlayer.getPoints(), signedInPlayer.getTime());
 
-       if(to.equals("/views/FinishSplash.fxml")){
+        if (to.equals("/views/FinishSplash.fxml")) {
 
             fromPage = "/views/FinishSplash.fxml";
             toPage = "/views/Result.fxml";
 
-        }else {
-           fromPage = "/views/NextGamePage.fxml";
+        } else {
+            fromPage = "/views/NextGamePage.fxml";
         }
 
         loadSplashScreen(anchorPane, fromPage, toPage);
@@ -160,9 +161,9 @@ public class GamePageController {
 
     }
 
-    public void countDown(AnchorPane anchorPane,Label timeLabel){
+    public void countDown(AnchorPane anchorPane, Label timeLabel) {
 
-        if(timeline != null){
+        if (timeline != null) {
             timeline.stop();
         }
         timeSecond = STARTTIME;
@@ -171,23 +172,34 @@ public class GamePageController {
         timeline = new Timeline();
 
         timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),event -> addFrame(anchorPane,timeLabel)));
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> addFrame(anchorPane, timeLabel)));
 
         timeline.playFromStart();
 
     }
 
-    private void addFrame(AnchorPane anchorPane,Label label){
+    private void addFrame(AnchorPane anchorPane, Label label) {
         timeSecond--;
 
         label.setText(Integer.toString(timeSecond));
 
         logger.info(Double.toString(timeSecond));
 
-        if(timeSecond <= 0){
+        if (timeSecond <= 0) {
             timeline.stop();
             gameOver(anchorPane);
         }
     }
 
+    public boolean onClickLine(AnchorPane anchorPane, MouseEvent event, Label label, Label question, Line line) {
+
+        if (!label.getText().equals(question.getText())) {
+            line.setVisible(false);
+            label.setVisible(false);
+            return true;
+        } else {
+            gameOver(anchorPane);
+            return false;
+        }
+    }
 }

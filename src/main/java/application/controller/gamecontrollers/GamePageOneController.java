@@ -1,9 +1,5 @@
 package application.controller.gamecontrollers;
 
-/**
- * Created by Transfet on 2017. 05. 06..
- */
-
 
 import application.ServiceLocator;
 import application.database.QuestionService;
@@ -61,14 +57,8 @@ public class GamePageOneController extends GamePageController implements Initial
     @FXML
     void onClickedRedLine(MouseEvent event) throws IOException {
 
-
-
-            if (!redLabel.getText().equals(questionLabel.getText())) {
-                checkLastAnswer++;
-                redLine.setVisible(false);
-                redLabel.setVisible(false);
-            } else
-                gameOver(anchorPane);
+           if(onClickLine(anchorPane,event,redLabel,questionLabel,redLine))
+               checkLastAnswer++;
 
             if (checkLastAnswer == 1) {
                 changeToNextGamePage(anchorPane, "/views/gamepages/GamePageTwo.fxml");
@@ -81,12 +71,8 @@ public class GamePageOneController extends GamePageController implements Initial
     void onClickedBlueLine(MouseEvent event) throws IOException {
 
 
-            if (!blueLabel.getText().equals(questionLabel.getText())) {
-                checkLastAnswer++;
-                blueLine.setVisible(false);
-                blueLabel.setVisible(false);
-            } else
-                gameOver(anchorPane);
+        if(onClickLine(anchorPane,event,blueLabel,questionLabel,blueLine))
+            checkLastAnswer++;
 
             if (checkLastAnswer == 1) {
 

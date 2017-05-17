@@ -92,13 +92,8 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
-
-        if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, skyBlueLabel, questionLabel, skyBlueLine))
             checkLastAnswer++;
-            skyBlueLine.setVisible(false);
-            skyBlueLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 6) {
             changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
@@ -109,12 +104,8 @@ public class GamePageSixController extends GamePageController implements Initial
     void onClickedBrownLine(MouseEvent event) throws IOException {
 
 
-        if (!brownLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, brownLabel, questionLabel, brownLine))
             checkLastAnswer++;
-            brownLine.setVisible(false);
-            brownLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 6) {
             changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
@@ -125,12 +116,8 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedPinkLine(MouseEvent event) throws IOException {
 
-        if (!pinkLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, pinkLabel, questionLabel, pinkLine))
             checkLastAnswer++;
-            pinkLine.setVisible(false);
-            pinkLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 6) {
             changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
@@ -141,12 +128,8 @@ public class GamePageSixController extends GamePageController implements Initial
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
 
-        if (!greenLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, greenLabel, questionLabel, greenLine))
             checkLastAnswer++;
-            greenLine.setVisible(false);
-            greenLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 6) {
             changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
@@ -156,13 +139,8 @@ public class GamePageSixController extends GamePageController implements Initial
     @FXML
     void onClickedPurpleLine(MouseEvent event) throws IOException {
 
-
-        if (!purpleLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, pinkLabel, questionLabel, purpleLine))
             checkLastAnswer++;
-            purpleLine.setVisible(false);
-            purpleLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
 
         if (checkLastAnswer == 6) {
 
@@ -176,13 +154,8 @@ public class GamePageSixController extends GamePageController implements Initial
     void onClickedOrangeLine(MouseEvent event) throws IOException {
 
 
-        if (!orangeLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, orangeLabel, questionLabel, orangeLine))
             checkLastAnswer++;
-            orangeLine.setVisible(false);
-            orangeLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
-
         if (checkLastAnswer == 6) {
             changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
         }
@@ -193,13 +166,8 @@ public class GamePageSixController extends GamePageController implements Initial
     void onClickedRedLine(MouseEvent event) throws IOException {
 
 
-        if (!redLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, redLabel, questionLabel, redLine))
             checkLastAnswer++;
-            redLine.setVisible(false);
-            redLabel.setVisible(false);
-        } else
-            gameOver(anchorPane);
-
         if (checkLastAnswer == 6) {
             changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
         }

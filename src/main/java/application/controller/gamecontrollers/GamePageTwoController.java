@@ -71,17 +71,12 @@ public class GamePageTwoController extends GamePageController implements Initial
     @FXML
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
-            if (!greenLabel.getText().equals(questionLabel.getText())) {
-                checkLastAnswer++;
+        if (onClickLine(anchorPane, event, greenLabel, questionLabel, greenLine))
+            checkLastAnswer++;
 
-                greenLine.setVisible(false);
-                greenLabel.setVisible(false);
-            } else
-                gameOver(anchorPane);
-
-            if (checkLastAnswer == 2) {
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
-            }
+        if (checkLastAnswer == 2) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
+        }
 
     }
 
@@ -89,18 +84,13 @@ public class GamePageTwoController extends GamePageController implements Initial
     void onClickedBlueLine(MouseEvent event) throws IOException {
 
 
-            if (!blueLabel.getText().equals(questionLabel.getText())) {
-                checkLastAnswer++;
-                blueLine.setVisible(false);
-                blueLabel.setVisible(false);
-            } else
-                gameOver(anchorPane);
+        if (onClickLine(anchorPane, event, blueLabel, questionLabel, blueLine))
+            checkLastAnswer++;
+        if (checkLastAnswer == 2) {
 
-            if (checkLastAnswer == 2) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
-
-            }
+        }
 
     }
 
@@ -108,16 +98,12 @@ public class GamePageTwoController extends GamePageController implements Initial
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
 
-            if (!skyBlueLabel.getText().equals(questionLabel.getText())) {
-                checkLastAnswer++;
-                skyBlueLine.setVisible(false);
-                skyBlueLabel.setVisible(false);
-            } else
-                gameOver(anchorPane);
+        if (onClickLine(anchorPane, event, skyBlueLabel, questionLabel, skyBlueLine))
+            checkLastAnswer++;
 
-            if (checkLastAnswer == 2) {
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
-            }
+        if (checkLastAnswer == 2) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageThree.fxml");
+        }
 
     }
 

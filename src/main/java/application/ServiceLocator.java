@@ -23,7 +23,7 @@ public class ServiceLocator {
      * get a specific class's service.
      * @param tClass
      * @param <T>
-     * @return
+     * @return get the class's beans
      */
     public static <T> T getService(Class<T> tClass) {
         return context.getBean(tClass);

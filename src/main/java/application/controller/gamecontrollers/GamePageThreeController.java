@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GamePageThreeController extends GamePageController implements Initializable{
+public class GamePageThreeController extends GamePageController implements Initializable {
 
 
     private int checkLastAnswer = 0;
@@ -72,74 +72,54 @@ public class GamePageThreeController extends GamePageController implements Initi
 
 
     @FXML
-    void onClickedGreenLine(MouseEvent event) throws IOException{
+    void onClickedGreenLine(MouseEvent event) throws IOException {
 
 
-        if (!greenLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, greenLabel, questionLabel, greenLine))
             checkLastAnswer++;
-            greenLine.setVisible(false);
-            greenLabel.setVisible(false);
-        }
-        else
-            gameOver(anchorPane);
 
-        if(checkLastAnswer == 3){
-            changeToNextGamePage(anchorPane,"/views/gamepages/GamePageFour.fxml");
+        if (checkLastAnswer == 3) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFour.fxml");
         }
     }
 
     @FXML
-    void onClickedPurpleLine(MouseEvent event)throws IOException {
+    void onClickedPurpleLine(MouseEvent event) throws IOException {
 
 
-        if (!purpleLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, purpleLabel, questionLabel, purpleLine))
             checkLastAnswer++;
-            purpleLine.setVisible(false);
-            purpleLabel.setVisible(false);
-        }
-        else
-            gameOver(anchorPane);
 
-        if(checkLastAnswer == 3){
+        if (checkLastAnswer == 3) {
 
-            changeToNextGamePage(anchorPane,"/views/gamepages/GamePageFour.fxml");
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFour.fxml");
 
         }
 
     }
 
     @FXML
-    void onClickedOrangeLine(MouseEvent event) throws IOException{
+    void onClickedOrangeLine(MouseEvent event) throws IOException {
 
 
-        if (!orangeLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, orangeLabel, questionLabel, orangeLine))
             checkLastAnswer++;
-            orangeLine.setVisible(false);
-            orangeLabel.setVisible(false);
-        }
-        else
-            gameOver(anchorPane);
 
-        if(checkLastAnswer == 3){
-            changeToNextGamePage(anchorPane,"/views/gamepages/GamePageFour.fxml");
+        if (checkLastAnswer == 3) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFour.fxml");
         }
     }
 
 
     @FXML
-    void onClickedRedLine(MouseEvent event) throws IOException{
+    void onClickedRedLine(MouseEvent event) throws IOException {
 
 
-        if (!redLabel.getText().equals(questionLabel.getText())) {
+        if (onClickLine(anchorPane, event, redLabel, questionLabel, redLine))
             checkLastAnswer++;
-            redLine.setVisible(false);
-            redLabel.setVisible(false);
-        }
-        else
-            gameOver(anchorPane);
 
-        if(checkLastAnswer == 3){
-            changeToNextGamePage(anchorPane,"/views/gamepages/GamePageFour.fxml");
+        if (checkLastAnswer == 3) {
+            changeToNextGamePage(anchorPane, "/views/gamepages/GamePageFour.fxml");
         }
     }
 
@@ -167,7 +147,7 @@ public class GamePageThreeController extends GamePageController implements Initi
         logger.info(Integer.toString(questions.size()));
         logger.info(Integer.toString(randomNumberForQuestion.get(2)));
 
-        for(Integer i: randomNumberForQuestion){
+        for (Integer i : randomNumberForQuestion) {
             logger.info(Integer.toString(i));
         }
 
@@ -176,7 +156,7 @@ public class GamePageThreeController extends GamePageController implements Initi
         answers.add(question.getInCorrectAnswer3());
         answers.add(question.getInCorrectAnswer4());
 
-        for(String s: answers){
+        for (String s : answers) {
             logger.info("asnw:" + s);
         }
         questionLabel.setText(question.getQuestion());
@@ -187,7 +167,7 @@ public class GamePageThreeController extends GamePageController implements Initi
         orangeLabel.setText(answers.get(randomNumbers.get(2)));
         redLabel.setText(answers.get(randomNumbers.get(3)));
 
-        countDown(anchorPane,timeLabel);
+        countDown(anchorPane, timeLabel);
     }
 
 }

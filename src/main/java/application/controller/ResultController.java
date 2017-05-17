@@ -54,24 +54,24 @@ public class ResultController extends Controller implements Initializable {
 
 
     @FXML
-    void onClickedRestartButton(ActionEvent event) throws IOException{
+    void onClickedRestartButton(ActionEvent event) throws IOException {
 
-        changeToScreen("/views/gamepages/GamePageOne.fxml",event);
-
-    }
-
-    @FXML
-    void onClickedBackButton(ActionEvent event) throws IOException{
-
-        changeToScreen("/views/loginpages/LoggedInPage.fxml",event);
+        changeToScreen("/views/gamepages/GamePageOne.fxml", event);
 
     }
 
     @FXML
-    void onClickedQuitButton(ActionEvent event) throws IOException{
+    void onClickedBackButton(ActionEvent event) throws IOException {
+
+        changeToScreen("/views/loginpages/LoggedInPage.fxml", event);
+
+    }
+
+    @FXML
+    void onClickedQuitButton(ActionEvent event) throws IOException {
 
         Stage stage = (Stage) quitButton.getScene().getWindow();
-         stage.close();
+        stage.close();
 
     }
 
@@ -80,11 +80,9 @@ public class ResultController extends Controller implements Initializable {
     @SuppressWarnings("unchecked")
     public void initialize(URL location, ResourceBundle resources) {
 
-        if(LoggedInController.fromLoggedIn){
+        if (LoggedInController.fromLoggedIn) {
             restartButton.setVisible(false);
-        }
-        else
-        {
+        } else {
             restartButton.setVisible(true);
         }
 
@@ -98,12 +96,10 @@ public class ResultController extends Controller implements Initializable {
 
         for (Player p : playerService.findAllPlayer()) {
 
-            System.out.println(p);
             PlayerResult res = new PlayerResult(p.getUserName(), p.getPoints(), p.getTime());
-
             data.add(res);
 
-                }
+        }
 
         resultTable.setItems(null);
         resultTable.setItems(data);
