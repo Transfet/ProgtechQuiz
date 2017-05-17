@@ -4,10 +4,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Transfet on 2017. 04. 29..
- */
-
 @Entity
 public class Question {
 
@@ -19,7 +15,6 @@ public class Question {
     private String inCorrectAnswer4;
     private String inCorrectAnswer5;
     private String inCorrectAnswer6;
-
 
 
     @Id

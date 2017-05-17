@@ -11,7 +11,7 @@ public class ServiceLocator {
 
     /**
      * set the application context.
-     * @param ctx
+     * @param ctx application context
      */
     public static void setApplicationContext(ApplicationContext ctx) {
 

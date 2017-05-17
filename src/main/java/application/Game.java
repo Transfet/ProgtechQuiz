@@ -8,12 +8,6 @@ import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-
-/**
- * Created by Transfet on 2017. 05. 01..
- */
-
-
 public class Game extends Application {
 
     public static Boolean isSplashLoaded = false;
@@ -36,6 +30,4 @@ public class Game extends Application {
         launch(args);
     }
 
-
 }
-

@@ -15,10 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-/**
- * Created by Transfet on 2017. 05. 03..
- */
-
 @Configuration
 @ComponentScan("application")
 @EnableJpaRepositories

@@ -5,6 +5,8 @@ import application.model.questions.Question;
 import java.util.List;
 
 /**
+ *
+ * {@link QuestionService}
  * an interface for question service.
  */
 public interface QuestionServiceInterface {

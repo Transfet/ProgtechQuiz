@@ -87,17 +87,13 @@ public class SignUpController extends Controller implements Initializable {
 
         Player player = new Player(username,firstName,lastName,password);
 
-
         try {
             playerService.addPlayer(player);
         } catch (Exception e) {
             logger.error("Just an Exception: ", e);
         }
 
-        logger.info("-----------------------------");
-        logger.info("Added a new User to the DB: ");
-        logger.info(player.toString());
-        logger.info("--");
+        logger.debug("Added new player to DB: " + player.toString());
 
     }
 

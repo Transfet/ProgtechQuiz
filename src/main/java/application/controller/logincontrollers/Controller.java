@@ -15,9 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-/**
- * Created by Transfet on 2017. 05. 07..
- */
+
 public class Controller {
 
     Logger logger = LoggerFactory.getLogger(Controller.class);

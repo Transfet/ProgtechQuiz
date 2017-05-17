@@ -1,7 +1,7 @@
 package application.model.player;
 
 /**
- * Created by Transfet on 2017. 05. 07..
+ * A class
  */
 public class PlayerResult {
 

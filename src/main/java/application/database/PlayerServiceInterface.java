@@ -5,35 +5,35 @@ import application.model.player.Player;
 import java.util.List;
 
 /**
- * Created by Transfet on 2017. 05. 03..
+ * {@link PlayerService}
+ * @see Player
  */
 public interface PlayerServiceInterface {
 
     /**
-     * Hozzáadja a felhasználót az adatbázishoz
+     * Added a player to the database
      *
-     * @param player egy  felhasználót tartalmazó objektum
+     * @param player
      */
     void addPlayer(Player player);
 
     /**
-     * Eltávolít egy felhasználót az adatbázisból
+     * Delete a player from database
      *
-     * @param player egy felhaszanlót tartalmazó objektum
+     * @param player
      */
     void deletePlayer(Player player);
 
     /**
-     * Visszaadja az adatbázisban szereplő összes felhasználót
-     *
-     * @return list egy felhasználókat tartalmazó lista
+     * return all player from database
+     * @return list which contain players
      */
     List<Player> findAllPlayer();
 
     /**
-     * Visszaadja az adatbázisban szereplő összes felhasználót pontszám szerint növekvő sorrendben
+     * return all player from database order by points
      *
-     * @return list egy felhasználókat tartalmazó lista
+     * @return list which contain players
      */
     List<Player> findByMaxPoints();
 
