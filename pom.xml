@@ -3,19 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <description></description>
+    <description>Quiz</description>
 
-    <licenses>
-        <license>
-            <name></name>
-        </license>
-    </licenses>
-
+    <organization>
+        <name>Debreceni Egyetem</name>
+    </organization>
+    <inceptionYear>2017</inceptionYear>
 
     <scm>
         <url>https://github.com/Transfet/ProgtechQuiz</url>
-        <connection>scm:git:git://github.com/Transfet/ProgtechQuiz.git</connection>
-        <developerConnection>scm:git:git@github.com:Transfet/ProgtechQuiz.git</developerConnection>
     </scm>
 
     <developers>
@@ -83,46 +79,19 @@
             <artifactId>jfoenix</artifactId>
             <version>1.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
-    <!--<dependencyManagement>-->
-        <!--<dependencies>-->
-            <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-beans &ndash;&gt;-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework</groupId>-->
-                <!--<artifactId>spring-beans</artifactId>-->
-                <!--<version>${spring.version}</version>-->
-            <!--</dependency>-->
-            <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-aop &ndash;&gt;-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework</groupId>-->
-                <!--<artifactId>spring-aop</artifactId>-->
-                <!--<version>${spring.version}</version>-->
-            <!--</dependency>-->
-            <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-core &ndash;&gt;-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework</groupId>-->
-                <!--<artifactId>spring-core</artifactId>-->
-                <!--<version>${spring.version}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework</groupId>-->
-                <!--<artifactId>spring-context</artifactId>-->
-                <!--<version>${spring.version}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework</groupId>-->
-                <!--<artifactId>spring-tx</artifactId>-->
-                <!--<version>${spring.version}</version>-->
-            <!--</dependency>-->
-            <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-orm &ndash;&gt;-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework</groupId>-->
-                <!--<artifactId>spring-orm</artifactId>-->
-                <!--<version>${spring.version}</version>-->
-            <!--</dependency>-->
-        <!--</dependencies>-->
-    <!--</dependencyManagement>-->
 
     <build>
         <plugins>
