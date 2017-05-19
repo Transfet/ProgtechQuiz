@@ -37,6 +37,10 @@ public interface PlayerServiceInterface {
      */
     List<Player> findByMaxPoints();
 
+    Player findById(Long iD);
+
+    Player findPlayerByFirstName(String name);
+
     void updatePlayerPointAndTime(String player, Double point, Double time);
 
 }

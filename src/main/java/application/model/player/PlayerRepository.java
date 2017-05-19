@@ -16,6 +16,9 @@ import java.util.List;
 
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
+     Player findPlayerById(Long ID);
+     Player findPlayerByFirstName(String firstname);
+
      @Query("select p from Player p order by p.points desc ")
      List<Player> findAllAndSort();
 

@@ -17,6 +17,14 @@ public class PlayerService implements PlayerServiceInterface {
 
     //final static Logger logger = LoggerFactory.getLogger(PlayerService.class);
 
+    public PlayerService(PlayerRepository playerRepository1){
+        playerRepository = playerRepository1;
+    }
+
+    public PlayerService(){
+
+    }
+
     @Autowired
     private PlayerRepository playerRepository;
 
@@ -46,5 +54,15 @@ public class PlayerService implements PlayerServiceInterface {
     @Override
     public void updatePlayerPointAndTime(String player, Double point, Double time) {
         playerRepository.updatePlayerPointAndTime(player, point, time);
+    }
+
+    @Override
+    public Player findById(Long iD) {
+        return playerRepository.findPlayerById(iD);
+    }
+
+    @Override
+    public Player findPlayerByFirstName(String name) {
+        return playerRepository.findPlayerByFirstName(name);
     }
 }
