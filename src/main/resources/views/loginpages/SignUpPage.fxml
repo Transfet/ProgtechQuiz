@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="414.0" prefWidth="641.0" stylesheets="/css/loginStyle.css" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.logincontrollers.SignUpController">
+            fx:controller="hu.transfet.unideb.application.controller.logincontrollers.SignUpController">
     <JFXTextField fx:id="userNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true"
                   layoutX="231.0" layoutY="70.0" prefHeight="35.0" prefWidth="180.0" promptText="User name"
                   unFocusColor="#374140"/>

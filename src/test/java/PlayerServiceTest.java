@@ -1,6 +1,6 @@
-import application.database.PlayerService;
-import application.model.player.Player;
-import application.model.player.PlayerRepository;
+import hu.transfet.unideb.application.service.PlayerServiceImpl;
+import hu.transfet.unideb.application.model.player.Player;
+import hu.transfet.unideb.application.model.player.PlayerRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,25 +23,15 @@ public class PlayerServiceTest {
     private PlayerRepository playerRepository;
 
     @InjectMocks
-    private PlayerService playerService;
+    private PlayerServiceImpl playerService;
 
-    private Player player;
-
-
-    private Player getPlayer(){
-        return player;
-    }
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-        player = new Player("TestUserName", "TestFirstName", "TestLastName", "TestPw");
-    }
 
     @Test
-    public void findPlayersTest() {
+    public void testFindPlayersShouldSucceedWhenPlayersListNotNull() {
 
-        Player testPlayer = getPlayer();
+        Player testPlayer = new Player();
+        testPlayer.setUserName("Test");
+
         List<Player> players = new ArrayList<>();
         players.add(testPlayer);
 
@@ -55,13 +45,13 @@ public class PlayerServiceTest {
     }
 
     @Test
-    public void findByIdTest() {
+    public void testFindByIdTestShouldSucceedWhenPlayersHaveAnId() {
 
-        Player testPlayer = getPlayer();
+        Player testPlayer = new Player();
+        testPlayer.setUserName("Test");
         testPlayer.setId(3L);
-        playerService.addPlayer(testPlayer);
 
-        when(playerRepository.findPlayerById(any(Long.class))).thenReturn(player);
+        when(playerRepository.findPlayerById(any(Long.class))).thenReturn(testPlayer);
 
         Player checkPlayer = playerService.findById(3L);
 
@@ -76,7 +66,7 @@ public class PlayerServiceTest {
 
         Double point = 100.0;
         Double time = 3.0;
-        String userName = getPlayer().getUserName();
+        String userName = "Test";
 
         doThrow(Exception.class).when(playerRepository).updatePlayerPointAndTime(any(String.class),any(Double.class),any(Double.class));
 
@@ -89,7 +79,8 @@ public class PlayerServiceTest {
     @Test(expected = Exception.class)
     public void testAddPlayer(){
 
-        Player testPlayer = getPlayer();
+        Player testPlayer = new Player();
+        testPlayer.setUserName("Test");
 
         doThrow(Exception.class).when(playerRepository).save(any(Player.class));
 
@@ -101,7 +92,8 @@ public class PlayerServiceTest {
     @Test(expected = NullPointerException.class)
     public void deletePlayerTest(){
 
-        Player testPlayer = getPlayer();
+        Player testPlayer = new Player();
+        testPlayer.setUserName("Test");
         doThrow(NullPointerException.class).when(playerRepository).delete(any(Player.class));
 
         playerService.deletePlayer(testPlayer);

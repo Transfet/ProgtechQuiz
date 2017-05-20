@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             stylesheets="/css/loginStyle.css"
-            fx:controller="application.controller.logincontrollers.LoggedInController">
+            fx:controller="hu.transfet.unideb.application.controller.logincontrollers.LoggedInController">
     <JFXButton fx:id="startButton" layoutX="253.0" layoutY="105.0" onAction="#onClickedStartButton" text="Start"/>
     <JFXButton fx:id="tableButton" layoutX="253.0" layoutY="170.0" onAction="#onClickedTableButton" text="Table"/>
     <JFXButton fx:id="signOutButton" layoutX="253.0" layoutY="235.0" onAction="#onClickedSignOutButton"
