@@ -1,16 +1,12 @@
 package application.model.player;
 
-import org.hamcrest.Matcher;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by Transfet on 2017. 04. 29..
- */
-
-/**
- * Reprezentál egy játékost.
+ * Egy jatekost megvalosito osztaly.
+ *
+ * @author Transfet
  */
 @Entity
 public class Player implements Serializable {
@@ -28,19 +24,19 @@ public class Player implements Serializable {
     private Double time = 0.0 ;
 
     /**
-     * Create a Player.
+     * Alapertelmezett konstruktor, letrehoz egy ures jatekost.
      */
     public Player(){
 
     }
 
     /**
-     *Create a Player with specified parameteres
-     * @param userName the name of the player
-     * @param firstName the player's first name
-     * @param lastName the player's last name
-     * @param password the player's password
-     * @throws IllegalArgumentException if one of parameteres is empty
+     * Parameterezett konstruktor.
+     * @param userName A jatekos felhasznalo neve.
+     * @param firstName A jatekos keresztneve.
+     * @param lastName A jatekos vezetekneve.
+     * @param password A jatekos jelszava.
+     * @throws IllegalArgumentException Aa a parameterek kozul,legalabb egy ures String.
      */
     public Player(String userName, String firstName, String lastName, String password){
         if((userName.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || password.isEmpty()))
@@ -55,10 +51,10 @@ public class Player implements Serializable {
     }
 
     /**
-     * Create a Player with specified paramteres.
-     * @param userName the name of the player
-     * @param point the player's point
-     * @param time timme
+     * Parameterezett konstruktor.
+     * @param userName A jatekos felhasznaloneve.
+     * @param point A jatekos aktualis pontja.
+     * @param time  A jatekos aktualis ideje.
      */
     public Player(String userName, Double point, Double time){
         this.userName = userName;
@@ -67,62 +63,115 @@ public class Player implements Serializable {
     }
 
     /**
-     * Gets the player's id.
-     * @return return the player's id
-     */
+     * Visszaadja a jatekos ID-jet
+     * @return return Egy ID.
+     *
+     * */
     public Long getId() {
         return id;
     }
 
-
+    /**
+     * Visszaadja a jatekos keresztnevet.
+     * @return A jatekos keresztneve.
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Visszaadja a jatekos vezeteknevet.
+     *
+     * @return A jatekos vezetekneve.
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Visszaadja a jatekos felhasznalonevet.
+     * @return A jatekos felhasznaloneve.
+     */
     public String getUserName() {
         return userName;
     }
 
+    /**
+     * Beallitja a jatekos keresztnevet.
+     * @param firstName A jatekos keresztneve
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     * Beallitja a jatekos ID-jet.
+     * @param id A jatekos ideje
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Beallitja a jatekos vezeteknevet.
+     * @param lastName String
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     * Beallitja a jatekos felhasznalonevet.
+     * @param userName Jatekos fehalsznalo neve
+     */
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
+    /**
+     * Visszaadja a jatekos aktualis pontszamat.
+     * @return A jatekos pontszama.
+     */
     public Double getPoints() {
         return points;
     }
 
+    /**
+     * Visszaadja a jatekos aktualis idejet.
+     * @return A jatekos ideje.
+     */
     public Double getTime() {
         return time;
     }
 
+    /**
+     * Beallitja a jatekos pontszamat.
+     * @param points Jatekos pontszama.
+     */
     public void setPoints(Double points) {
         this.points = points;
     }
 
+    /**
+     * Beallitja a jatekos idejet.
+     * @param time jatekos ideje.
+     */
     public void setTime(Double time) {
         this.time = time;
     }
 
+    /**
+     * Beallitja a jatekos jelszavat.
+     * @param password A jatekos jelszava.
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Visszaadja a jatekos jelszavat.
+     * @return A jatekos jelszava.
+     */
     public String getPassword() {
         return password;
     }

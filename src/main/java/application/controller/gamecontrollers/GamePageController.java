@@ -23,9 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by Transfet on 2017. 05. 07..
- */
 public class GamePageController {
 
 

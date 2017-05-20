@@ -1,10 +1,5 @@
 package application.controller.gamecontrollers;
 
-/**
- * Created by Transfet on 2017. 05. 06..
- */
-
-
 import application.ServiceLocator;
 import application.database.QuestionService;
 import application.model.questions.Question;

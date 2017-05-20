@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="620.0" prefWidth="760.0"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="application.controller.NextGamePageController">
+            xmlns="http://javafx.com/javafx/8">
     <Label alignment="CENTER" layoutX="95.0" layoutY="194.0" prefHeight="233.0" prefWidth="570.0" text="Next question"
            textFill="#e74c3c">
         <font>

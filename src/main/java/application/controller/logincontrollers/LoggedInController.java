@@ -1,9 +1,5 @@
 package application.controller.logincontrollers;
 
-/**
- * Created by Transfet on 2017. 05. 05..
- */
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,14 +10,9 @@ import application.model.player.Player;
 import application.model.questions.Question;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,16 +83,63 @@ public class LoggedInController extends Controller implements Initializable {
 
         QuestionService questionService = ServiceLocator.getService(QuestionService.class);
 
-        questionService.addQuestion(new Question("111", "111", "222", "333", "444", "555", "666", "777"));
-        questionService.addQuestion(new Question("222", "222", "111", "333", "444", "555", "666", "777"));
-        questionService.addQuestion(new Question("333", "333", "222", "111", "444", "555", "666", "777"));
-        questionService.addQuestion(new Question("444", "444", "222", "333", "111", "555", "666", "777"));
-        questionService.addQuestion(new Question("555", "555", "222", "333", "444", "111", "666", "777"));
-        questionService.addQuestion(new Question("666", "666", "222", "333", "444", "555", "111", "777"));
+        questionService.addQuestion(new Question("How many pieces are basic Accessibility modifiers?",
+                "4",
+                "1",
+                "2",
+                "3",
+                "6",
+                "5",
+                "7"));
+
+        questionService.addQuestion(new Question("Which answer not a Collection class?",
+                "The Map",
+                "AbstractList",
+                "LinkedList",
+                "HashSet",
+                "AbstractMap",
+                "HashMap",
+                "LinkedHashMap"));
+
+        questionService.addQuestion(new Question("Which access modifier is one of the basic Accessibility modifiers in Java?",
+                "Protected",
+                "Static",
+                "Abstract",
+                "Final",
+                "Transient",
+                "Native",
+                "Volatile"));
+
+        questionService.addQuestion(new Question("Which answer is one of the new features in Java 8?",
+                "The javadoc tool supports the new DocTree API",
+                "Try-with-resources statement",
+                "Multiple exception catching",
+                "Generics",
+                "Annotation",
+                "Autoboxing nad Unboxing",
+                "String in switch statement"));
+
+        questionService.addQuestion(new Question("555",
+                "555",
+                "222",
+                "333",
+                "444",
+                "111",
+                "666",
+                "777"));
+
+        questionService.addQuestion(new Question("666",
+                "666",
+                "222",
+                "333",
+                "444",
+                "555",
+                "111",
+                "777"));
+
 
         signedInPlayer = SignInController.getSignedInPlayer();
         logger.info("Signed as: " + signedInPlayer.toString());
-
 
         signedInLabel.setText("Welcome: " + signedInPlayer.getUserName());
     }

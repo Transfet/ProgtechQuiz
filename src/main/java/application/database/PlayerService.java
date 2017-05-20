@@ -9,7 +9,8 @@ import java.util.List;
 
 
 /**
- * Created by Transfet on 2017. 05. 03..
+ * <p>Egy osztaly,mely implementalja a {@link PlayerServiceInterface}
+ * Ezen osztaly metodusaival tudunk a jatekosokhoz hozzaferni, illetve modositani az adatbazisban.</p>
  */
 
 @Service
@@ -17,16 +18,9 @@ public class PlayerService implements PlayerServiceInterface {
 
     //final static Logger logger = LoggerFactory.getLogger(PlayerService.class);
 
-    public PlayerService(PlayerRepository playerRepository1){
-        playerRepository = playerRepository1;
-    }
-
-    public PlayerService(){
-
-    }
-
     @Autowired
     private PlayerRepository playerRepository;
+
 
     @Override
     public List<Player> findAllPlayer() {
@@ -38,16 +32,11 @@ public class PlayerService implements PlayerServiceInterface {
         playerRepository.save(player);
     }
 
+
     @Override
     public void deletePlayer(Player player) {
 
         playerRepository.delete(player);
-    }
-
-    @Override
-    public List<Player> findByMaxPoints() {
-        //return null;
-        return playerRepository.findAllAndSort();
     }
 
 
@@ -56,13 +45,10 @@ public class PlayerService implements PlayerServiceInterface {
         playerRepository.updatePlayerPointAndTime(player, point, time);
     }
 
+
     @Override
     public Player findById(Long iD) {
         return playerRepository.findPlayerById(iD);
     }
 
-    @Override
-    public Player findPlayerByFirstName(String name) {
-        return playerRepository.findPlayerByFirstName(name);
-    }
 }

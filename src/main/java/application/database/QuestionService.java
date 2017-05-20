@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by Transfet on 2017. 05. 03..
+ * <p>Egy osztaly mely implementalja {@link QuestionService} interfeszt
+ * Ezen osztaly metodusaival tudunk a kerdesekhez hozzaferni,illetve kerdeseket modositani az adatbazisban.</p>
  */
 
 @Service

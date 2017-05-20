@@ -5,34 +5,35 @@ import application.model.questions.Question;
 import java.util.List;
 
 /**
+ * Kerdes-hozzaferest megvalosito interfesz, melyet a {@link QuestionService} implemental.
  *
- * {@link QuestionService}
- * an interface for question service.
+ * @see Question
  */
 public interface QuestionServiceInterface {
 
     /**
-     * add a question to the database.
-     * @param question
+     * Hozzaad egy kerdest az adatbazishoz
+     * @param question Egy kerdes
      */
     void addQuestion(Question question);
 
     /**
-     * delete a question from database.
-     * @param question
+     * Torol egy kerdest az adatbazisbol
+     * @param question Egy kerdes
      */
     void deleteQuestion(Question question);
 
     /**
-     * find all question in database.
-     * @return a list which contains all question from database.
+     * Listazza az adatbazisban szereplo osszes kerdest.
+     * @return Egy kerdesekbol allo lista
      */
     List<Question> findAllQuestion();
 
     /**
+     *  ID alapjan megkeres egy kerdest.
      *
-     * @param ID - the question's ID in database.
-     * @return a question from database by ID.
+     * @param ID A kerdes ID-je
+     * @return Egy kerdes
      */
     Question findById(int ID);
 

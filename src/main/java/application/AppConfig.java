@@ -15,18 +15,29 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+/**
+ * Application configuration
+ */
 @Configuration
 @ComponentScan("application")
 @EnableJpaRepositories
 @EnableTransactionManagement
 public class AppConfig {
 
+    /**
+     * DataSource
+     * @return datasource
+     */
     @Bean
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         return builder.setType(EmbeddedDatabaseType.H2).build();
     }
 
+    /**
+     * EntityManagerFactory
+     * @return LocalContainerEntityManagerFactoryBean
+     */
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -40,6 +51,11 @@ public class AppConfig {
         return factory;
     }
 
+    /**
+     * Transaction manager
+     * @param emf EntityManagerFactory
+     * @return A platformTransactionManager
+     */
     @Bean
     public PlatformTransactionManager transactionManager(final EntityManagerFactory emf) {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();

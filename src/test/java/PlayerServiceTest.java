@@ -9,26 +9,15 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-/**
- * Created by Transfet on 2017. 05. 18..
- */
-
 @RunWith(MockitoJUnitRunner.class)
 public class PlayerServiceTest {
 
-    // Logger logger = LoggerFactory.getLogger(PlayerServiceTest.class);
 
     @Mock
     private PlayerRepository playerRepository;
@@ -37,20 +26,24 @@ public class PlayerServiceTest {
     private PlayerService playerService;
 
     private Player player;
-    private Player savedPlayer;
+
+
+    private Player getPlayer(){
+        return player;
+    }
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         player = new Player("TestUserName", "TestFirstName", "TestLastName", "TestPw");
-        savedPlayer = new Player();
     }
 
     @Test
-    public void testFindPlayers() {
+    public void findPlayersTest() {
 
+        Player testPlayer = getPlayer();
         List<Player> players = new ArrayList<>();
-        players.add(player);
+        players.add(testPlayer);
 
         when(playerRepository.findAll()).thenReturn(players);
         List<Player> checkPlayers = playerService.findAllPlayer();
@@ -58,24 +51,62 @@ public class PlayerServiceTest {
         verify(playerRepository, times(1)).findAll();
 
         Assert.assertTrue(checkPlayers.size() > 0);
-        Assert.assertEquals(player, checkPlayers.get(0));
+        Assert.assertEquals(testPlayer,players.get(0));
+    }
+
+    @Test
+    public void findByIdTest() {
+
+        Player testPlayer = getPlayer();
+        testPlayer.setId(3L);
+        playerService.addPlayer(testPlayer);
+
+        when(playerRepository.findPlayerById(any(Long.class))).thenReturn(player);
+
+        Player checkPlayer = playerService.findById(3L);
+
+        verify(playerRepository,times(1)).findPlayerById(any(Long.class));
+
+        Assert.assertEquals(checkPlayer,testPlayer);
 
     }
 
-    /*@Test
-    public void testAddPlayer() {
+    @Test(expected = Exception.class)
+    public void updateTest(){
 
-        doAnswer(invocationOnMock -> {
-            Object[] args = invocationOnMock.getArguments();
-            Object mock = invocationOnMock.getMock();
-            System.out.println("method:" + Arrays.toString(args));
-            return null;
-        }).when(playerRepository).save(any(Player.class));
+        Double point = 100.0;
+        Double time = 3.0;
+        String userName = getPlayer().getUserName();
 
-        playerService.addPlayer(any(Player.class));
+        doThrow(Exception.class).when(playerRepository).updatePlayerPointAndTime(any(String.class),any(Double.class),any(Double.class));
 
-        Assert.assertNull(playerService.findAllPlayer());
+        playerService.updatePlayerPointAndTime(userName,point,time);
 
-    }*/
+        verify(playerRepository,times(1)).updatePlayerPointAndTime(any(String.class),any(Double.class),any(Double.class));
 
+    }
+
+    @Test(expected = Exception.class)
+    public void testAddPlayer(){
+
+        Player testPlayer = getPlayer();
+
+        doThrow(Exception.class).when(playerRepository).save(any(Player.class));
+
+        playerService.addPlayer(testPlayer);
+
+        verify(playerRepository,times(1)).save(any(Player.class));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void deletePlayerTest(){
+
+        Player testPlayer = getPlayer();
+        doThrow(NullPointerException.class).when(playerRepository).delete(any(Player.class));
+
+        playerService.deletePlayer(testPlayer);
+
+        verify(playerRepository,times(2)).delete(any(Player.class));
+
+    }
 }

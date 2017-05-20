@@ -8,15 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
 /**
- * Created by Transfet on 2017. 04. 29..<
+ * PlayerRepository interfesz
  */
-
-
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
      Player findPlayerById(Long ID);
+
      Player findPlayerByFirstName(String firstname);
 
      @Query("select p from Player p order by p.points desc ")
