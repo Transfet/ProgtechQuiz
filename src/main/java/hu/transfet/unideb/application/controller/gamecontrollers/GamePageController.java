@@ -1,6 +1,7 @@
 package hu.transfet.unideb.application.controller.gamecontrollers;
 
 import hu.transfet.unideb.application.ServiceLocator;
+import hu.transfet.unideb.application.model.answer.Answer;
 import hu.transfet.unideb.application.service.QuestionServiceImpl;
 import hu.transfet.unideb.application.model.questions.Question;
 
@@ -28,9 +29,10 @@ public class GamePageController extends GameController implements Initializable 
     @FXML
     private ImageView bombImage;
 
+
     private int lastAnswer;
     private Question question;
-
+    private String correctAnswer;
 
     @FXML
     private AnchorPane anchorPane;
@@ -86,7 +88,7 @@ public class GamePageController extends GameController implements Initializable 
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
-        if (onClickLine(anchorPane, event, skyBlueLabel, question.getCorrectAnswer(), skyBlueLine))
+        if (onClickLine(anchorPane, event, skyBlueLabel, correctAnswer, skyBlueLine))
             checkLastAnswer++;
 
         if (checkLastAnswer == lastAnswer) {
@@ -103,7 +105,7 @@ public class GamePageController extends GameController implements Initializable 
     void onClickedBrownLine(MouseEvent event) throws IOException {
 
 
-        if (onClickLine(anchorPane, event, brownLabel, question.getCorrectAnswer(), brownLine))
+        if (onClickLine(anchorPane, event, brownLabel, correctAnswer, brownLine))
             checkLastAnswer++;
 
         if (checkLastAnswer == lastAnswer) {
@@ -120,7 +122,7 @@ public class GamePageController extends GameController implements Initializable 
     @FXML
     void onClickedPinkLine(MouseEvent event) throws IOException {
 
-        if (onClickLine(anchorPane, event, pinkLabel, question.getCorrectAnswer(), pinkLine))
+        if (onClickLine(anchorPane, event, pinkLabel,correctAnswer, pinkLine))
             checkLastAnswer++;
 
         if (checkLastAnswer == lastAnswer) {
@@ -137,7 +139,7 @@ public class GamePageController extends GameController implements Initializable 
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
 
-        if (onClickLine(anchorPane, event, greenLabel, question.getCorrectAnswer(), greenLine))
+       if (onClickLine(anchorPane, event, greenLabel, correctAnswer, greenLine))
             checkLastAnswer++;
 
         if (checkLastAnswer == lastAnswer) {
@@ -153,7 +155,7 @@ public class GamePageController extends GameController implements Initializable 
     @FXML
     void onClickedPurpleLine(MouseEvent event) throws IOException {
 
-        if (onClickLine(anchorPane, event, purpleLabel, question.getCorrectAnswer(), purpleLine))
+        if (onClickLine(anchorPane, event, purpleLabel, correctAnswer, purpleLine))
             checkLastAnswer++;
 
         if (checkLastAnswer == lastAnswer) {
@@ -172,7 +174,7 @@ public class GamePageController extends GameController implements Initializable 
     void onClickedOrangeLine(MouseEvent event) throws IOException {
 
 
-        if (onClickLine(anchorPane, event, orangeLabel, question.getCorrectAnswer(), orangeLine))
+        if (onClickLine(anchorPane, event, orangeLabel, correctAnswer, orangeLine))
             checkLastAnswer++;
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
@@ -188,7 +190,7 @@ public class GamePageController extends GameController implements Initializable 
     void onClickedRedLine(MouseEvent event) throws IOException {
 
 
-        if (onClickLine(anchorPane, event, redLabel, question.getCorrectAnswer(), redLine))
+        if (onClickLine(anchorPane, event, redLabel, correctAnswer, redLine))
             checkLastAnswer++;
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
@@ -211,26 +213,14 @@ public class GamePageController extends GameController implements Initializable 
         labelsAndLines.add(new Pair(brownLabel, brownLine));
     }
 
-    private void addAnswersToList(List<String> answers) {
-
-        answers.add(question.getCorrectAnswer());
-        answers.add(question.getInCorrectAnswer1());
-        answers.add(question.getInCorrectAnswer3());
-        answers.add(question.getInCorrectAnswer4());
-        answers.add(question.getInCorrectAnswer5());
-        answers.add(question.getInCorrectAnswer6());
-        answers.add(question.getInCorrectAnswer2());
-
-    }
-
-    private void setLabelsText(int limit, ArrayList<Pair<Label, Line>> labelsAndLines, ArrayList<String> answers) {
+    private void setLabelsText(int limit, ArrayList<Pair<Label, Line>> labelsAndLines, List<Answer> answers) {
 
         List<Integer> randomNumbers = randomNumbers(limit, limit, false);
 
         questionLabel.setText(question.getQuestion());
 
         for (int i = 0; i < limit; i++) {
-            labelsAndLines.get(randomNumbers.get(i)).getKey().setText(answers.get(i));
+            labelsAndLines.get(randomNumbers.get(i)).getKey().setText(answers.get(i).getAnswer());
             labelsAndLines.get(randomNumbers.get(i)).getKey().setVisible(true);
 
             labelsAndLines.get(randomNumbers.get(i)).getValue().setVisible(true);
@@ -252,8 +242,11 @@ public class GamePageController extends GameController implements Initializable 
 
         question = questionServiceImpl.findById(randomNumberForQuestion.get(labelsNumber - 2));
 
-        ArrayList<String> answers = new ArrayList<>();
-        addAnswersToList(answers);
+        //Question quest = questionServiceImpl.findById(1);
+        List<Answer> answers = question.getAnswers();
+
+        int correctAnswerIndex = question.getCorrectAnswerIndex();
+        correctAnswer = answers.get(correctAnswerIndex).getAnswer();
 
         ArrayList<Pair<Label, Line>> labelsAndLines = new ArrayList<>();
         addLabelsAndLines(labelsAndLines);

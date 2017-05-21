@@ -1,0 +1,96 @@
+[
+  {
+    "question": "How many pieces are basic Accessibility modifiers?",
+    "answer": [
+      "4",
+      "1",
+      "2",
+      "3",
+      "6",
+      "7",
+      "5"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which answer not a Collection class?",
+    "answer": [
+      "The Map",
+      "AbstractList",
+      "LinkedList",
+      "HashSet",
+      "AbstractMap",
+      "HashMap",
+      "LinkedHashMap"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which access modifier is one of the basic Accessibility modifiers in Java?",
+    "answer": [
+      "Protected",
+      "Static",
+      "Abstract",
+      "Final",
+      "Transient",
+      "Native",
+      "Volatile"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which answer is one of the new features in Java 8?",
+    "answer": [
+      "The javadoc tool supports the new DocTree API",
+      "Try-with-resources statement",
+      "Multiple exception catching",
+      "Generics",
+      "Annotation",
+      "Autoboxing nad Unboxing",
+      "String in switch statement"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which answer not a Collection class?",
+    "answer": [
+      "The Map",
+      "AbstractList",
+      "LinkedList",
+      "HashSet",
+      "AbstractMap",
+      "HashMap",
+      "LinkedHashMap"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "TODO",
+    "answer": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "TO",
+    "answer": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct": 0
+  }
+]
+
+
+

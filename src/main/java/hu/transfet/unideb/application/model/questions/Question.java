@@ -1,6 +1,10 @@
 package hu.transfet.unideb.application.model.questions;
 
+import hu.transfet.unideb.application.model.answer.Answer;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -9,54 +13,49 @@ import javax.persistence.*;
 @Entity
 public class Question {
 
+    @Column(name = "QUESTION")
     private String question;
-    private String correctAnswer;
-    private String inCorrectAnswer1;
-    private String inCorrectAnswer2;
-    private String inCorrectAnswer3;
-    private String inCorrectAnswer4;
-    private String inCorrectAnswer5;
-    private String inCorrectAnswer6;
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Answer> answers;
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Q_ID")
     private int id;
 
-    /**
-     * Alapertelmezett konstruktor
-     */
-    public Question(){
+    private int correctAnswerIndex = 0;
 
+    public void setCorrectAnswerIndex(int index){
+        correctAnswerIndex = index;
+    }
+
+    public int getCorrectAnswerIndex(){
+        return correctAnswerIndex;
+    }
+
+    public Question() {
+        answers = new ArrayList<>();
     }
 
     /**
-     * Parameterezett konstruktor
-     * @param question Egy kerdes
-     * @param correctAnswer Helyes valasz
-     * @param inCorrectAnswer1 Helytelen valasz
-     * @param inCorrectAnswer2 Helytelen valasz
-     * @param inCorrectAnswer3 Helytelen valasz
-     * @param inCorrectAnswer4 Helytelen valasz
-     * @param inCorrectAnswer5 Helytelen valasz
-     * @param inCorrectAnswer6 Helytelen valasz
+     * Visszaadja a valaszok listajat. A visszaadott lista egy defenziv masolat.
+     *
+     * @return Valaszok listaja.
      */
-    public Question(String question, String correctAnswer, String inCorrectAnswer1, String inCorrectAnswer2, String inCorrectAnswer3
-                    ,String inCorrectAnswer4, String inCorrectAnswer5, String inCorrectAnswer6){
+    public List<Answer> getAnswers() {
+        return new ArrayList<>(answers);
+    }
 
-        this.question = question;
-        this.correctAnswer = correctAnswer;
-        this.inCorrectAnswer1 = inCorrectAnswer1;
-        this.inCorrectAnswer2 = inCorrectAnswer2;
-        this.inCorrectAnswer3 = inCorrectAnswer3;
-        this.inCorrectAnswer4 = inCorrectAnswer4;
-        this.inCorrectAnswer5 = inCorrectAnswer5;
-        this.inCorrectAnswer6 = inCorrectAnswer6;
+    public void setAnswers(List<Answer> answers) {
 
+        this.answers = answers;
     }
 
     /**
      * Beallitja egy kerdes ID-jet
+     *
      * @param id egy Integer tipusu ID
      */
     public void setId(int id) {
@@ -65,6 +64,7 @@ public class Question {
 
     /**
      * Beallitja a kerdest
+     *
      * @param question Egy String tipusu kerdes
      */
     public void setQuestion(String question) {
@@ -73,6 +73,7 @@ public class Question {
 
     /**
      * Visszaadja a kerdes ID-jet
+     *
      * @return Egy int tipusu ID
      */
     public int getId() {
@@ -80,64 +81,8 @@ public class Question {
     }
 
     /**
-     * Visszaadja a helyes valasz
-     * @return Egy valasz
-     */
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    /**
-     * Visszaad egy helytelen valasz
-     * @return Egy valasz
-     */
-    public String getInCorrectAnswer1() {
-        return inCorrectAnswer1;
-    }
-
-    /**
-     * Visszaad egy helytelen valasz
-     * @return Egy valasz
-     */
-    public String getInCorrectAnswer2() {
-        return inCorrectAnswer2;
-    }
-
-    /**
-     * Visszaad egy helytelen valasz
-     * @return Egy valasz
-     */
-    public String getInCorrectAnswer3() {
-        return inCorrectAnswer3;
-    }
-
-    /**
-     * Visszaad egy helytelen valasz
-     * @return Egy valasz
-     */
-    public String getInCorrectAnswer4() {
-        return inCorrectAnswer4;
-    }
-
-    /**
-     * Visszaad egy helytelen valasz
-     * @return Egy valasz
-     */
-    public String getInCorrectAnswer5() {
-        return inCorrectAnswer5;
-    }
-
-    /**
-     * Visszaad egy helytelen valasz
-     * @return Egy valasz
-     */
-    public String getInCorrectAnswer6() {
-        return inCorrectAnswer6;
-    }
-
-
-    /**
      * Visszaadja a kerdest
+     *
      * @return Egy String tipusu kerdes
      */
     public String getQuestion() {
@@ -146,8 +91,15 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question: " + question + "\n" + "Answer: " + correctAnswer + "\n" + "id: " + Long.toString(id);
+        String result = String.format("Question[id=%d , name ='%s']%n", id, question);
+        if (answers != null) {
+            for (Answer answer : answers) {
+                result += String.format(
+                        "Answer[id=%d, answer='%s']%n",
+                        answer.getId(), answer.getAnswer()
+                );
+            }
+        }
+        return result;
     }
-
-
 }

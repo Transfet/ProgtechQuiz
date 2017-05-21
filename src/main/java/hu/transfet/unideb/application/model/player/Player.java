@@ -11,36 +11,29 @@ import java.io.Serializable;
 @Entity
 public class Player implements Serializable {
 
+    @Column(name = "USER_NAME")
     private String userName;
+
+    @Column(name = "FIRST_NAME")
     private String firstName;
+
+    @Column(name = "LAST_NAME")
     private String lastName;
-    private String password ;
+
+    @Column(name = "PASSWORD")
+    private String password;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "USER_ID")
     private Long id;
 
+    @Column(name = "POINT")
     private Double points = 0.0;
+
+    @Column(name = "TIME")
     private Double time = 0.0 ;
 
-    /**
-     * Alapertelmezett konstruktor, letrehoz egy ures jatekost.
-     */
-    public Player(){
-
-    }
-
-    /**
-     * Parameterezett konstruktor.
-     * @param userName A jatekos felhasznaloneve.
-     * @param point A jatekos aktualis pontja.
-     * @param time  A jatekos aktualis ideje.
-     */
-    public Player(String userName, Double point, Double time){
-        this.userName = userName;
-        this.points = point;
-        this.time = time;
-    }
 
     /**
      * Visszaadja a jatekos ID-jet

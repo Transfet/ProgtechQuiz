@@ -1,7 +1,9 @@
 package hu.transfet.unideb.application.controller.logincontrollers;
 
 import hu.transfet.unideb.application.ServiceLocator;
-import hu.transfet.unideb.application.service.PlayerServiceImpl;
+import hu.transfet.unideb.application.model.answer.Answer;
+import hu.transfet.unideb.application.model.questions.Question;
+import hu.transfet.unideb.application.service.*;
 import hu.transfet.unideb.application.model.player.Player;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -16,6 +18,8 @@ import org.springframework.dao.DataAccessException;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SignUpController extends Controller implements Initializable {

@@ -1,3 +1,5 @@
+package hu.transfet.unideb.test.testservice;
+
 import hu.transfet.unideb.application.service.PlayerServiceImpl;
 import hu.transfet.unideb.application.model.player.Player;
 import hu.transfet.unideb.application.model.player.PlayerRepository;

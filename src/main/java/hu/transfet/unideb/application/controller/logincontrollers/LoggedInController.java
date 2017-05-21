@@ -1,10 +1,12 @@
 package hu.transfet.unideb.application.controller.logincontrollers;
 
-import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import hu.transfet.unideb.application.ServiceLocator;
+import hu.transfet.unideb.application.model.answer.Answer;
 import hu.transfet.unideb.application.service.QuestionServiceImpl;
 import hu.transfet.unideb.application.model.player.Player;
 import hu.transfet.unideb.application.model.questions.Question;
@@ -80,63 +82,6 @@ public class LoggedInController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        QuestionServiceImpl questionServiceImpl = ServiceLocator.getService(QuestionServiceImpl.class);
-
-        questionServiceImpl.addQuestion(new Question("How many pieces are basic Accessibility modifiers?",
-                "4",
-                "1",
-                "2",
-                "3",
-                "6",
-                "5",
-                "7"));
-
-        questionServiceImpl.addQuestion(new Question("Which answer not a Collection class?",
-                "The Map",
-                "AbstractList",
-                "LinkedList",
-                "HashSet",
-                "AbstractMap",
-                "HashMap",
-                "LinkedHashMap"));
-
-        questionServiceImpl.addQuestion(new Question("Which access modifier is one of the basic Accessibility modifiers in Java?",
-                "Protected",
-                "Static",
-                "Abstract",
-                "Final",
-                "Transient",
-                "Native",
-                "Volatile"));
-
-        questionServiceImpl.addQuestion(new Question("Which answer is one of the new features in Java 8?",
-                "The javadoc tool supports the new DocTree API",
-                "Try-with-resources statement",
-                "Multiple exception catching",
-                "Generics",
-                "Annotation",
-                "Autoboxing nad Unboxing",
-                "String in switch statement"));
-
-        questionServiceImpl.addQuestion(new Question("555",
-                "555",
-                "222",
-                "333",
-                "444",
-                "111",
-                "666",
-                "777"));
-
-        questionServiceImpl.addQuestion(new Question("666",
-                "666",
-                "222",
-                "333",
-                "444",
-                "555",
-                "111",
-                "777"));
-
 
         signedInPlayer = SignInController.getSignedInPlayer();
         logger.info("Signed as: " + signedInPlayer.toString());

@@ -1,3 +1,5 @@
+package hu.transfet.unideb.test.testservice;
+
 import hu.transfet.unideb.application.service.QuestionServiceImpl;
 import hu.transfet.unideb.application.model.questions.Question;
 import hu.transfet.unideb.application.model.questions.QuestionRepository;
@@ -33,7 +35,7 @@ public class QuestionServiceTest {
 
 
     @Test
-    public void findQuestionsTest(){
+    public void testFindQuestionShouldSucceedWhenQuestionsListIsNotEmpty(){
 
         Question testQuestion = getQuestion();
 
@@ -52,7 +54,7 @@ public class QuestionServiceTest {
     }
 
     @Test
-    public void findByIdTest(){
+    public void testFindByIdShouldSucceedWhenQuestionsIdIsNotNull(){
 
         Question testQuestion = getQuestion();
         testQuestion.setId(3);
