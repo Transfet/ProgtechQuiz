@@ -152,8 +152,14 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return Long.toString(id) + "  " + "{ User name: " + userName + "}" + " {First name: " + firstName + "}" +
-                "{Last name: " + lastName + "}" + "{ Password:# " + password.hashCode() + "}"
-                + "{ Point: " + Double.toString(points) + "}";
+        return "Player{" +
+                "userName='" + userName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", id=" + id +
+                ", points=" + points +
+                ", time=" + time +
+                '}';
     }
 }

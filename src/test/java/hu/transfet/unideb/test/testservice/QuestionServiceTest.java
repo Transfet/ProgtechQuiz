@@ -20,24 +20,16 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class QuestionServiceTest {
 
-    Question question;
-
     @Mock
-    QuestionRepository questionRepository;
+    private QuestionRepository questionRepository;
 
     @InjectMocks
     private QuestionServiceImpl questionServiceImpl;
 
-
-    private Question getQuestion(){
-        return question;
-    }
-
-
     @Test
     public void testFindQuestionShouldSucceedWhenQuestionsListIsNotEmpty(){
 
-        Question testQuestion = getQuestion();
+        Question testQuestion = new Question();
 
         List<Question> questions = new ArrayList<>();
         questions.add(testQuestion);
@@ -46,7 +38,7 @@ public class QuestionServiceTest {
 
         List<Question> checkQuestions = questionServiceImpl.findAllQuestion();
 
-        verify(questionRepository,timeout(1)).findAll();
+        verify(questionRepository,timeout(3)).findAll();
 
         Assert.assertTrue(checkQuestions.size() > 0);
         Assert.assertEquals(testQuestion,checkQuestions.get(0));
@@ -54,11 +46,10 @@ public class QuestionServiceTest {
     }
 
     @Test
-    public void testFindByIdShouldSucceedWhenQuestionsIdIsNotNull(){
+    public void testFindQuestionByIdShouldSucceedWhenQuestionsIdIsNotNull(){
 
-        Question testQuestion = getQuestion();
+        Question testQuestion = new Question();
         testQuestion.setId(3);
-        questionServiceImpl.addQuestion(testQuestion);
 
         when(questionRepository.findById(any(Integer.class))).thenReturn(testQuestion);
 
@@ -73,7 +64,7 @@ public class QuestionServiceTest {
 
     @Test(expected = Exception.class)
     public void addQuestionTest(){
-        Question testQuestion = getQuestion();
+        Question testQuestion = new Question();
 
         doThrow(Exception.class).when(questionRepository.save(any(Question.class)));
 
@@ -82,8 +73,8 @@ public class QuestionServiceTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void deleteQuestionTest(){
-        Question testQuestion = getQuestion();
+    public void testDeleteQuestionShouldSucceedWhen(){
+        Question testQuestion = new Question();
 
         doThrow(NullPointerException.class).when(questionRepository).delete(any(Question.class));
 

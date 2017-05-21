@@ -2,7 +2,6 @@ package hu.transfet.unideb.application;
 
 import hu.transfet.unideb.application.model.answer.Answer;
 import hu.transfet.unideb.application.model.questions.Question;
-import hu.transfet.unideb.application.service.QuestionService;
 import hu.transfet.unideb.application.service.QuestionServiceImpl;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
@@ -15,7 +14,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Kerdeseket es a hozzajuk tartozo valaszadasi lehetosegeket eloallito osztaly
+ *
+ * @see Question
+ * @see Answer
+ */
 
 public class QuestionBuilder {
 
@@ -23,17 +27,27 @@ public class QuestionBuilder {
     List<QuestionParser> questions;
     private QuestionServiceImpl questionService;
 
+    /**
+     * Alapertelmezett konstruktor
+     */
     public QuestionBuilder(){
         questionService = ServiceLocator.getService(QuestionServiceImpl.class);
     }
 
-    public void setUpQuestions() {
+
+    /**
+     * Feldolgoz egy Json fajlt, melyet paramterkent kap
+     *
+     * @param json Json fajl
+     */
+    @SuppressWarnings("ConstantConditions")
+    public void processJson(String json) {
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             ClassLoader classLoader = getClass().getClassLoader();
 
-            questions = objectMapper.readValue(new File(classLoader.getResource("questions.json").getFile()), new TypeReference<List<QuestionParser>>() {
+            questions = objectMapper.readValue(new File(classLoader.getResource(json).getFile()), new TypeReference<List<QuestionParser>>() {
             });
 
             loadQuestions();

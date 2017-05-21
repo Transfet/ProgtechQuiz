@@ -1,7 +1,6 @@
 package hu.transfet.unideb.application.controller;
 
 import hu.transfet.unideb.application.ServiceLocator;
-import hu.transfet.unideb.application.controller.logincontrollers.Controller;
 import hu.transfet.unideb.application.controller.logincontrollers.LoggedInController;
 import hu.transfet.unideb.application.service.PlayerServiceImpl;
 import hu.transfet.unideb.application.model.player.Player;
@@ -17,7 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,14 +51,14 @@ public class ResultController extends Controller implements Initializable {
     @FXML
     void onClickedRestartButton(ActionEvent event){
 
-        changeToScreen("/views/gamepages/GamePage.fxml", event);
+        changeToScreen("GamePage.fxml", event);
 
     }
 
     @FXML
     void onClickedBackButton(ActionEvent event){
 
-        changeToScreen("/views/loginpages/LoggedInPage.fxml", event);
+        changeToScreen("LoggedInPage.fxml", event);
 
     }
 

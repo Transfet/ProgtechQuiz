@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0"
-            stylesheets="@../../css/loginStyle.css" xmlns="http://javafx.com/javafx/8"
+            stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="hu.transfet.unideb.application.controller.logincontrollers.SignInController">
     <JFXTextField fx:id="userNameField" alignment="BASELINE_LEFT" focusColor="#e74c3c" labelFloat="true"

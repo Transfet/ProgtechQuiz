@@ -93,10 +93,10 @@ public class GamePageController extends GameController implements Initializable 
 
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "/GamePage.fxml");
             }
         }
     }
@@ -110,10 +110,10 @@ public class GamePageController extends GameController implements Initializable 
 
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "/GamePage.fxml");
             }
         }
     }
@@ -127,10 +127,10 @@ public class GamePageController extends GameController implements Initializable 
 
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "/GamePage.fxml");
             }
         }
     }
@@ -144,10 +144,10 @@ public class GamePageController extends GameController implements Initializable 
 
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "/GamePage.fxml");
             }
         }
     }
@@ -161,10 +161,10 @@ public class GamePageController extends GameController implements Initializable 
         if (checkLastAnswer == lastAnswer) {
 
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "/GamePage.fxml");
             }
         }
 
@@ -178,10 +178,10 @@ public class GamePageController extends GameController implements Initializable 
             checkLastAnswer++;
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "/GamePage.fxml");
             }
         }
     }
@@ -194,10 +194,10 @@ public class GamePageController extends GameController implements Initializable 
             checkLastAnswer++;
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/views/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/views/gamepages/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "/GamePage.fxml");
             }
         }
     }
@@ -242,7 +242,6 @@ public class GamePageController extends GameController implements Initializable 
 
         question = questionServiceImpl.findById(randomNumberForQuestion.get(labelsNumber - 2));
 
-        //Question quest = questionServiceImpl.findById(1);
         List<Answer> answers = question.getAnswers();
 
         int correctAnswerIndex = question.getCorrectAnswerIndex();

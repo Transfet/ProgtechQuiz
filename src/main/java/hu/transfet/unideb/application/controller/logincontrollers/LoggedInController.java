@@ -1,15 +1,10 @@
 package hu.transfet.unideb.application.controller.logincontrollers;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import hu.transfet.unideb.application.ServiceLocator;
-import hu.transfet.unideb.application.model.answer.Answer;
-import hu.transfet.unideb.application.service.QuestionServiceImpl;
+import hu.transfet.unideb.application.controller.Controller;
 import hu.transfet.unideb.application.model.player.Player;
-import hu.transfet.unideb.application.model.questions.Question;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,7 +49,7 @@ public class LoggedInController extends Controller implements Initializable {
     @FXML
     void onClickedStartButton(ActionEvent event){
 
-        changeToScreen("/views/gamepages/GamePage.fxml", event);
+        changeToScreen("GamePage.fxml", event);
 
     }
 
@@ -62,7 +57,7 @@ public class LoggedInController extends Controller implements Initializable {
     void onClickedSignOutButton(ActionEvent event){
 
         signedInPlayer = null;
-        changeToScreen("/views/loginpages/SignInPage.fxml", event);
+        changeToScreen("SignInPage.fxml", event);
 
     }
 
@@ -77,7 +72,7 @@ public class LoggedInController extends Controller implements Initializable {
     @FXML
     void onClickedTableButton(ActionEvent event){
         fromLoggedIn = true;
-        changeToScreen("/views/Result.fxml", event);
+        changeToScreen("Result.fxml", event);
     }
 
     @Override

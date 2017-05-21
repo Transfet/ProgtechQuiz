@@ -1,4 +1,4 @@
-package hu.transfet.unideb.application.controller.logincontrollers;
+package hu.transfet.unideb.application.controller;
 
 import hu.transfet.unideb.application.Game;
 import javafx.animation.FadeTransition;
@@ -20,11 +20,13 @@ public class Controller {
 
     private Logger logger = LoggerFactory.getLogger(Controller.class);
 
+
+    @SuppressWarnings("ConstantConditions")
     public void changeToScreen(String fxml, ActionEvent event) {
 
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxml));
             Scene scene = new Scene(root);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
@@ -37,19 +39,20 @@ public class Controller {
 
     }
 
+    @SuppressWarnings("ConstantConditions")
     public void loadSplashScreen(AnchorPane anchorPane) {
         try {
             Game.isSplashLoaded = true;
 
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("/views/Splash.fxml"));
+            AnchorPane pane = FXMLLoader.load(getClass().getClassLoader().getResource("Splash.fxml"));
             anchorPane.getChildren().setAll(pane);
 
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(3), pane);
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), pane);
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
             fadeIn.setCycleCount(1);
 
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), pane);
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), pane);
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
             fadeOut.setCycleCount(1);
@@ -65,9 +68,11 @@ public class Controller {
         }
     }
 
+
+    @SuppressWarnings("ConstantConditions")
     private void fadeOutFinished(AnchorPane anchorPane) {
         try {
-            AnchorPane parentContent = FXMLLoader.load(getClass().getResource(("/views/loginpages/SignInPage.fxml")));
+            AnchorPane parentContent = FXMLLoader.load(getClass().getClassLoader().getResource("SignInPage.fxml"));
             anchorPane.getChildren().setAll(parentContent);
 
         } catch (IOException ioe) {

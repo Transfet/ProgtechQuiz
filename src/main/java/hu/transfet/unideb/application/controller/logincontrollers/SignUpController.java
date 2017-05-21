@@ -1,8 +1,7 @@
 package hu.transfet.unideb.application.controller.logincontrollers;
 
 import hu.transfet.unideb.application.ServiceLocator;
-import hu.transfet.unideb.application.model.answer.Answer;
-import hu.transfet.unideb.application.model.questions.Question;
+import hu.transfet.unideb.application.controller.Controller;
 import hu.transfet.unideb.application.service.*;
 import hu.transfet.unideb.application.model.player.Player;
 import com.jfoenix.controls.JFXButton;
@@ -18,8 +17,6 @@ import org.springframework.dao.DataAccessException;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class SignUpController extends Controller implements Initializable {
@@ -59,12 +56,12 @@ public class SignUpController extends Controller implements Initializable {
 
         addPlayer();
         clearFields();
-        changeToScreen("/views/loginpages/SignInPage.fxml",event);
+        changeToScreen("SignInPage.fxml",event);
     }
 
     @FXML
     void onClickedBackButton(ActionEvent event) {
-            changeToScreen("/views/loginpages/SignInPage.fxml", event);
+            changeToScreen("SignInPage.fxml", event);
     }
 
 

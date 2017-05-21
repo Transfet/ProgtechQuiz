@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8">
    <children>
       <ImageView fitHeight="760.0" fitWidth="620.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" >
-         <Image url="/pictures/explosion.gif"/>
+         <Image url="/explosion.gif"/>
       </ImageView>
    </children>
 </AnchorPane>

@@ -83,11 +83,13 @@ public class GameController {
         return randomNumbers;
     }
 
+
+    @SuppressWarnings("ConstantConditions")
     public void loadSplashScreen(AnchorPane anchorPane, String fromFxml, String toFxml) {
         try {
             Game.isSplashLoaded = true;
 
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(fromFxml));
+            AnchorPane pane = FXMLLoader.load(getClass().getClassLoader().getResource(fromFxml));
             anchorPane.getChildren().setAll(pane);
 
             this.anchorPane = anchorPane;
@@ -148,15 +150,15 @@ public class GameController {
 
         updatePlayerResult();
 
-        if (to.equals("/views/FinishSplash.fxml")) {
+        if (to.equals("FinishSplash.fxml")) {
 
-            fromPage = "/views/FinishSplash.fxml";
-            toPage = "/views/Result.fxml";
+            fromPage = "FinishSplash.fxml";
+            toPage = "Result.fxml";
             pageNumber = 0;
             isFirstStart = false;
 
         } else {
-            fromPage = "/views/NextGamePage.fxml";
+            fromPage = "NextGamePage.fxml";
         }
 
         loadSplashScreen(anchorPane, fromPage, toPage);
@@ -168,8 +170,8 @@ public class GameController {
         timeline.stop();
 
         System.out.println(signedInPlayer);
-        String fromFXML = "/views/GameOverSplash.fxml";
-        String toFXML = "/views/Result.fxml";
+        String fromFXML = "GameOverSplash.fxml";
+        String toFXML = "Result.fxml";
         isFirstStart = false;
         pageNumber = 0;
         loadSplashScreen(anchorPane, fromFXML, toFXML);

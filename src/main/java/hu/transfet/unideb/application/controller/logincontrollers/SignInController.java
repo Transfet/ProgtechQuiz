@@ -2,6 +2,7 @@ package hu.transfet.unideb.application.controller.logincontrollers;
 
 import hu.transfet.unideb.application.Game;
 import hu.transfet.unideb.application.ServiceLocator;
+import hu.transfet.unideb.application.controller.Controller;
 import hu.transfet.unideb.application.service.PlayerServiceImpl;
 import hu.transfet.unideb.application.model.player.Player;
 import com.jfoenix.controls.JFXButton;
@@ -66,7 +67,7 @@ public class SignInController extends Controller implements Initializable {
         for (Player player : playerService.findAllPlayer()) {
             if (userNameField.getText().equals(player.getUserName()) && passwordField.getText().equals(player.getPassword())) {
                 signedInPlayer = player;
-                changeToScreen("/views/loginpages/LoggedInPage.fxml", event);
+                changeToScreen("LoggedInPage.fxml", event);
             }
         }
 
@@ -75,7 +76,7 @@ public class SignInController extends Controller implements Initializable {
     @FXML
     void onClickedSignUpButton(ActionEvent event) {
 
-            changeToScreen("/views/loginpages/SignUpPage.fxml", event);
+            changeToScreen("SignUpPage.fxml", event);
     }
 
     @FXML
