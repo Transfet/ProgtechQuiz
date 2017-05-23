@@ -33,12 +33,9 @@ public class GameController {
     private Timeline timeline;
     private static int pageNumber = 0;
 
-
     private Logger logger = LoggerFactory.getLogger(GameController.class);
-
     private Player signedInPlayer = SignInController.getSignedInPlayer();
     private PlayerServiceImpl playerService = ServiceLocator.getService(PlayerServiceImpl.class);
-
     public static List<Integer> randomNumberForQuestion;
 
 
@@ -83,45 +80,64 @@ public class GameController {
         return randomNumbers;
     }
 
-
     @SuppressWarnings("ConstantConditions")
-    public void loadSplashScreen(AnchorPane anchorPane, String fromFxml, String toFxml) {
-        try {
-            Game.isSplashLoaded = true;
-
-            AnchorPane pane = FXMLLoader.load(getClass().getClassLoader().getResource(fromFxml));
+    private AnchorPane getAnchorPaneFromFxml(AnchorPane anchorPane,String fxmlName){
+        AnchorPane pane;
+        try{
+            pane = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlName));
             anchorPane.getChildren().setAll(pane);
+            return pane;
 
-            this.anchorPane = anchorPane;
-
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), pane);
-            fadeIn.setFromValue(0);
-            fadeIn.setToValue(1);
-            fadeIn.setCycleCount(1);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), pane);
-            fadeOut.setFromValue(1);
-            fadeOut.setToValue(0);
-            fadeOut.setCycleCount(1);
-
-            fadeIn.play();
-
-            fadeIn.setOnFinished((e) -> fadeOut.play());
-
-            fadeOut.setOnFinished((e) -> fadeOutFinished(toFxml));
-
-        } catch (IOException e) {
-             logger.error("Throw by IOException in loadSplash method : ", e);
+        }catch (IOException ioe){
+            logger.error("Cannot load FXML datas from: "+fxmlName, ioe);
+            ioe.printStackTrace();
         }
+        return null;
     }
 
+    private FadeTransition fadeInTransition(int second,AnchorPane pane){
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(second), pane);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeIn.setCycleCount(1);
+
+        return fadeIn;
+    }
+
+    private FadeTransition fadeOutTransition(int second,AnchorPane pane){
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(second), pane);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setCycleCount(1);
+
+        return fadeOut;
+    }
+
+    public void loadSplashScreen(AnchorPane anchorPane, String fromFxml, String toFxml) {
+
+            Game.isSplashLoaded = true;
+            this.anchorPane = anchorPane;
+
+            AnchorPane pane = getAnchorPaneFromFxml(anchorPane,fromFxml);
+
+            FadeTransition fadeIn = fadeInTransition(2,pane);
+            FadeTransition fadeOut = fadeOutTransition(2,pane);
+
+            fadeIn.play();
+            fadeIn.setOnFinished((e) -> fadeOut.play());
+            fadeOut.setOnFinished((e) -> fadeOutFinished(toFxml));
+
+    }
+
+    @SuppressWarnings("ConstantConditions")
     private void fadeOutFinished(String toFxml) {
         try {
-            AnchorPane parentContent = FXMLLoader.load(getClass().getResource((toFxml)));
+            AnchorPane parentContent = FXMLLoader.load(getClass().getClassLoader().getResource((toFxml)));
             anchorPane.getChildren().setAll(parentContent);
 
         } catch (IOException ex) {
-            //logger.error("Throw by IOException in fadeOutFinished method: ", ex);
+            logger.error("Cannot load FXML datas from: " + toFxml, ex);
+            ex.printStackTrace();
         }
     }
 
@@ -165,7 +181,7 @@ public class GameController {
 
     }
 
-    private void gameOver(AnchorPane anchorPane) {
+    public void gameOver(AnchorPane anchorPane) {
 
         timeline.stop();
 
@@ -208,15 +224,4 @@ public class GameController {
         }
     }
 
-    public boolean onClickLine(AnchorPane anchorPane, MouseEvent event, Label label, String correctAnswer, Line line) {
-
-        if (!label.getText().equals(correctAnswer)) {
-            line.setVisible(false);
-            label.setVisible(false);
-            return true;
-        } else {
-            gameOver(anchorPane);
-            return false;
-        }
-    }
 }

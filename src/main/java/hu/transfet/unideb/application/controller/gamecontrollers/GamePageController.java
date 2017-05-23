@@ -33,6 +33,10 @@ public class GamePageController extends GameController implements Initializable 
     private int lastAnswer;
     private Question question;
     private String correctAnswer;
+    private QuestionServiceImpl questionServiceImpl;
+    private ArrayList<Pair<Label, Line>> labelsAndLines;
+    private List<Answer> answers;
+    List<Integer> randomNumbersForLabels;
 
     @FXML
     private AnchorPane anchorPane;
@@ -88,117 +92,90 @@ public class GamePageController extends GameController implements Initializable 
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
-        if (onClickLine(anchorPane, event, skyBlueLabel, correctAnswer, skyBlueLine))
+        if (onClickLine(skyBlueLabel, skyBlueLine))
             checkLastAnswer++;
 
-        if (checkLastAnswer == lastAnswer) {
-            if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
-            } else {
-
-                changeToNextGamePage(anchorPane, "/GamePage.fxml");
-            }
-        }
+        checkAnswer(checkLastAnswer);
     }
 
     @FXML
     void onClickedBrownLine(MouseEvent event) throws IOException {
 
-
-        if (onClickLine(anchorPane, event, brownLabel, correctAnswer, brownLine))
+        if (onClickLine(brownLabel, brownLine))
             checkLastAnswer++;
 
-        if (checkLastAnswer == lastAnswer) {
-            if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
-            } else {
-
-                changeToNextGamePage(anchorPane, "/GamePage.fxml");
-            }
-        }
+        checkAnswer(checkLastAnswer);
     }
-
 
     @FXML
     void onClickedPinkLine(MouseEvent event) throws IOException {
 
-        if (onClickLine(anchorPane, event, pinkLabel,correctAnswer, pinkLine))
+        if (onClickLine(pinkLabel, pinkLine))
             checkLastAnswer++;
 
-        if (checkLastAnswer == lastAnswer) {
-            if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
-            } else {
-
-                changeToNextGamePage(anchorPane, "/GamePage.fxml");
-            }
-        }
+        checkAnswer(checkLastAnswer);
     }
 
     @FXML
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
-
-       if (onClickLine(anchorPane, event, greenLabel, correctAnswer, greenLine))
+        if (onClickLine(greenLabel, greenLine))
             checkLastAnswer++;
 
-        if (checkLastAnswer == lastAnswer) {
-            if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
-            } else {
-
-                changeToNextGamePage(anchorPane, "/GamePage.fxml");
-            }
-        }
+        checkAnswer(checkLastAnswer);
     }
 
     @FXML
     void onClickedPurpleLine(MouseEvent event) throws IOException {
 
-        if (onClickLine(anchorPane, event, purpleLabel, correctAnswer, purpleLine))
+        if (onClickLine(purpleLabel, purpleLine))
             checkLastAnswer++;
 
-        if (checkLastAnswer == lastAnswer) {
-
-            if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
-            } else {
-
-                changeToNextGamePage(anchorPane, "/GamePage.fxml");
-            }
-        }
-
+        checkAnswer(checkLastAnswer);
     }
 
     @FXML
     void onClickedOrangeLine(MouseEvent event) throws IOException {
 
-
-        if (onClickLine(anchorPane, event, orangeLabel, correctAnswer, orangeLine))
+        if (onClickLine(orangeLabel, orangeLine))
             checkLastAnswer++;
-        if (checkLastAnswer == lastAnswer) {
-            if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
-            } else {
 
-                changeToNextGamePage(anchorPane, "/GamePage.fxml");
-            }
-        }
+        checkAnswer(checkLastAnswer);
+
     }
 
     @FXML
     void onClickedRedLine(MouseEvent event) throws IOException {
 
-
-        if (onClickLine(anchorPane, event, redLabel, correctAnswer, redLine))
+        if (onClickLine(redLabel, redLine))
             checkLastAnswer++;
+
+        checkAnswer(checkLastAnswer);
+
+    }
+
+    private void checkAnswer(int answerCounter) throws IOException {
+
         if (checkLastAnswer == lastAnswer) {
             if (lastAnswer == 7) {
-                changeToNextGamePage(anchorPane, "/FinishSplash.fxml");
+                changeToNextGamePage(anchorPane, "FinishSplash.fxml");
             } else {
 
-                changeToNextGamePage(anchorPane, "/GamePage.fxml");
+                changeToNextGamePage(anchorPane, "GamePage.fxml");
             }
+        }
+
+    }
+
+    private boolean onClickLine(Label label, Line line) {
+
+        if (!label.getText().equals(correctAnswer)) {
+            line.setVisible(false);
+            label.setVisible(false);
+            return true;
+        } else {
+            gameOver(anchorPane);
+            return false;
         }
     }
 
@@ -213,17 +190,24 @@ public class GamePageController extends GameController implements Initializable 
         labelsAndLines.add(new Pair(brownLabel, brownLine));
     }
 
-    private void setLabelsText(int limit, ArrayList<Pair<Label, Line>> labelsAndLines, List<Answer> answers) {
+    private void setVisibleToLabelAndLine(int index) {
+        labelsAndLines.get(randomNumbersForLabels.get(index)).getKey().setText(answers.get(index).getAnswer());
+        labelsAndLines.get(randomNumbersForLabels.get(index)).getKey().setVisible(true);
+        labelsAndLines.get(randomNumbersForLabels.get(index)).getValue().setVisible(true);
+    }
 
-        List<Integer> randomNumbers = randomNumbers(limit, limit, false);
+    private void setLabelsText(int limit) {
 
         questionLabel.setText(question.getQuestion());
-
         for (int i = 0; i < limit; i++) {
-            labelsAndLines.get(randomNumbers.get(i)).getKey().setText(answers.get(i).getAnswer());
-            labelsAndLines.get(randomNumbers.get(i)).getKey().setVisible(true);
+            setVisibleToLabelAndLine(i);
+        }
+    }
 
-            labelsAndLines.get(randomNumbers.get(i)).getValue().setVisible(true);
+    private void checkFirstStart(boolean isFirstStart) {
+        if (!isFirstStart) {
+            randomNumberForQuestion = randomNumbers((questionServiceImpl.findAllQuestion().size()), 6, true);
+            isFirstStart = true;
         }
     }
 
@@ -231,26 +215,23 @@ public class GamePageController extends GameController implements Initializable 
     @SuppressWarnings("unchecked")
     public void initialize(URL location, ResourceBundle resources) {
 
-        QuestionServiceImpl questionServiceImpl = ServiceLocator.getService(QuestionServiceImpl.class);
-        if (!isFirstStart) {
-            randomNumberForQuestion = randomNumbers((questionServiceImpl.findAllQuestion().size()), 6, true);
-            isFirstStart = true;
-        }
+        questionServiceImpl = ServiceLocator.getService(QuestionServiceImpl.class);
+        checkFirstStart(isFirstStart);
 
         int labelsNumber = GameController.getPageNumber() + 2;
+        randomNumbersForLabels = randomNumbers(labelsNumber, labelsNumber, false);
         lastAnswer = labelsNumber;
 
         question = questionServiceImpl.findById(randomNumberForQuestion.get(labelsNumber - 2));
 
-        List<Answer> answers = question.getAnswers();
+        labelsAndLines = new ArrayList<>();
+        answers = question.getAnswers();
 
         int correctAnswerIndex = question.getCorrectAnswerIndex();
         correctAnswer = answers.get(correctAnswerIndex).getAnswer();
 
-        ArrayList<Pair<Label, Line>> labelsAndLines = new ArrayList<>();
         addLabelsAndLines(labelsAndLines);
-
-        setLabelsText(labelsNumber,labelsAndLines,answers);
+        setLabelsText(labelsNumber);
 
         labelsNumber++;
         GameController.setPageNumber(labelsNumber - 2);

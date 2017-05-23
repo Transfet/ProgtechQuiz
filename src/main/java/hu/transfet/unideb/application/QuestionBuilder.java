@@ -22,7 +22,6 @@ import java.util.List;
  */
 
 public class QuestionBuilder {
-
     private Logger logger = LoggerFactory.getLogger(QuestionBuilder.class);
     List<QuestionParser> questions;
     private QuestionServiceImpl questionService;
@@ -50,8 +49,6 @@ public class QuestionBuilder {
             questions = objectMapper.readValue(new File(classLoader.getResource(json).getFile()), new TypeReference<List<QuestionParser>>() {
             });
 
-            loadQuestions();
-
         }catch (FileNotFoundException fnfe){
             logger.error("question.json not found: ", fnfe);
             fnfe.printStackTrace();
@@ -61,11 +58,9 @@ public class QuestionBuilder {
             ioe.printStackTrace();
         }
 
-
-
     }
 
-    private void loadQuestions(){
+    public void loadQuestions(){
 
         for(int i = 0; i < questions.size(); i++){
             String questionName = questions.get(i).getQuestion();

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Egy kerdest valosit meg Json sema szerint
  *
- * @author Transfet
+ *
  */
 public class QuestionParser {
 

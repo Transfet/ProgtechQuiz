@@ -38,6 +38,7 @@ public class Game extends Application {
 
         QuestionBuilder questionBuilder = new QuestionBuilder();
         questionBuilder.processJson("questions.json");
+        questionBuilder.loadQuestions();
 
 
         launch(args);
