@@ -8,13 +8,10 @@ import hu.transfet.unideb.application.model.questions.Question;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.util.Pair;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,19 +21,12 @@ public class GamePageController extends GameController implements Initializable 
 
     private int checkLastAnswer = 1;
 
-    private Logger logger = LoggerFactory.getLogger(GamePageController.class);
-
-    @FXML
-    private ImageView bombImage;
-
-
     private int lastAnswer;
     private Question question;
     private String correctAnswer;
-    private QuestionServiceImpl questionServiceImpl;
     private ArrayList<Pair<Label, Line>> labelsAndLines;
     private List<Answer> answers;
-    List<Integer> randomNumbersForLabels;
+    private List<Integer> randomNumbersForLabels;
 
     @FXML
     private AnchorPane anchorPane;
@@ -204,19 +194,17 @@ public class GamePageController extends GameController implements Initializable 
         }
     }
 
-    private void checkFirstStart(boolean isFirstStart) {
-        if (!isFirstStart) {
-            randomNumberForQuestion = randomNumbers((questionServiceImpl.findAllQuestion().size()), 6, true);
-            isFirstStart = true;
-        }
-    }
 
     @Override
     @SuppressWarnings("unchecked")
     public void initialize(URL location, ResourceBundle resources) {
 
-        questionServiceImpl = ServiceLocator.getService(QuestionServiceImpl.class);
-        checkFirstStart(isFirstStart);
+        QuestionServiceImpl questionServiceImpl = ServiceLocator.getService(QuestionServiceImpl.class);
+
+        if (!isFirstStart) {
+            randomNumberForQuestion = randomNumbers((questionServiceImpl.findAllQuestion().size()), 6, true);
+            isFirstStart = true;
+        }
 
         int labelsNumber = GameController.getPageNumber() + 2;
         randomNumbersForLabels = randomNumbers(labelsNumber, labelsNumber, false);

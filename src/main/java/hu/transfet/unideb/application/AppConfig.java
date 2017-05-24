@@ -16,7 +16,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 /**
- * Application configuration
+ * Application configuration.
  */
 @Configuration
 @ComponentScan("hu.transfet.unideb.application")
@@ -25,8 +25,9 @@ import javax.sql.DataSource;
 public class AppConfig {
 
     /**
-     * DataSource
-     * @return datasource
+     * DataSource.
+     *
+     * @return datasource.
      */
     @Bean
     public DataSource dataSource() {
@@ -35,8 +36,9 @@ public class AppConfig {
     }
 
     /**
-     * EntityManagerFactory
-     * @return LocalContainerEntityManagerFactoryBean
+     * EntityManagerFactory.
+     *
+     * @return LocalContainerEntityManagerFactoryBean.
      */
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -52,9 +54,10 @@ public class AppConfig {
     }
 
     /**
-     * Transaction manager
-     * @param emf EntityManagerFactory
-     * @return A platformTransactionManager
+     * Transaction manager.
+     *
+     * @param emf EntityManagerFactory.
+     * @return A platformTransactionManager.
      */
     @Bean
     public PlatformTransactionManager transactionManager(final EntityManagerFactory emf) {

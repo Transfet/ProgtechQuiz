@@ -30,12 +30,6 @@ public class SignUpController extends Controller implements Initializable {
     private JFXTextField userNameField;
 
     @FXML
-    private JFXButton backButton;
-
-    @FXML
-    private JFXButton signUpButton;
-
-    @FXML
     private JFXPasswordField passwordField;
 
     @FXML

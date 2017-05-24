@@ -10,10 +10,10 @@ public class PlayerResult {
     private Double time;
 
     /**
-     * Parameterezett konstruktor
-     * @param name A jatekos felhasznalo neve
-     * @param point A jatekos elert pontszama
-     * @param time A jatekos ideje
+     * Parameterezett konstruktor.
+     * @param name A jatekos felhasznalo neve.
+     * @param point A jatekos elert pontszama.
+     * @param time A jatekos ideje.
      */
     public PlayerResult(String name, Double point, Double time){
         this.username = name;
@@ -22,8 +22,8 @@ public class PlayerResult {
     }
 
     /**
-     * Beallitja a jatekos eredmenyenek idejet
-     * @param time Egy Double ertek
+     * Beallitja a jatekos eredmenyenek idejet.
+     * @param time Egy Double ertek.
      */
     public void setTime(Double time) {
         this.time = time;

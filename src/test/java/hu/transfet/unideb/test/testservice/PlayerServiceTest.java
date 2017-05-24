@@ -63,14 +63,12 @@ public class PlayerServiceTest {
 
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void updateTest(){
 
         Double point = 100.0;
         Double time = 3.0;
         String userName = "Test";
-
-        doThrow(Exception.class).when(playerRepository).updatePlayerPointAndTime(any(String.class),any(Double.class),any(Double.class));
 
         playerService.updatePlayerPointAndTime(userName,point,time);
 
@@ -78,29 +76,28 @@ public class PlayerServiceTest {
 
     }
 
-    @Test(expected = Exception.class)
-    public void testAddPlayer(){
+    @Test
+    public void testAddPlayerShouldSucceedWhenPlayerIsNotNull(){
 
         Player testPlayer = new Player();
         testPlayer.setUserName("Test");
 
-        doThrow(Exception.class).when(playerRepository).save(any(Player.class));
+        when(playerRepository.save(any(Player.class))).thenReturn(any(Player.class));
 
         playerService.addPlayer(testPlayer);
-
         verify(playerRepository,times(1)).save(any(Player.class));
+
     }
 
-    @Test(expected = NullPointerException.class)
-    public void deletePlayerTest(){
+    @Test
+    public void testDeletePlayerShouldSucceedWhenPlayerIsExists(){
 
         Player testPlayer = new Player();
         testPlayer.setUserName("Test");
-        doThrow(NullPointerException.class).when(playerRepository).delete(any(Player.class));
+
 
         playerService.deletePlayer(testPlayer);
-
-        verify(playerRepository,times(2)).delete(any(Player.class));
+        verify(playerRepository,times(1)).delete(any(Player.class));
 
     }
 }

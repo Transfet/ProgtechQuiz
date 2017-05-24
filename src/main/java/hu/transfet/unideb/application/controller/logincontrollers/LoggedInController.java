@@ -17,34 +17,16 @@ import org.slf4j.LoggerFactory;
 
 public class LoggedInController extends Controller implements Initializable {
 
-
-    Logger logger = LoggerFactory.getLogger(LoggedInController.class);
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
+    private Logger logger = LoggerFactory.getLogger(LoggedInController.class);
 
     @FXML
     private Button quitButton;
 
     @FXML
-    private Button startButton;
-
-    @FXML
-    private Button tableButton;
-
-    @FXML
     private Label signedInLabel;
 
-    @FXML
-    private Button signOutButton;
-
     private static Player signedInPlayer;
-
     public static boolean fromLoggedIn = false;
-
 
     @FXML
     void onClickedStartButton(ActionEvent event){

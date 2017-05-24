@@ -2,16 +2,17 @@ package hu.transfet.unideb.application;
 
 import org.springframework.context.ApplicationContext;
 
-/**
- * Service locator
+ /**
+ * Service locator.
+ *
  */
 public class ServiceLocator {
 
     private static ApplicationContext context;
 
-    /**
-     * Beallitja az application context-et
-     * @param ctx application context
+     /**
+     * Beallitja az application context-et.
+     * @param ctx application context.
      */
     public static void setApplicationContext(ApplicationContext ctx) {
 
@@ -20,11 +21,11 @@ public class ServiceLocator {
     }
 
     /**
-     * Egy osztaly application context-jet adja vissza
-     * @param tClass egy osztaly objektum
-     * @param <T> egy osztaly
-     * @return Visszaadja az osztalyban talalhato bean-eket
-     */
+     * Egy osztaly application context-jet adja vissza.
+     * @param tClass egy osztaly objektum.
+     * @param <T> egy osztaly.
+     * @return Visszaadja az osztalyban talalhato bean-eket.
+     **/
     public static <T> T getService(Class<T> tClass) {
         return context.getBean(tClass);
     }

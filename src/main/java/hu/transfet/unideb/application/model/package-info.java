@@ -1,4 +1,4 @@
 /**
- * Modelleket tartalmazo package
+ * Modelleket tartalmazo package.
  */
 package hu.transfet.unideb.application.model;

@@ -13,12 +13,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 
 /**
- * Main class
+ * Main class.
  */
 public class Game extends Application {
 
     public static Boolean isSplashLoaded = false;
-    static Logger logger = LoggerFactory.getLogger(Game.class);
 
     @Override
     @SuppressWarnings("ConstantConditions")
@@ -36,13 +35,12 @@ public class Game extends Application {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         ServiceLocator.setApplicationContext(applicationContext);
 
-        QuestionBuilder questionBuilder = new QuestionBuilder();
+        QuestionLoader questionBuilder = new QuestionLoader();
         questionBuilder.processJson("questions.json");
         questionBuilder.loadQuestions();
-
 
         launch(args);
     }
 
 
-    }
+}

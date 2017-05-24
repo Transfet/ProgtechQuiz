@@ -22,8 +22,6 @@ import java.util.ResourceBundle;
 
 public class ResultController extends Controller implements Initializable {
 
-    private PlayerServiceImpl playerService;
-
     @FXML
     private TableColumn playerColumn;
 
@@ -40,13 +38,10 @@ public class ResultController extends Controller implements Initializable {
     private Button restartButton;
 
     @FXML
-    private Button backButton;
-
-    @FXML
     private TableView<PlayerResult> resultTable;
 
     private ObservableList<PlayerResult> data;
-
+    private PlayerServiceImpl playerService;
 
     @FXML
     void onClickedRestartButton(ActionEvent event){
@@ -71,25 +66,34 @@ public class ResultController extends Controller implements Initializable {
     }
 
     @SuppressWarnings("unchecked")
-    private void prepareTable(){
-        if (LoggedInController.fromLoggedIn) {
-            restartButton.setVisible(false);
-        } else {
-            restartButton.setVisible(true);
-        }
-        playerService = ServiceLocator.getService(PlayerServiceImpl.class);
-
-        data = FXCollections.observableArrayList();
+    private void setCellValues(){
 
         playerColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, String>("username"));
         pointColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, Double>("point"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, Double>("time"));
     }
 
+    private void checkIsLastPageLoggedIn(){
+
+        if (LoggedInController.fromLoggedIn) {
+            restartButton.setVisible(false);
+        } else {
+            restartButton.setVisible(true);
+        }
+
+    }
+
+    private void prepareTable(){
+
+        checkIsLastPageLoggedIn();
+        data = FXCollections.observableArrayList();
+
+        setCellValues();
+    }
+
     private void populateTable(){
 
         for (Player p : playerService.findAllPlayer()) {
-
             PlayerResult res = new PlayerResult(p.getUserName(), p.getPoints(), p.getTime());
             data.add(res);
 
@@ -101,6 +105,7 @@ public class ResultController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        playerService = ServiceLocator.getService(PlayerServiceImpl.class);
 
         prepareTable();
         populateTable();

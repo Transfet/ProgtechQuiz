@@ -78,15 +78,28 @@
     "correct": 0
   },
   {
-    "question": "TO",
+    "question": "Which java operator is right associative?",
     "answer": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7"
+      "Simple Assignment",
+      "Addition",
+      "Subtraction",
+      "Increment",
+      "Bitwise and",
+      "less than",
+      "Division"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "What environment variables do i need to set on my machine in order to able to run Java programs?",
+    "answer": [
+      "CLASSPATH and PATH",
+      "Only CLASSPATH",
+      "Not required",
+      "JAVA_HOME",
+      "JDK_HOME",
+      "JRE_HOME",
+      "Only PATH"
     ],
     "correct": 0
   }

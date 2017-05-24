@@ -8,7 +8,7 @@ import java.util.List;
 
 
 /**
- * Egy kerdest megvalosito osztaly
+ * Egy kerdest megvalosito osztaly.
  */
 @Entity
 public class Question {
@@ -54,36 +54,36 @@ public class Question {
     }
 
     /**
-     * Beallitja egy kerdes ID-jet
+     * Beallitja egy kerdes ID-jet.
      *
-     * @param id egy Integer tipusu ID
+     * @param id egy Integer tipusu ID.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Beallitja a kerdest
+     * Beallitja a kerdest.
      *
-     * @param question Egy String tipusu kerdes
+     * @param question Egy String tipusu kerdes.
      */
     public void setQuestion(String question) {
         this.question = question;
     }
 
     /**
-     * Visszaadja a kerdes ID-jet
+     * Visszaadja a kerdes ID-jet.
      *
-     * @return Egy int tipusu ID
+     * @return Egy int tipusu ID.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Visszaadja a kerdest
+     * Visszaadja a kerdest.
      *
-     * @return Egy String tipusu kerdes
+     * @return Egy String tipusu kerdes.
      */
     public String getQuestion() {
         return question;

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * PlayerRepository interfesz
+ * PlayerRepository interfesz.
  */
 
 @Repository

@@ -36,14 +36,7 @@ public class SignInController extends Controller implements Initializable {
     private JFXButton quitButton;
 
     @FXML
-    private JFXButton signUpButton;
-
-    @FXML
     private JFXPasswordField passwordField;
-
-    @FXML
-    private JFXButton signInButton;
-
 
     private static Player signedInPlayer;
 
@@ -55,7 +48,7 @@ public class SignInController extends Controller implements Initializable {
 
         if (!Game.isSplashLoaded) {
 
-            loadSplashScreen(anchorPane);
+            loadSplashScreen(anchorPane,"Splash.fxml", "SignInPage.fxml");
 
         }
     }

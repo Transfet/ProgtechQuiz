@@ -20,11 +20,8 @@ public class Controller {
 
     private Logger logger = LoggerFactory.getLogger(Controller.class);
 
-
     @SuppressWarnings("ConstantConditions")
     public void changeToScreen(String fxml, ActionEvent event) {
-
-
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxml));
             Scene scene = new Scene(root);
@@ -40,44 +37,56 @@ public class Controller {
     }
 
     @SuppressWarnings("ConstantConditions")
-    public void loadSplashScreen(AnchorPane anchorPane) {
+    private AnchorPane getAnchorPaneFromFxml(AnchorPane anchorPane, String fxmlName) {
+        AnchorPane pane;
         try {
-            Game.isSplashLoaded = true;
-
-            AnchorPane pane = FXMLLoader.load(getClass().getClassLoader().getResource("Splash.fxml"));
+            pane = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlName));
             anchorPane.getChildren().setAll(pane);
-
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), pane);
-            fadeIn.setFromValue(0);
-            fadeIn.setToValue(1);
-            fadeIn.setCycleCount(1);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), pane);
-            fadeOut.setFromValue(1);
-            fadeOut.setToValue(0);
-            fadeOut.setCycleCount(1);
-
-            fadeIn.play();
-
-            fadeIn.setOnFinished((e) -> fadeOut.play());
-
-            fadeOut.setOnFinished((e) -> fadeOutFinished(anchorPane));
-
-        } catch (IOException e) {
-            logger.error("Throw by IOException in loadSplash method : ", e);
-        }
-    }
-
-
-    @SuppressWarnings("ConstantConditions")
-    private void fadeOutFinished(AnchorPane anchorPane) {
-        try {
-            AnchorPane parentContent = FXMLLoader.load(getClass().getClassLoader().getResource("SignInPage.fxml"));
-            anchorPane.getChildren().setAll(parentContent);
+            return pane;
 
         } catch (IOException ioe) {
-            logger.error("Error: Cannot load the FXML file : 'SignInPage.fxml'.");
+            logger.error("Cannot load FXML datas from: " + fxmlName, ioe);
             ioe.printStackTrace();
         }
+        return null;
+    }
+
+    private FadeTransition fadeInTransition(int second, AnchorPane pane) {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(second), pane);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeIn.setCycleCount(1);
+
+        return fadeIn;
+    }
+
+    private FadeTransition fadeOutTransition(int second, AnchorPane pane) {
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(second), pane);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setCycleCount(1);
+
+        return fadeOut;
+    }
+
+    public void loadSplashScreen(AnchorPane anchorPane, String fromFxml, String toFxml) {
+
+        Game.isSplashLoaded = true;
+
+        AnchorPane pane = getAnchorPaneFromFxml(anchorPane, fromFxml);
+
+        FadeTransition fadeIn = fadeInTransition(2, pane);
+        FadeTransition fadeOut = fadeOutTransition(2, pane);
+
+        fadeIn.play();
+        fadeIn.setOnFinished((e) -> fadeOut.play());
+        fadeOut.setOnFinished((e) -> fadeOutFinished(anchorPane, toFxml));
+
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    private void fadeOutFinished(AnchorPane anchorPane, String toFxml) {
+        getAnchorPaneFromFxml(anchorPane, toFxml);
     }
 }

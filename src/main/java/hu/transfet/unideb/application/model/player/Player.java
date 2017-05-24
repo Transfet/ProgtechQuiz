@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Egy jatekost megvalosito osztaly.
  *
- * @author Transfet
+ * @author Transfet.
  */
 @Entity
 public class Player implements Serializable {
@@ -36,7 +36,7 @@ public class Player implements Serializable {
 
 
     /**
-     * Visszaadja a jatekos ID-jet
+     * Visszaadja a jatekos ID-jet.
      * @return return Egy ID.
      *
      * */
@@ -71,7 +71,7 @@ public class Player implements Serializable {
 
     /**
      * Beallitja a jatekos keresztnevet.
-     * @param firstName A jatekos keresztneve
+     * @param firstName A jatekos keresztneve.
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -79,7 +79,7 @@ public class Player implements Serializable {
 
     /**
      * Beallitja a jatekos ID-jet.
-     * @param id A jatekos ideje
+     * @param id A jatekos ideje.
      */
     public void setId(Long id) {
         this.id = id;
@@ -87,7 +87,7 @@ public class Player implements Serializable {
 
     /**
      * Beallitja a jatekos vezeteknevet.
-     * @param lastName String
+     * @param lastName String.
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -95,7 +95,7 @@ public class Player implements Serializable {
 
     /**
      * Beallitja a jatekos felhasznalonevet.
-     * @param userName Jatekos fehalsznalo neve
+     * @param userName Jatekos fehalsznalo neve.
      */
     public void setUserName(String userName) {
         this.userName = userName;

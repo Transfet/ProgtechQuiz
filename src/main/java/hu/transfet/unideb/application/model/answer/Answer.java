@@ -5,9 +5,9 @@ import hu.transfet.unideb.application.model.questions.Question;
 import javax.persistence.*;
 
 /**
- * Valaszt megvalosito osztaly,mely egy {@link Question} ad valaszt
+ * Valaszt megvalosito osztaly,mely egy {@link Question} ad valaszt.
  *
- * @author Transfet
+ * @author Transfet.
  */
 
 @Entity
@@ -24,16 +24,16 @@ public class Answer {
     private Question question;
 
     /**
-     * Alapertelmezett konstruktor
+     * Alapertelmezett konstruktor.
      */
     public Answer(){
 
     }
 
     /**
-     * paramterezett konstruktor
-     * @param answer Egy valasz
-     * @param question Egy kerdes
+     * paramterezett konstruktor.
+     * @param answer Egy valasz.
+     * @param question Egy kerdes.
      */
     public Answer(String answer,Question question){
         this.answer = answer;
@@ -42,8 +42,8 @@ public class Answer {
 
 
     /**
-     * Visszaadja a valaszt
-     * @return Egy valasz
+     * Visszaadja a valaszt.
+     * @return Egy valasz.
      */
     public String getAnswer() {
         return answer;
@@ -58,16 +58,16 @@ public class Answer {
     }
 
     /**
-     * Bealltija a valasz ID-jet
-     * @param id Egy ID
+     * Bealltija a valasz ID-jet.
+     * @param id Egy ID.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Visszaadja egy valasz ID-jet
-     * @return Egy ID
+     * Visszaadja egy valasz ID-jet.
+     * @return Egy ID.
      */
     public int getId() {
         return id;

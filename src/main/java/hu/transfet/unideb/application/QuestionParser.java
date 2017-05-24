@@ -3,10 +3,10 @@ package hu.transfet.unideb.application;
 import java.util.List;
 
 /**
- * Egy kerdest valosit meg Json sema szerint
+ * Egy kerdest valosit meg Json sema szerint.
  *
  *
- */
+ **/
 public class QuestionParser {
 
     public String question;
@@ -14,9 +14,9 @@ public class QuestionParser {
     public List<String> answer;
 
     /**
-     * Visszadja a valaszt String-kent
+     * Visszadja a valaszt String-kent.
      * @return Egy kerdes.
-     */
+     **/
     public String getQuestion() {
         return question;
     }
@@ -24,7 +24,7 @@ public class QuestionParser {
     /**
      * Beallitja a kerdest.
      * @param question Egy kerdes.
-     */
+     **/
     public void setQuestion(String question) {
         this.question = question;
     }
@@ -33,7 +33,7 @@ public class QuestionParser {
     /**
      * Visszaadja a helyes valasz index-et a listaban.
      * @return Egy index.
-     */
+     **/
     public int getCorrect() {
         return correct;
     }
@@ -49,15 +49,15 @@ public class QuestionParser {
     /**
      * Visszaadja a valaszadasi lehetosegek listajat.
      * @return Egy lista.
-     */
+     **/
     public List<String> getAnswers() {
         return answer;
     }
 
     /**
      * Beallitja a valaszadasi lehetosegeket.
-     * @param answers Egy Stringeket tartalmazo lista
-     */
+     * @param answers Egy Stringeket tartalmazo lista.
+     **/
     public void setAnswers(List<String> answers) {
         this.answer = answers;
     }

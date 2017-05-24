@@ -62,23 +62,24 @@ public class QuestionServiceTest {
 
     }
 
-    @Test(expected = Exception.class)
-    public void addQuestionTest(){
+    @Test
+    public void testAddQuestionShouldSucceedWhenQuestionIsNotNull(){
         Question testQuestion = new Question();
+        testQuestion.setQuestion("Test Question");
+        testQuestion.setId(0);
 
-        doThrow(Exception.class).when(questionRepository.save(any(Question.class)));
+        questionServiceImpl.addQuestion(testQuestion);
 
-        questionServiceImpl.deleteQuestion(testQuestion);
-        verify(questionRepository,times(2)).save(any(Question.class));
+        verify(questionRepository,times(1)).save(any(Question.class));
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testDeleteQuestionShouldSucceedWhen(){
+    @Test
+    public void testDeleteQuestionShouldSucceedWhenQuestionIsExists(){
         Question testQuestion = new Question();
-
-        doThrow(NullPointerException.class).when(questionRepository).delete(any(Question.class));
+        testQuestion.setQuestion("Test Question");
+        testQuestion.setId(0);
 
         questionServiceImpl.deleteQuestion(testQuestion);
-        verify(questionRepository,times(2)).delete(any(Question.class));
+        verify(questionRepository,times(1)).delete(any(Question.class));
     }
 }

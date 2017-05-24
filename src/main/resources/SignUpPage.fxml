@@ -22,8 +22,8 @@
                       layoutX="231.0" layoutY="220.0" prefHeight="35.0" prefWidth="180.0" promptText="Password"
                       unFocusColor="#374140"/>
 
-    <JFXButton fx:id="signUpButton" layoutX="189.0" layoutY="290.0" onAction="#onClickedSignUpButton"
+    <JFXButton layoutX="189.0" layoutY="290.0" onAction="#onClickedSignUpButton"
                text="Sign up"/>
 
-    <JFXButton fx:id="backButton" layoutX="369.0" layoutY="290.0" onAction="#onClickedBackButton" text="Back"/>
+    <JFXButton layoutX="369.0" layoutY="290.0" onAction="#onClickedBackButton" text="Back"/>
 </AnchorPane>
