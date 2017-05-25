@@ -1,6 +1,5 @@
 package hu.transfet.unideb.application.controller.gamecontrollers;
 
-
 import hu.transfet.unideb.application.ServiceLocator;
 import hu.transfet.unideb.application.controller.Controller;
 import hu.transfet.unideb.application.controller.logincontrollers.SignInController;
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
 public class GameController extends Controller {
 
     public static boolean isFirstStart = false;
@@ -29,7 +29,6 @@ public class GameController extends Controller {
     private Player signedInPlayer = SignInController.getSignedInPlayer();
     private PlayerServiceImpl playerService = ServiceLocator.getService(PlayerServiceImpl.class);
     public static List<Integer> randomNumberForQuestion;
-
 
     public static void setPageNumber(int pageNumb) {
         pageNumber = pageNumb;

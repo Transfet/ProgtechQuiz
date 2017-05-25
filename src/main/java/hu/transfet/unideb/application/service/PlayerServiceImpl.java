@@ -16,8 +16,9 @@ import java.util.List;
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
-    //final static Logger logger = LoggerFactory.getLogger(PlayerService.class);
-
+    /**
+     * A player service {@link PlayerRepository}-ja.
+     */
     @Autowired
     private PlayerRepository playerRepository;
 

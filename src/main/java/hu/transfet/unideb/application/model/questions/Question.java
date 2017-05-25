@@ -13,28 +13,50 @@ import java.util.List;
 @Entity
 public class Question {
 
+    /**
+     * A kerdes String tipuskent.
+     */
     @Column(name = "QUESTION")
     private String question;
 
+    /**
+     * A valaszok {@link Answer} listaja.
+     */
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Answer> answers;
 
-
+    /**
+     * A kerdes ID-je az adatbazis tablaban.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Q_ID")
     private int id;
 
+    /**
+     * A helyes valasz indexe a valaszok listajaban.
+     */
     private int correctAnswerIndex = 0;
 
+    /**
+     * Beallitja a helyes valasz indexet.
+     * @param index Egy int ertek, mely a helyes valasz indexet kepezi.
+     */
     public void setCorrectAnswerIndex(int index){
         correctAnswerIndex = index;
     }
 
+    /**
+     * Visszaadja a helyes valasz indexet.
+     * @return Egy int ertek, mely a helyes valasz indexet tartalmazza.
+     */
     public int getCorrectAnswerIndex(){
         return correctAnswerIndex;
     }
 
+    /**
+     * Alapertelmezett konstruktor, mellyel letrehozunk egy {@code Question} objektumot.
+     */
     public Question() {
         answers = new ArrayList<>();
     }
@@ -48,6 +70,10 @@ public class Question {
         return new ArrayList<>(answers);
     }
 
+    /**
+     * Beallitja a kerdeshez tartozo valaszok listajat.
+     * @param answers Egy valaszokat {@link Answer} tartalmazo lista.
+     */
     public void setAnswers(List<Answer> answers) {
 
         this.answers = answers;

@@ -11,10 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-
-/**
- * Main class.
- */
 public class Game extends Application {
 
     public static Boolean isSplashLoaded = false;

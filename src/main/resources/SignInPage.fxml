@@ -15,10 +15,10 @@
                       layoutX="203.0" layoutY="120.0" prefHeight="36.0" prefWidth="195.0" promptText="Password"
                       unFocusColor="#374140"/>
 
-    <JFXButton fx:id="signInButton" buttonType="RAISED" defaultButton="true" layoutX="255.0" layoutY="181.0"
+    <JFXButton buttonType="RAISED" defaultButton="true" layoutX="255.0" layoutY="181.0"
                onAction="#onClickedSignInButton" text="Sign in" textFill="#210000"/>
 
-    <JFXButton fx:id="signUpButton" buttonType="RAISED" layoutX="255.0" layoutY="242.0"
+    <JFXButton buttonType="RAISED" layoutX="255.0" layoutY="242.0"
                onAction="#onClickedSignUpButton" text="Sign up" textFill="#210000"/>
 
     <JFXButton id="button" fx:id="quitButton" buttonType="RAISED" layoutX="255.0" layoutY="307.0"

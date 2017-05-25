@@ -15,6 +15,9 @@ import java.util.List;
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
+    /**
+     *A service {@link QuestionRepository}-ja.
+     */
     @Autowired
     private QuestionRepository questionRepository;
 

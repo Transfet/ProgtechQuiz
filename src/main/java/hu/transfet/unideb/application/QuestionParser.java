@@ -9,8 +9,19 @@ import java.util.List;
  **/
 public class QuestionParser {
 
+    /**
+     * Egy kerdes String tipuskent.
+     */
     public String question;
+
+    /**
+     * A helyes valasz indexe a valaszok listajaban.
+     */
     public int correct;
+
+    /**
+     * Valaszok lista.
+     */
     public List<String> answer;
 
     /**

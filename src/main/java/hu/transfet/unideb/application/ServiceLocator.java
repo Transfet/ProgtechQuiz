@@ -8,6 +8,9 @@ import org.springframework.context.ApplicationContext;
  */
 public class ServiceLocator {
 
+     /**
+      * ServiceLocator Application context-je.
+      */
     private static ApplicationContext context;
 
      /**

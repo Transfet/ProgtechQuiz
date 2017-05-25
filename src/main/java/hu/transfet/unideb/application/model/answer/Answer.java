@@ -13,25 +13,36 @@ import javax.persistence.*;
 @Entity
 public class Answer {
 
+    /**
+     * A valasz String tipuskent.
+     */
     private String answer;
 
+    /**
+     * A valasz ID-je a tablaban.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    /**
+     * A valaszhoz tartozo kerdes.
+     *
+     * @see Question
+     */
     @ManyToOne
     @JoinColumn(name = "Q_ID")
     private Question question;
 
     /**
-     * Alapertelmezett konstruktor.
+     * Alapertelmezett konstruktor, mely letrehoz egy ures {@code Answer} objektumot.
      */
     public Answer(){
 
     }
 
     /**
-     * paramterezett konstruktor.
+     * paramterezett konstruktor, mely letrehoz egy {@code Answer} objektumot.
      * @param answer Egy valasz.
      * @param question Egy kerdes.
      */

@@ -64,7 +64,7 @@ public class PlayerServiceTest {
     }
 
     @Test
-    public void updateTest(){
+    public void testPlayerUpdateShouldSucceedWhenPlayersPropertiesAreNotNull(){
 
         Double point = 100.0;
         Double time = 3.0;

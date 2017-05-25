@@ -13,14 +13,14 @@ import java.util.List;
 public interface PlayerService {
 
     /**
-     * Hozzaad egy jatekost az adatbazisunkhoz
-     * @param player egy jatekos
+     * Hozzaad egy jatekost az adatbazisunkhoz.
+     * @param player egy jatekos.
      */
     void addPlayer(Player player);
 
     /**
-     * Kitorol egy jatekost az adatbazisbol
-     * @param player egy jatekos
+     * Kitorol egy jatekost az adatbazisbol.
+     * @param player egy jatekos.
      */
     void deletePlayer(Player player);
 

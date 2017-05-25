@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
+
 public class GamePageController extends GameController implements Initializable {
 
     private int checkLastAnswer = 1;

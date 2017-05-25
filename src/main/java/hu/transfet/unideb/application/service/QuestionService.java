@@ -12,28 +12,28 @@ import java.util.List;
 public interface QuestionService {
 
     /**
-     * Hozzaad egy kerdest az adatbazishoz
-     * @param question Egy kerdes
+     * Hozzaad egy kerdest az adatbazishoz.
+     * @param question Egy kerdes.
      */
     void addQuestion(Question question);
 
     /**
-     * Torol egy kerdest az adatbazisbol
-     * @param question Egy kerdes
+     * Torol egy kerdest az adatbazisbol.
+     * @param question Egy kerdes.
      */
     void deleteQuestion(Question question);
 
     /**
      * Listazza az adatbazisban szereplo osszes kerdest.
-     * @return Egy kerdesekbol allo lista
+     * @return Egy kerdesekbol allo lista.
      */
     List<Question> findAllQuestion();
 
     /**
      *  ID alapjan megkeres egy kerdest.
      *
-     * @param ID A kerdes ID-je
-     * @return Egy kerdes
+     * @param ID A kerdes ID-je.
+     * @return Egy kerdes.
      */
     Question findById(int ID);
 

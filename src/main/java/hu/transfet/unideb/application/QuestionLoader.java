@@ -21,8 +21,22 @@ import java.util.List;
  * @see Answer
  */
 public class QuestionLoader {
+
+    /**
+     * QuestionLoader Logger.
+     */
     private Logger logger = LoggerFactory.getLogger(QuestionLoader.class);
+    /**
+     * Feldolgozott kerdesek listaja.
+     *
+     *
+     * @see QuestionParser
+     */
     private List<QuestionParser> questions;
+
+    /**
+     * Kerdes service.
+     */
     private QuestionServiceImpl questionService;
 
     /**
@@ -36,7 +50,7 @@ public class QuestionLoader {
     /**
      * Feldolgoz egy Json fajlt, melyet paramterkent kap.
      *
-     * @param json Json fajl
+     * @param json Json fajl.
      */
     @SuppressWarnings("ConstantConditions")
     public void processJson(String json) {

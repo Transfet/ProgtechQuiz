@@ -11,26 +11,47 @@ import java.io.Serializable;
 @Entity
 public class Player implements Serializable {
 
+    /**
+     * A jatekos felhasznaloneve.
+     */
     @Column(name = "USER_NAME")
     private String userName;
 
+    /**
+     * A jatekos keresztneve.
+     */
     @Column(name = "FIRST_NAME")
     private String firstName;
 
+    /**
+     * A jatekos vezetekneve.
+     */
     @Column(name = "LAST_NAME")
     private String lastName;
 
+    /**
+     * A jatekos jelszava.
+     */
     @Column(name = "PASSWORD")
     private String password;
 
+    /**
+     * A jatekos ID-je az adatbazis tablaban.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
     private Long id;
 
+    /**
+     * A jatekos pontszama.
+     */
     @Column(name = "POINT")
     private Double points = 0.0;
 
+    /**
+     * A jatekos ideje.
+     */
     @Column(name = "TIME")
     private Double time = 0.0 ;
 
@@ -156,7 +177,6 @@ public class Player implements Serializable {
                 "userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", password='" + password + '\'' +
                 ", id=" + id +
                 ", points=" + points +
                 ", time=" + time +
