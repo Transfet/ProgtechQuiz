@@ -15,7 +15,7 @@
   {
     "question": "Which answer not a Collection class?",
     "answer": [
-      "The Map",
+      "Map",
       "AbstractList",
       "LinkedList",
       "HashSet",
@@ -41,7 +41,7 @@
   {
     "question": "Which answer is one of the new features in Java 8?",
     "answer": [
-      "The javadoc tool supports the new DocTree API",
+      "Lambda expressions",
       "Try-with-resources statement",
       "Multiple exception catching",
       "Generics",
@@ -65,7 +65,7 @@
     "correct": 0
   },
   {
-    "question": "Which the Data Type is not supported by Java ?",
+    "question": "Which Data Type is not supported by Java ?",
     "answer": [
       "ulong",
       "short",
