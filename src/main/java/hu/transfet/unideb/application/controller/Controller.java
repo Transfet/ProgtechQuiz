@@ -15,11 +15,20 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-
+/**
+ *.
+ */
 public class Controller {
-
+    /**
+     *.
+     */
     private Logger logger = LoggerFactory.getLogger(Controller.class);
 
+    /**
+     * .
+     * @param fxml .
+     * @param event .
+     */
     @SuppressWarnings("ConstantConditions")
     public void changeToScreen(String fxml, ActionEvent event) {
         try {
@@ -36,6 +45,12 @@ public class Controller {
 
     }
 
+    /**
+     * .
+     * @param anchorPane .
+     * @param fxmlName .
+     * @return .
+     */
     @SuppressWarnings("ConstantConditions")
     private AnchorPane getAnchorPaneFromFxml(AnchorPane anchorPane, String fxmlName) {
         AnchorPane pane;
@@ -51,6 +66,12 @@ public class Controller {
         return null;
     }
 
+    /**
+     * .
+     * @param second .
+     * @param pane .
+     * @return .
+     */
     private FadeTransition fadeInTransition(int second, AnchorPane pane) {
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(second), pane);
         fadeIn.setFromValue(0);
@@ -60,6 +81,12 @@ public class Controller {
         return fadeIn;
     }
 
+    /**
+     * .
+     * @param second .
+     * @param pane .
+     * @return .
+     */
     private FadeTransition fadeOutTransition(int second, AnchorPane pane) {
 
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(second), pane);
@@ -70,6 +97,12 @@ public class Controller {
         return fadeOut;
     }
 
+    /**
+     * .
+     * @param anchorPane .
+     * @param fromFxml .
+     * @param toFxml .
+     */
     public void loadSplashScreen(AnchorPane anchorPane, String fromFxml, String toFxml) {
 
         Game.isSplashLoaded = true;
@@ -85,6 +118,11 @@ public class Controller {
 
     }
 
+    /**
+     * .
+     * @param anchorPane .
+     * @param toFxml .
+     */
     @SuppressWarnings("ConstantConditions")
     private void fadeOutFinished(AnchorPane anchorPane, String toFxml) {
         getAnchorPaneFromFxml(anchorPane, toFxml);

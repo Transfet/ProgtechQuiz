@@ -17,27 +17,68 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * .
+ */
 public class GameController extends Controller {
 
+    /**
+     * .
+     */
     public static boolean isFirstStart = false;
+    /**
+     * .
+     */
     private final int STARTTIME = 60;
+    /**
+     * .
+     */
     private int timeSecond;
+    /**
+     * .
+     */
     private Timeline timeline;
+    /**
+     * .
+     */
     private static int pageNumber = 0;
 
+    /**
+     * .
+     */
     private Player signedInPlayer = SignInController.getSignedInPlayer();
+    /**
+     * .
+     */
     private PlayerServiceImpl playerService = ServiceLocator.getService(PlayerServiceImpl.class);
+    /**
+     * .
+     */
     public static List<Integer> randomNumberForQuestion;
 
+    /**
+     * .
+     * @param pageNumb .
+     */
     public static void setPageNumber(int pageNumb) {
         pageNumber = pageNumb;
     }
 
+    /**
+     * .
+     * @return .
+     */
     public static int getPageNumber() {
         return pageNumber;
     }
 
+    /**
+     * .
+     * @param size .
+     * @param neededNumbers .
+     * @param fromOne .
+     * @return .
+     */
     public List<Integer> randomNumbers(int size, int neededNumbers, boolean fromOne) {
 
         Random random = new Random();
@@ -61,6 +102,9 @@ public class GameController extends Controller {
 
     }
 
+    /**
+     * .
+     */
     private void updatePlayerResult() {
 
         double weight = STARTTIME - timeSecond;
@@ -77,6 +121,12 @@ public class GameController extends Controller {
 
     }
 
+    /**
+     * .
+     * @param anchorPane .
+     * @param to .
+     * @throws IOException .
+     */
     public void changeToNextGamePage(AnchorPane anchorPane, String to) throws IOException {
 
         String fromPage;
@@ -100,6 +150,10 @@ public class GameController extends Controller {
 
     }
 
+    /**
+     * .
+     * @param anchorPane .
+     */
     public void gameOver(AnchorPane anchorPane) {
 
         timeline.stop();
@@ -112,6 +166,11 @@ public class GameController extends Controller {
 
     }
 
+    /**
+     * .
+     * @param anchorPane .
+     * @param timeLabel .
+     */
     public void countDown(AnchorPane anchorPane, Label timeLabel) {
 
         if (timeline != null) {
@@ -129,6 +188,11 @@ public class GameController extends Controller {
 
     }
 
+    /**
+     * .
+     * @param anchorPane .
+     * @param label .
+     */
     private void addFrame(AnchorPane anchorPane, Label label) {
         timeSecond--;
 

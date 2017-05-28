@@ -6,24 +6,22 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            stylesheets="/loginStyle.css"
-            fx:controller="hu.transfet.unideb.application.controller.logincontrollers.LoggedInController">
-    <JFXButton layoutX="253.0" layoutY="105.0" onAction="#onClickedStartButton" text="Start"/>
-    <JFXButton layoutX="253.0" layoutY="170.0" onAction="#onClickedTableButton" text="Table"/>
-    <JFXButton layoutX="253.0" layoutY="235.0" onAction="#onClickedSignOutButton"
-               text="Sign out"/>
-
-    <JFXButton fx:id="quitButton" layoutX="253.0" layoutY="300.0" onAction="#onClickedQuitButton" text="Quit"/>
-
-    <Label fx:id="signedInLabel" layoutX="14.0" layoutY="14.0" prefHeight="19.0" prefWidth="146.0" text="Label"
-           textFill="#e74c3c">
-        <font>
-            <Font size="20.0"/>
-        </font>
-        <cursor>
-            <Cursor fx:constant="DEFAULT"/>
-        </cursor>
-    </Label>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="/loginStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.transfet.unideb.application.controller.logincontrollers.LoggedInController">
+   <children>
+       <JFXButton layoutX="253.0" layoutY="105.0" onAction="#onClickedStartButton" text="Start" />
+       <JFXButton layoutX="253.0" layoutY="170.0" onAction="#onClickedTableButton" text="Table" />
+       <JFXButton layoutX="253.0" layoutY="235.0" onAction="#onClickedSignOutButton" text="Sign out" />
+   
+       <JFXButton fx:id="quitButton" layoutX="253.0" layoutY="300.0" onAction="#onClickedQuitButton" text="Quit" />
+   
+       <Label fx:id="signedInLabel" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="275.0" text="Label" textFill="#e74c3c" wrapText="true">
+           <font>
+               <Font size="20.0" />
+           </font>
+           <cursor>
+               <Cursor fx:constant="DEFAULT" />
+           </cursor>
+       </Label>
+   </children>
 
 </AnchorPane>

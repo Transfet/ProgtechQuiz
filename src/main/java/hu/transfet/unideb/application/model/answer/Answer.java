@@ -5,7 +5,7 @@ import hu.transfet.unideb.application.model.questions.Question;
 import javax.persistence.*;
 
 /**
- * Valaszt megvalosito osztaly,mely egy {@link Question} ad valaszt.
+ * Választ megvalósitó osztály,mely egy {@link Question}-re  ad valaszt.
  *
  * @author Transfet.
  */
@@ -14,19 +14,19 @@ import javax.persistence.*;
 public class Answer {
 
     /**
-     * A valasz String tipuskent.
+     * A válasz String tipusként.
      */
     private String answer;
 
     /**
-     * A valasz ID-je a tablaban.
+     * A vélasz ID-je a táblában.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     /**
-     * A valaszhoz tartozo kerdes.
+     * A válaszhoz tartozó kérdés.
      *
      * @see Question
      */
@@ -35,14 +35,14 @@ public class Answer {
     private Question question;
 
     /**
-     * Alapertelmezett konstruktor, mely letrehoz egy ures {@code Answer} objektumot.
+     * Alapértelmezett konstruktor, mely létrehoz egy üres {@code Answer} objektumot.
      */
     public Answer(){
 
     }
 
     /**
-     * paramterezett konstruktor, mely letrehoz egy {@code Answer} objektumot.
+     * paraméterezett konstruktor, mely létrehoz egy {@code Answer} objektumot.
      * @param answer Egy valasz.
      * @param question Egy kerdes.
      */
@@ -53,40 +53,41 @@ public class Answer {
 
 
     /**
-     * Visszaadja a valaszt.
-     * @return Egy valasz.
+     * Visszaadja a választ String tipusként.
+     * @return Egy String, ami a választ tartalmazza.
      */
     public String getAnswer() {
         return answer;
     }
 
     /**
-     * Bealltija a valaszt.
-     * @param answer Egy valasz
+     * Bealltija a választ.
+     * @param answer Egy String, ami a választ reprezentálja.
+     *
      */
     public void setAnswer(String answer) {
         this.answer = answer;
     }
 
     /**
-     * Bealltija a valasz ID-jet.
-     * @param id Egy ID.
+     * Beálltija a válasz ID-jet.
+     * @param id Egy int típusú ID, ami az adatbázis táblában ID-ját reprezentálja.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Visszaadja egy valasz ID-jet.
-     * @return Egy ID.
+     * Visszaadja egy válasz ID-jét.
+     * @return Egy int, ami az ID-t tartalmazza.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Bealltija a kerdest.
-     * @param question Egy kerdes.
+     * Beálltija a kérdést.
+     * @param question Egy String, ami a kérdést reprezentálja.
      */
     public void setQuestion(Question question) {
 
@@ -94,8 +95,8 @@ public class Answer {
     }
 
     /**
-     * Visszaadja a kerdest a valaszra.
-     * @return Egy kerdes.
+     * Visszaadja a kérdest a válaszra.
+     * @return Egy String, ami a kérdést tartalmazza.
      */
     public Question getQuestion() {
 

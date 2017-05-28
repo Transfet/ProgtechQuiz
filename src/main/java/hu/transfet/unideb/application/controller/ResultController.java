@@ -17,45 +17,75 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Comparator;
 import java.util.ResourceBundle;
-
+/**
+ *.
+ */
 public class ResultController extends Controller implements Initializable {
-
+    /**
+     *.
+     */
     @FXML
     private TableColumn playerColumn;
-
+    /**
+     *.
+     */
     @FXML
     private TableColumn pointColumn;
-
+    /**
+     *.
+     */
     @FXML
     private TableColumn timeColumn;
-
+    /**
+     *.
+     */
     @FXML
     private Button quitButton;
-
+    /**
+     *.
+     */
     @FXML
     private Button restartButton;
-
+    /**
+     *.
+     */
     @FXML
     private TableView<PlayerResult> resultTable;
-
+    /**
+     *.
+     */
     private ObservableList<PlayerResult> data;
+    /**
+     *.
+     */
     private PlayerServiceImpl playerService;
 
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedRestartButton(ActionEvent event){
 
         changeToScreen("GamePage.fxml", event);
 
     }
-
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedBackButton(ActionEvent event){
 
         changeToScreen("LoggedInPage.fxml", event);
 
     }
-
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedQuitButton(ActionEvent event){
 
@@ -64,6 +94,9 @@ public class ResultController extends Controller implements Initializable {
 
     }
 
+    /**
+     * .
+     */
     @SuppressWarnings("unchecked")
     private void setCellValues(){
 
@@ -71,7 +104,9 @@ public class ResultController extends Controller implements Initializable {
         pointColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, Double>("point"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<PlayerResult, Double>("time"));
     }
-
+    /**
+     * .
+     */
     private void checkIsLastPageLoggedIn(){
 
         if (LoggedInController.fromLoggedIn) {
@@ -81,7 +116,9 @@ public class ResultController extends Controller implements Initializable {
         }
 
     }
-
+    /**
+     * .
+     */
     private void prepareTable(){
 
         checkIsLastPageLoggedIn();
@@ -89,7 +126,9 @@ public class ResultController extends Controller implements Initializable {
 
         setCellValues();
     }
-
+    /**
+     * .
+     */
     private void populateTable(){
 
         for (Player p : playerService.findAllPlayer()) {
@@ -98,6 +137,7 @@ public class ResultController extends Controller implements Initializable {
 
         }
 
+        data.sort(Comparator.comparing(PlayerResult::getPoint).reversed());
         resultTable.setItems(null);
         resultTable.setItems(data);
     }

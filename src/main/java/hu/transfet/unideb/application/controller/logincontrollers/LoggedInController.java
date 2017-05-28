@@ -14,27 +14,47 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * .
+ */
 public class LoggedInController extends Controller implements Initializable {
-
+    /**
+     * .
+     */
     private Logger logger = LoggerFactory.getLogger(LoggedInController.class);
-
+    /**
+     * .
+     */
     @FXML
     private Button quitButton;
-
+    /**
+     * .
+     */
     @FXML
     private Label signedInLabel;
-
+    /**
+     * .
+     */
     private static Player signedInPlayer;
+    /**
+     * .
+     */
     public static boolean fromLoggedIn = false;
 
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedStartButton(ActionEvent event){
 
         changeToScreen("GamePage.fxml", event);
 
     }
-
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedSignOutButton(ActionEvent event){
 
@@ -42,7 +62,10 @@ public class LoggedInController extends Controller implements Initializable {
         changeToScreen("SignInPage.fxml", event);
 
     }
-
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedQuitButton(ActionEvent event) {
 
@@ -50,13 +73,21 @@ public class LoggedInController extends Controller implements Initializable {
         stage.close();
 
     }
-
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedTableButton(ActionEvent event){
         fromLoggedIn = true;
         changeToScreen("Result.fxml", event);
     }
 
+    /**
+     *  .
+     * @param location .
+     * @param resources .
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

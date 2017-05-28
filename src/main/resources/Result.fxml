@@ -11,11 +11,11 @@
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.transfet.unideb.application.controller.ResultController">
     <TableView fx:id="resultTable" layoutX="80.0" layoutY="22.0" opacity="0.96" prefHeight="400.0" prefWidth="600.0">
         <columns>
-            <TableColumn fx:id="playerColumn" editable="false" prefWidth="200.0" sortType="DESCENDING" sortable="false"
+            <TableColumn fx:id="playerColumn" editable="false" prefWidth="200.0"
                          text="Player"/>
-            <TableColumn fx:id="pointColumn" editable="false" prefWidth="213.0" sortType="DESCENDING" sortable="false"
+            <TableColumn fx:id="pointColumn" editable="false" prefWidth="213.0" sortType="DESCENDING"
                          text="Point"/>
-            <TableColumn fx:id="timeColumn" editable="false" prefWidth="186.0" sortType="DESCENDING" sortable="false"
+            <TableColumn fx:id="timeColumn" editable="false" prefWidth="186.0"
                          text="Time"/>
         </columns>
         <cursor>

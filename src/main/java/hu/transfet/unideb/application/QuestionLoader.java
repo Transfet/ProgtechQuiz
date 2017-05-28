@@ -58,7 +58,7 @@ public class QuestionLoader {
             ObjectMapper objectMapper = new ObjectMapper();
             ClassLoader classLoader = getClass().getClassLoader();
 
-            questions = objectMapper.readValue(new File(classLoader.getResource(json).getFile()), new TypeReference<List<QuestionParser>>() {
+            questions = objectMapper.readValue(classLoader.getResourceAsStream(json), new TypeReference<List<QuestionParser>>() {
             });
 
         } catch (FileNotFoundException fnfe) {

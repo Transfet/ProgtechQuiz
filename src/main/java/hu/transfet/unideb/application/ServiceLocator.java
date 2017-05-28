@@ -24,9 +24,9 @@ public class ServiceLocator {
     }
 
     /**
-     * Egy osztaly application context-jet adja vissza.
-     * @param tClass egy osztaly objektum.
-     * @param <T> egy osztaly.
+     * Az application context egy osztaly objektumat adja vissza.
+     * @param tClass Egy objektum.
+     * @param <T> Egy osztaly.
      * @return Visszaadja az osztalyban talalhato bean-eket.
      **/
     public static <T> T getService(Class<T> tClass) {

@@ -34,3 +34,7 @@
     -fx-stroke: #ECF0F1;
 
 }
+
+.nextPage{
+    -fx-font-size: 80;
+}

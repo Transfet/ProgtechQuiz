@@ -18,26 +18,45 @@ import org.springframework.dao.DataAccessException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+/**
+ *.
+ */
 public class SignUpController extends Controller implements Initializable {
 
-
+    /**
+     *.
+     */
     private PlayerServiceImpl playerService;
-
+    /**
+     *.
+     */
     private Logger logger = LoggerFactory.getLogger(SignUpController.class);
-
+    /**
+     *.
+     */
     @FXML
     private JFXTextField userNameField;
-
+    /**
+     *.
+     */
     @FXML
     private JFXPasswordField passwordField;
-
+    /**
+     *.
+     */
     @FXML
     private JFXTextField lastNameField;
-
+    /**
+     *.
+     */
     @FXML
     private JFXTextField firstNameField;
 
+    /**
+     * .
+     * @param location .
+     * @param resources .
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -45,6 +64,11 @@ public class SignUpController extends Controller implements Initializable {
 
     }
 
+    /**
+     * .
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedSignUpButton(ActionEvent event)throws IOException {
 
@@ -52,13 +76,19 @@ public class SignUpController extends Controller implements Initializable {
         clearFields();
         changeToScreen("SignInPage.fxml",event);
     }
-
+    /**
+     * .
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedBackButton(ActionEvent event) {
             changeToScreen("SignInPage.fxml", event);
     }
 
-
+    /**
+     *.
+     */
     private void clearFields() {
 
         userNameField.clear();
@@ -68,7 +98,9 @@ public class SignUpController extends Controller implements Initializable {
 
     }
 
-
+    /**
+     *.
+     */
     private void addPlayer() {
 
         String username = userNameField.getText();

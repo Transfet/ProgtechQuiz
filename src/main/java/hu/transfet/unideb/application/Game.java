@@ -10,9 +10,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
+/**
+ * .
+ */
 public class Game extends Application {
-
+    /**
+     * .
+     */
     public static Boolean isSplashLoaded = false;
 
     @Override
@@ -26,7 +30,10 @@ public class Game extends Application {
         primaryStage.show();
 
     }
-
+    /**
+     * .
+     * @param args .
+     */
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         ServiceLocator.setApplicationContext(applicationContext);

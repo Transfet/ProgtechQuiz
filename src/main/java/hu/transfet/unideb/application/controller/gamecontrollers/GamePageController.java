@@ -17,69 +17,148 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-
+/**
+ * .
+ */
 public class GamePageController extends GameController implements Initializable {
 
+    /**
+     * .
+     */
     private int checkLastAnswer = 1;
-
+    /**
+     * .
+     */
     private int lastAnswer;
+    /**
+     * .
+     */
     private Question question;
+    /**
+     * .
+     */
     private String correctAnswer;
+    /**
+     * .
+     */
     private ArrayList<Pair<Label, Line>> labelsAndLines;
+    /**
+     * .
+     */
     private List<Answer> answers;
+    /**
+     *
+     */
     private List<Integer> randomNumbersForLabels;
 
+    /**
+     * .
+     */
     @FXML
     private AnchorPane anchorPane;
 
+    /**
+     * .
+     */
     @FXML
     private Line brownLine;
 
+    /**
+     * .
+     */
     @FXML
     private Line orangeLine;
 
+    /**
+     * .
+     */
     @FXML
     private Line greenLine;
 
+    /**
+     * .
+     */
     @FXML
     private Line purpleLine;
 
+    /**
+     * .
+     */
     @FXML
     private Line redLine;
 
+    /**
+     * .
+     */
     @FXML
     private Line skyBlueLine;
 
+    /**
+     * .
+     */
     @FXML
     private Line pinkLine;
 
+    /**
+     * .
+     */
     @FXML
     private Label questionLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label brownLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label redLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label purpleLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label greenLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label orangeLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label skyBlueLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label pinkLabel;
 
+    /**
+     * .
+     */
     @FXML
     private Label timeLabel;
 
+    /**
+     * .
+     *
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedSkyBlueLine(MouseEvent event) throws IOException {
 
@@ -89,6 +168,12 @@ public class GamePageController extends GameController implements Initializable 
         checkAnswer(checkLastAnswer);
     }
 
+    /**
+     * .
+     *
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedBrownLine(MouseEvent event) throws IOException {
 
@@ -98,6 +183,12 @@ public class GamePageController extends GameController implements Initializable 
         checkAnswer(checkLastAnswer);
     }
 
+    /**
+     * .
+     *
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedPinkLine(MouseEvent event) throws IOException {
 
@@ -107,6 +198,12 @@ public class GamePageController extends GameController implements Initializable 
         checkAnswer(checkLastAnswer);
     }
 
+    /**
+     * .
+     *
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedGreenLine(MouseEvent event) throws IOException {
 
@@ -116,6 +213,12 @@ public class GamePageController extends GameController implements Initializable 
         checkAnswer(checkLastAnswer);
     }
 
+    /**
+     * .
+     *
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedPurpleLine(MouseEvent event) throws IOException {
 
@@ -125,6 +228,12 @@ public class GamePageController extends GameController implements Initializable 
         checkAnswer(checkLastAnswer);
     }
 
+    /**
+     * .
+     *
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedOrangeLine(MouseEvent event) throws IOException {
 
@@ -135,6 +244,12 @@ public class GamePageController extends GameController implements Initializable 
 
     }
 
+    /**
+     * .
+     *
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedRedLine(MouseEvent event) throws IOException {
 
@@ -145,6 +260,12 @@ public class GamePageController extends GameController implements Initializable 
 
     }
 
+    /**
+     * .
+     *
+     * @param answerCounter .
+     * @throws IOException .
+     */
     private void checkAnswer(int answerCounter) throws IOException {
 
         if (checkLastAnswer == lastAnswer) {
@@ -158,6 +279,13 @@ public class GamePageController extends GameController implements Initializable 
 
     }
 
+    /**
+     * .
+     *
+     * @param label .
+     * @param line  .
+     * @return .
+     */
     private boolean onClickLine(Label label, Line line) {
 
         if (!label.getText().equals(correctAnswer)) {
@@ -170,6 +298,12 @@ public class GamePageController extends GameController implements Initializable 
         }
     }
 
+    /**
+     * .
+     *
+     * @param labelsAndLines .
+     * @throws IOException .
+     */
     @SuppressWarnings("unchecked")
     private void addLabelsAndLines(ArrayList<Pair<Label, Line>> labelsAndLines) {
         labelsAndLines.add(new Pair(purpleLabel, purpleLine));
@@ -181,12 +315,24 @@ public class GamePageController extends GameController implements Initializable 
         labelsAndLines.add(new Pair(brownLabel, brownLine));
     }
 
+    /**
+     * .
+     *
+     * @param index .
+     * @throws IOException .
+     */
     private void setVisibleToLabelAndLine(int index) {
         labelsAndLines.get(randomNumbersForLabels.get(index)).getKey().setText(answers.get(index).getAnswer());
         labelsAndLines.get(randomNumbersForLabels.get(index)).getKey().setVisible(true);
         labelsAndLines.get(randomNumbersForLabels.get(index)).getValue().setVisible(true);
     }
 
+    /**
+     * .
+     *
+     * @param limit .
+     * @throws IOException .
+     */
     private void setLabelsText(int limit) {
 
         questionLabel.setText(question.getQuestion());
@@ -195,7 +341,13 @@ public class GamePageController extends GameController implements Initializable 
         }
     }
 
-
+    /**
+     * .
+     *
+     * @param location  .
+     * @param resources .
+     * @throws IOException .
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void initialize(URL location, ResourceBundle resources) {

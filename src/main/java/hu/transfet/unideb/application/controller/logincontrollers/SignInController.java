@@ -20,27 +20,44 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ *
+ */
 public class SignInController extends Controller implements Initializable {
-
+    /**
+     *
+     */
     private static PlayerServiceImpl playerService;
-
-    Logger logger = LoggerFactory.getLogger(SignInController.class);
-
+    /**
+     *
+     */
     @FXML
     private AnchorPane anchorPane;
-
+    /**
+     *
+     */
     @FXML
     private JFXTextField userNameField;
-
+    /**
+     *
+     */
     @FXML
     private JFXButton quitButton;
-
+    /**
+     *
+     */
     @FXML
     private JFXPasswordField passwordField;
-
+    /**
+     *
+     */
     private static Player signedInPlayer;
 
-
+    /**
+     * .
+     * @param location .
+     * @param resources .
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -53,7 +70,11 @@ public class SignInController extends Controller implements Initializable {
         }
     }
 
-
+    /**
+     * .
+     * @param event .
+     * @throws IOException .
+     */
     @FXML
     void onClickedSignInButton(ActionEvent event) throws IOException {
 
@@ -66,12 +87,20 @@ public class SignInController extends Controller implements Initializable {
 
     }
 
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedSignUpButton(ActionEvent event) {
 
             changeToScreen("SignUpPage.fxml", event);
     }
 
+    /**
+     * .
+     * @param event .
+     */
     @FXML
     void onClickedQuitButton(ActionEvent event) {
 
@@ -80,6 +109,10 @@ public class SignInController extends Controller implements Initializable {
 
     }
 
+    /**
+     * .
+     * @return .
+     */
     public static Player getSignedInPlayer() {
         return signedInPlayer;
     }

@@ -30,43 +30,43 @@
    
        <Label fx:id="questionLabel" alignment="CENTER" layoutX="111.0" layoutY="163.0" prefHeight="100.0" prefWidth="510.0" styleClass="question" text="Label" textAlignment="CENTER" textFill="#e74c3c" wrapText="true" />
    
-       <Label fx:id="greenLabel" alignment="CENTER" layoutX="37.0" layoutY="281.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" visible="false" wrapText="true">
+       <Label fx:id="greenLabel" alignment="CENTER" layoutX="37.0" layoutY="281.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CLIP" visible="false" wrapText="true">
            <graphic>
                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="72.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
            </graphic>
        </Label>
    
-       <Label fx:id="purpleLabel" alignment="CENTER" layoutX="274.0" layoutY="281.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" visible="false" wrapText="true">
+       <Label fx:id="purpleLabel" alignment="CENTER" layoutX="274.0" layoutY="281.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CLIP" visible="false" wrapText="true">
            <graphic>
                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="72.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
            </graphic>
        </Label>
    
-       <Label fx:id="redLabel" alignment="CENTER" layoutX="491.0" layoutY="281.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" visible="false" wrapText="true">
+       <Label fx:id="redLabel" alignment="CENTER" layoutX="491.0" layoutY="281.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CLIP" visible="false" wrapText="true">
            <graphic>
                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="72.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
            </graphic>
        </Label>
    
-       <Label fx:id="pinkLabel" alignment="CENTER" layoutX="491.0" layoutY="368.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" visible="false" wrapText="true">
+       <Label fx:id="pinkLabel" alignment="CENTER" layoutX="491.0" layoutY="368.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CLIP" visible="false" wrapText="true">
            <graphic>
                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PINK" height="72.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
            </graphic>
        </Label>
    
-       <Label fx:id="skyBlueLabel" alignment="CENTER" layoutX="274.0" layoutY="368.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" visible="false" wrapText="true">
+       <Label fx:id="skyBlueLabel" alignment="CENTER" layoutX="274.0" layoutY="368.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CLIP" visible="false" wrapText="true">
            <graphic>
                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00f9ff" height="72.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
            </graphic>
        </Label>
    
-       <Label fx:id="orangeLabel" alignment="CENTER" layoutX="37.0" layoutY="368.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" visible="false" wrapText="true">
+       <Label fx:id="orangeLabel" alignment="CENTER" layoutX="37.0" layoutY="368.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CLIP" visible="false" wrapText="true">
            <graphic>
                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="72.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
            </graphic>
        </Label>
    
-       <Label fx:id="brownLabel" alignment="CENTER" layoutX="491.0" layoutY="44.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" visible="false" wrapText="true">
+       <Label fx:id="brownLabel" alignment="CENTER" layoutX="491.0" layoutY="44.0" prefHeight="72.0" prefWidth="183.0" text="Label" textAlignment="CENTER" textFill="#e74c3c" textOverrun="CLIP" visible="false" wrapText="true">
            <graphic>
    
                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BROWN" height="72.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
@@ -74,9 +74,8 @@
        </Label>
    
        <HBox layoutX="23.0" layoutY="30.0" prefHeight="99.0" prefWidth="105.0">
-      <children>
-              <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" styleClass="question" text="60" textFill="#ff2929" />
-      </children>
-       </HBox>
+         <children>
+             <Label fx:id="timeLabel" alignment="CENTER" prefHeight="111.0" prefWidth="120.0" styleClass="timer" text="60" textFill="#ff2929" />
+         </children></HBox>
    </children>
 </AnchorPane>
